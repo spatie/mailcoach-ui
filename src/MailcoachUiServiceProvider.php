@@ -27,23 +27,103 @@ class MailcoachUiServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
+
+        $this
+            ->bootPublishables()
+            ->bootAuthorization()
+            ->bootFlash()
+            ->bootRoutes()
+            ->bootCommands()
+            ->bootViews();
+    }
+
+    protected function bootPublishables()
+    {
+        $this->publishes([
+            __DIR__ . '/../config/mailcoach-ui.php' => config_path('mailcoach-ui.php'),
+        ], 'mailcoach-ui-config');
+
+        $this->publishes([
+            __DIR__ . '/../resources/views-vendor' => resource_path('views/vendor'),
+        ], 'mailcoach-ui-vendor-views');
+
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/mailcoach-ui'),
+        ], 'mailcoach-ui-views');
+
+        if (! class_exists('CreateMailcoachUiTables')) {
+            $this->publishes([
+                __DIR__ . '/../database/migrations/create_mailcoach_ui_tables.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_mailcoach_ui_tables.php'),
+            ], 'mailcoach-ui-migrations');
+        }
+
+        return $this;
+    }
+
+    protected function bootAuthorization(): self
+    {
         Gate::define('viewMailcoach', fn (User $user) => true);
 
         Gate::policy(PersonalAccessToken::class, PersonalAccessTokenPolicy::class);
 
+        return $this;
+    }
+
+    protected function bootFlash(): self
+    {
         Flash::levels([
             'success' => 'success',
             'warning' => 'warning',
             'error' => 'error',
         ]);
 
-        View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
+        return $this;
+    }
 
-        $this
-            ->bootPublishables()
-            ->bootRoutes()
-            ->bootCommands()
-            ->bootViews();
+    protected function bootCommands(): self
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeUserCommand::class,
+                PrepareGitIgnoreCommand::class,
+            ]);
+        }
+
+        return $this;
+    }
+
+    protected function bootRoutes()
+    {
+        Route::sesFeedback('ses-feedback');
+        Route::mailgunFeedback('mailgun-feedback');
+        Route::sendgridFeedback('sendgrid-feedback');
+        Route::postmarkFeedback('postmark-feedback');
+
+        Route::macro('mailcoachUi', function (string $url = '') {
+            Route::mailcoach($url);
+
+            Route::redirect($url, "/{$url}/campaigns");
+
+            Route::prefix($url)
+                ->middleware(config('mailcoach-ui.middleware'))
+                ->group(function () {
+                    require(__DIR__ . '/../routes/auth.php');
+
+                    Route::middleware('auth')->group(__DIR__ . '/../routes/mailcoach-ui.php');
+                });
+        });
+
+        URL::forceRootUrl(config('app.url'));
+
+        return $this;
+    }
+
+    protected function bootViews(): self
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'mailcoach-ui');
+
+        return $this;
     }
 
     public function register()
@@ -55,8 +135,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             ->registerMailConfiguration()
             ->registerTransactionalMailConfiguration()
             ->registerEditorConfiguration();
-
-        URL::forceRootUrl(config('app.url'));
     }
 
     protected function registerAppConfiguration(): self
@@ -122,72 +200,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
         });
 
         app(EditorConfiguration::class)->registerConfigValues();
-
-        return $this;
-    }
-
-    protected function bootPublishables()
-    {
-        $this->publishes([
-            __DIR__ . '/../config/mailcoach-ui.php' => config_path('mailcoach-ui.php'),
-        ], 'mailcoach-ui-config');
-
-        $this->publishes([
-            __DIR__ . '/../resources/views-vendor' => resource_path('views/vendor'),
-        ], 'mailcoach-ui-vendor-views');
-
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/mailcoach-ui'),
-        ], 'mailcoach-ui-views');
-
-        if (! class_exists('CreateMailcoachUiTables')) {
-            $this->publishes([
-                __DIR__ . '/../database/migrations/create_mailcoach_ui_tables.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_mailcoach_ui_tables.php'),
-            ], 'mailcoach-ui-migrations');
-        }
-
-        return $this;
-    }
-
-    public function bootCommands(): self
-    {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                MakeUserCommand::class,
-                PrepareGitIgnoreCommand::class,
-            ]);
-        }
-
-        return $this;
-    }
-
-    protected function bootRoutes()
-    {
-        Route::sesFeedback('ses-feedback');
-        Route::mailgunFeedback('mailgun-feedback');
-        Route::sendgridFeedback('sendgrid-feedback');
-        Route::postmarkFeedback('postmark-feedback');
-
-        Route::macro('mailcoachUi', function (string $url = '') {
-            Route::mailcoach($url);
-
-            Route::redirect($url, "/{$url}/campaigns");
-
-            Route::prefix($url)
-                ->middleware(config('mailcoach-ui.middleware'))
-                ->group(function () {
-                    require(__DIR__ . '/../routes/auth.php');
-
-                    Route::middleware('auth')->group(__DIR__ . '/../routes/mailcoach-ui.php');
-                });
-        });
-
-        return $this;
-    }
-
-    protected function bootViews(): self
-    {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'mailcoach-ui');
 
         return $this;
     }
