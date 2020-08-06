@@ -11,7 +11,7 @@ class MakeUserCommandTest extends TestCase
     /** @test * */
     public function it_can_create_a_user()
     {
-        $this->artisan('make:user')
+        $this->artisan('mailcoach:make-user')
             ->expectsQuestion('What is the username?', 'John')
             ->expectsQuestion('What is the email address?', 'admin@mailcoach.app')
             ->expectsQuestion('What is the password?', 'secret')
@@ -29,7 +29,7 @@ class MakeUserCommandTest extends TestCase
     /** @test * */
     public function it_can_create_a_user_with_options()
     {
-        $this->artisan('make:user --username=John --email=admin@mailcoach.app --password=secret')
+        $this->artisan('mailcoach:make-user --username=John --email=admin@mailcoach.app --password=secret')
             ->expectsOutput('User John created!')
             ->assertExitCode(0);
 
