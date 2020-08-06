@@ -16,6 +16,16 @@
     </projectFiles>
 
     <issueHandlers>
+        <UnusedClosureParam>
+            <errorLevel type="suppress">
+                <file name="src/MailcoachUiServiceProvider.php"/>
+            </errorLevel>
+        </UnusedClosureParam>
+        <UndefinedMethod>
+            <errorLevel type="suppress">
+                <file name="src/Support/ConfigCache.php"/>
+            </errorLevel>
+        </UndefinedMethod>
     </issueHandlers>
 
     <plugins>
