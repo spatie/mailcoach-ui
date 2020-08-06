@@ -2,15 +2,15 @@
 
 namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Auth;
 
-use Spatie\MailcoachUi\Http\Auth\Controllers\ForgotPasswordController;
-use Spatie\MailcoachUi\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
+use Spatie\MailcoachUi\Http\Auth\Controllers\ForgotPasswordController;
+use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;
 
 class ForgotPasswordControllerTest extends TestCase
 {
-    /** @var \Spatie\MailcoachUi\Models\User  */
+    /** @var \Spatie\MailcoachUi\Models\User */
     private $user;
 
     /** @var string */

@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Http\App\ViewComposers;
 
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Illuminate\View\View;
 use Spatie\Mailcoach\Support\HorizonStatus;
+use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class HealthViewComposer
 {

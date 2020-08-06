@@ -2,10 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings;
 
+use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateEditorRequest;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
-use Illuminate\Support\Facades\Artisan;
 
 class EditorController
 {

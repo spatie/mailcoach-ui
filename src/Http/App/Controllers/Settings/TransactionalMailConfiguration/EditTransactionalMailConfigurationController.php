@@ -2,10 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration;
 
+use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateTransactionalMailConfigurationRequest;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
-use Illuminate\Support\Facades\Artisan;
 
 class EditTransactionalMailConfigurationController
 {

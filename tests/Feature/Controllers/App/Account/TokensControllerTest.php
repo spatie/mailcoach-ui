@@ -24,7 +24,7 @@ class TokensControllerTest extends TestCase
             ->assertRedirect(route('tokens'));
 
         $this->assertDatabaseMissing('personal_access_tokens', [
-            'id' => $token->id
+            'id' => $token->id,
         ]);
     }
 

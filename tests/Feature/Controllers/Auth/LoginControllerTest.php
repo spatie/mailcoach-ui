@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Auth;
 
-use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LoginController;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;

@@ -19,6 +19,6 @@ $factory->define(Campaign::class, function (Generator $faker) {
         'last_modified_at' => $faker->dateTimeBetween('-1 week', '+1 week'),
         'email_list_id' => function () {
             return factory(EmailList::class)->create(['uuid' => (string)Str::uuid()]);
-        }
+        },
     ];
 });

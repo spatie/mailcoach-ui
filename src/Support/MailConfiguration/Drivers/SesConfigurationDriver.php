@@ -36,7 +36,7 @@ class SesConfigurationDriver extends MailConfigurationDriver
             'region' => $values['ses_region'],
         ]);
         $config->set('mailcoach.ses_feedback', [
-            'configuration_set' => $values['ses_configuration_set']
+            'configuration_set' => $values['ses_configuration_set'],
         ]);
     }
 }

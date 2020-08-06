@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Support\MailConfiguration;
 
+use Illuminate\Config\Repository;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\MailConfigurationDriver;
-use Illuminate\Config\Repository;
 use Spatie\Valuestore\Valuestore;
 
 class MailConfiguration
@@ -44,7 +44,7 @@ class MailConfiguration
 
     public function registerConfigValues()
     {
-        if (!  $this->getDriver()) {
+        if (! $this->getDriver()) {
             return;
         }
 

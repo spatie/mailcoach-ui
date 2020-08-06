@@ -3,8 +3,6 @@
 namespace Spatie\MailcoachUi;
 
 use Carbon\Laravel\ServiceProvider;
-use Illuminate\Auth\AuthServiceProvider;
-use Illuminate\Events\EventServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -27,10 +25,8 @@ use Spatie\Valuestore\Valuestore;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
-
     public function boot()
     {
-
         Gate::define('viewMailcoach', fn (User $user) => true);
 
         Gate::policy(PersonalAccessToken::class, PersonalAccessTokenPolicy::class);

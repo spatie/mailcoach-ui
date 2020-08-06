@@ -22,7 +22,7 @@ class EditorConfigurationDriverRepository
 
     public function getForEditor(string $editorLabel): EditorConfigurationDriver
     {
-        $configuredEditor =  collect($this->editors)
+        $configuredEditor = collect($this->editors)
             ->map(fn (string $editorClass) => app($editorClass))
             ->first(fn (EditorConfigurationDriver $editor) => $editor->label() === $editorLabel);
 

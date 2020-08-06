@@ -2,10 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration;
 
+use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateMailConfigurationRequest;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
-use Illuminate\Support\Facades\Artisan;
 
 class EditMailConfigurationController
 {

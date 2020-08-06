@@ -7,6 +7,6 @@ use Spatie\Mailcoach\Models\Template;
 $factory->define(Template::class, function (Generator $faker) {
     return [
         'name' => $faker->word,
-        'html' => $faker->randomHtml()
+        'html' => $faker->randomHtml(),
     ];
 });

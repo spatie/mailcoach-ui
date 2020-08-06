@@ -2,12 +2,6 @@
 
 namespace App\Http;
 
-use Spatie\MailcoachUi\Http\Middleware\Authenticate;
-use Spatie\MailcoachUi\Http\Middleware\CheckForMaintenanceMode;
-use Spatie\MailcoachUi\Http\Middleware\EncryptCookies;
-use Spatie\MailcoachUi\Http\Middleware\RedirectIfAuthenticated;
-use Spatie\MailcoachUi\Http\Middleware\TrimStrings;
-use Spatie\MailcoachUi\Http\Middleware\TrustProxies;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -23,6 +17,12 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Spatie\MailcoachUi\Http\Middleware\Authenticate;
+use Spatie\MailcoachUi\Http\Middleware\CheckForMaintenanceMode;
+use Spatie\MailcoachUi\Http\Middleware\EncryptCookies;
+use Spatie\MailcoachUi\Http\Middleware\RedirectIfAuthenticated;
+use Spatie\MailcoachUi\Http\Middleware\TrimStrings;
+use Spatie\MailcoachUi\Http\Middleware\TrustProxies;
 
 class Kernel extends HttpKernel
 {

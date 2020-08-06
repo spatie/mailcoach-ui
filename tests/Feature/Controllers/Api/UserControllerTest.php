@@ -2,8 +2,8 @@
 
 namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Api;
 
-use Spatie\MailcoachUi\Models\User;
 use Laravel\Sanctum\Sanctum;
+use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;
 
 class UserControllerTest extends TestCase

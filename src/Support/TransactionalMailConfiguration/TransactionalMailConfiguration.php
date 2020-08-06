@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Support\TransactionalMailConfiguration;
 
+use Illuminate\Config\Repository;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\TransactionalMailConfigurationDriver;
-use Illuminate\Config\Repository;
 use Spatie\Valuestore\Valuestore;
 
 class TransactionalMailConfiguration
@@ -51,7 +51,7 @@ class TransactionalMailConfiguration
 
     public function registerConfigValues()
     {
-        if (!  $this->getDriver()) {
+        if (! $this->getDriver()) {
             return;
         }
 

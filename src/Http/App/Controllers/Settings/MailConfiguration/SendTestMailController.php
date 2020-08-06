@@ -2,10 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration;
 
-use Spatie\MailcoachUi\Mail\TestMail;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Spatie\MailcoachUi\Mail\TestMail;
 
 class SendTestMailController
 {
@@ -20,6 +20,7 @@ class SendTestMailController
             'from_email' => 'email',
             'to_email' => 'email',
         ]);
+
         try {
             Mail::mailer('mailcoach')->to($request->to_email)->sendNow(new TestMail($request->from_email, $request->to_email));
 
