@@ -5,8 +5,7 @@
         "spatie",
         "mailcoach-ui"
     ],
-    "homepage": "https://github.com/spatie/mailcoach-ui",
-    "license": "MIT",
+    "homepage": "https://mailcoach.app",
     "authors": [
         {
             "name": "Freek Van der Herten",
@@ -61,10 +60,7 @@
         "laravel": {
             "providers": [
                 "Spatie\\MailcoachUi\\MailcoachUiServiceProvider"
-            ],
-            "aliases": {
-                "MailcoachUi": "Spatie\\MailcoachUi\\MailcoachUiFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
