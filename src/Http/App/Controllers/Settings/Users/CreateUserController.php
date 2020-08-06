@@ -2,10 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\Users;
 
-use Spatie\MailcoachUi\Http\App\Requests\UpdateUserRequest;
-use Spatie\MailcoachUi\Models\User;
 use Exception;
 use Illuminate\Support\Str;
+use Spatie\MailcoachUi\Http\App\Requests\UpdateUserRequest;
+use Spatie\MailcoachUi\Models\User;
 
 class CreateUserController
 {

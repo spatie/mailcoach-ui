@@ -2,11 +2,11 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration;
 
-use Spatie\MailcoachUi\Mail\TransactionalTestMail;
-use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Spatie\MailcoachUi\Mail\TransactionalTestMail;
+use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
 
 class SendTestTransactionalMailController
 {
@@ -24,6 +24,7 @@ class SendTestTransactionalMailController
             'from_email' => 'email',
             'to_email' => 'email',
         ]);
+
         try {
             Mail::mailer('mailcoach-transactional')->to($request->to_email)->sendNow((new TransactionalTestMail($request->from_email, $request->to_email)));
 

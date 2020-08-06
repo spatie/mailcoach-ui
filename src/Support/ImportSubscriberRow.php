@@ -24,7 +24,7 @@ class ImportSubscriberRow
     {
         $validator = Validator::make($this->values, ['email' => 'required|email']);
 
-        return !$validator->fails();
+        return ! $validator->fails();
     }
 
     public function hasUnsubscribed(): bool

@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Http\App\Requests;
 
-use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfigurationDriverRepository;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfigurationDriverRepository;
 
 class UpdateEditorRequest extends FormRequest
 {
@@ -13,7 +13,7 @@ class UpdateEditorRequest extends FormRequest
         $editorConfigurationDriverRepository = new EditorConfigurationDriverRepository();
 
         return array_merge([
-            'editor' => ['required','bail',  Rule::in($editorConfigurationDriverRepository->getSupportedEditors())]
+            'editor' => ['required','bail',  Rule::in($editorConfigurationDriverRepository->getSupportedEditors())],
         ], $this->getEditorSpecificValidationRules($editorConfigurationDriverRepository));
     }
 

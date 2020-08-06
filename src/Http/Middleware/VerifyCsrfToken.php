@@ -11,7 +11,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'mailgun-feedback',
         'ses-feedback',
-        'sendgrid-feedback'
+        'sendgrid-feedback',
 
     ];
 }

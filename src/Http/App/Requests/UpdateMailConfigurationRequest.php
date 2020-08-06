@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Http\App\Requests;
 
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfigurationDriverRepository;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Spatie\MailcoachUi\Support\MailConfiguration\MailConfigurationDriverRepository;
 
 class UpdateMailConfigurationRequest extends FormRequest
 {
@@ -13,7 +13,7 @@ class UpdateMailConfigurationRequest extends FormRequest
         $mailConfigurationDriverRepository = new MailConfigurationDriverRepository();
 
         return array_merge([
-          'driver' => ['required','bail',  Rule::in($mailConfigurationDriverRepository->getSupportedDrivers())]
+          'driver' => ['required','bail',  Rule::in($mailConfigurationDriverRepository->getSupportedDrivers())],
         ], $this->getDriverSpecificValidationRules($mailConfigurationDriverRepository));
     }
 

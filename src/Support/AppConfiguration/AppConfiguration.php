@@ -2,8 +2,8 @@
 
 namespace Spatie\MailcoachUi\Support\AppConfiguration;
 
-use Spatie\MailcoachUi\Support\ConfigCache;
 use Illuminate\Config\Repository;
+use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\Valuestore\Valuestore;
 
 class AppConfiguration

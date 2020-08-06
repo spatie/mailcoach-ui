@@ -2,8 +2,8 @@
 
 namespace Spatie\MailcoachUi\Tests\Feature\Commands;
 
-use Spatie\MailcoachUi\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;
 
 class MakeUserCommandTest extends TestCase
