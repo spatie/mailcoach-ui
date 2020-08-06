@@ -1,4 +1,4 @@
-@extends('app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional mail configuration')])
+@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional mail configuration')])
 
 @section('breadcrumbs')
     <li>{{ __('Transactional mail configuration') }}</li>
@@ -35,23 +35,23 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('app.settings.transactionalMailConfiguration.partials.ses')
+            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('app.settings.transactionalMailConfiguration.partials.mailgun')
+            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('app.settings.transactionalMailConfiguration.partials.sendgrid')
+            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('app.settings.transactionalMailConfiguration.partials.postmark')
+            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('app.settings.transactionalMailConfiguration.partials.smtp')
+            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.smtp')
         </div>
 
         <div class="form-buttons">

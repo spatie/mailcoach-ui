@@ -11,7 +11,7 @@ class EditAppConfigurationController
 {
     public function edit(AppConfiguration $appConfiguration)
     {
-        return view('app.settings.appConfiguration.edit', compact('appConfiguration'));
+        return view('mailcoach-ui::app.settings.appConfiguration.edit', compact('appConfiguration'));
     }
 
     public function update(UpdateAppConfigurationRequest $request, AppConfiguration $appConfiguration)

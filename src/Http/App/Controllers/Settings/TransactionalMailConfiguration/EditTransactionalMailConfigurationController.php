@@ -11,7 +11,7 @@ class EditTransactionalMailConfigurationController
 {
     public function edit(TransactionalMailConfiguration $mailConfiguration)
     {
-        return view('app.settings.transactionalMailConfiguration.edit', compact('mailConfiguration'));
+        return view('mailcoach-ui::app.settings.transactionalMailConfiguration.edit', compact('mailConfiguration'));
     }
 
     public function update(

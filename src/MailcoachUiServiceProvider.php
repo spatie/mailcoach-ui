@@ -37,7 +37,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
             'error' => 'error',
         ]);
 
-        View::composer('app.layouts.partials.health', HealthViewComposer::class);
+        View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
 
         $this
             ->bootPublishables()
@@ -126,12 +126,15 @@ class MailcoachUiServiceProvider extends ServiceProvider
         return $this;
     }
 
-
     protected function bootPublishables()
     {
         $this->publishes([
             __DIR__ . '/../config/mailcoach-ui.php' => config_path('mailcoach-ui.php'),
         ], 'mailcoach-ui-config');
+
+        $this->publishes([
+            __DIR__ . '/../resources/views-vendor' => resource_path('views/vendor'),
+        ], 'mailcoach-ui-vendor-views');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/mailcoach-ui'),

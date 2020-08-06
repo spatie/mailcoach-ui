@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('mailcoach-ui::auth.layouts.master')
 
 @section('content')
     <form method="POST" action="{{ route('register') }}">

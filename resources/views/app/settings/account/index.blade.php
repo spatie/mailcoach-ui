@@ -1,4 +1,4 @@
-@extends('app.settings.account.layouts.account')
+@extends('mailcoach-ui::app.settings.account.layouts.account')
 
 @section('breadcrumbs')
     <li>{{ __('Account') }}</li>

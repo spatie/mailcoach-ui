@@ -1,4 +1,4 @@
-@extends('auth.layouts.master', ['title' => __('Reset Password')])
+@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Reset Password')])
 
 @section('breadcrumbs')
     <ul class="breadcrumbs">
@@ -58,6 +58,6 @@
                 {{ __('Reset Password') }}
             </button>
         </div>
-        
+
     </form>
 @endsection

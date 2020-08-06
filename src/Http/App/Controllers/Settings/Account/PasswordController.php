@@ -8,7 +8,7 @@ class PasswordController
 {
     public function index()
     {
-        return view('app.settings.account.password');
+        return view('mailcoach-ui::app.settings.account.password');
     }
 
     public function update(UpdatePasswordRequest $request)

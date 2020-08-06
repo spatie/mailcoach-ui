@@ -1,4 +1,4 @@
-@extends('auth.layouts.master', ['title' => __('Forgot password?')])
+@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Forgot password?')])
 
 @section('breadcrumbs')
     <ul class="breadcrumbs">

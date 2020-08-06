@@ -28,15 +28,15 @@
             />
 
             <div class="form-grid" data-conditional-editor="Textarea">
-                @include('app.settings.editor.partials.textarea')
+                @include('mailcoach-ui::app.settings.editor.partials.textarea')
             </div>
 
             <div class="form-grid" data-conditional-editor="Unlayer">
-                @include('app.settings.editor.partials.unlayer')
+                @include('mailcoach-ui::app.settings.editor.partials.unlayer')
             </div>
 
             <div class="form-grid" data-conditional-editor="Monaco">
-                @include('app.settings.editor.partials.monaco')
+                @include('mailcoach-ui::app.settings.editor.partials.monaco')
             </div>
 
             <div class="form-buttons">

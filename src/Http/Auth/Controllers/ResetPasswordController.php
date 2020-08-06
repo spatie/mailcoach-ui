@@ -15,7 +15,7 @@ class ResetPasswordController
 
     public function showResetForm(Request $request)
     {
-        return view('auth.passwords.reset', [
+        return view('mailcoach-ui::auth.passwords.reset', [
             'token' => $request->get('token'),
             'email' => $request->get('email'),
         ]);

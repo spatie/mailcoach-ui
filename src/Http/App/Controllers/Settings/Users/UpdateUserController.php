@@ -9,7 +9,7 @@ class UpdateUserController
 {
     public function edit(User $user)
     {
-        return view('app.settings.users.edit', [
+        return view('mailcoach-ui::app.settings.users.edit', [
             'user' => $user,
         ]);
     }

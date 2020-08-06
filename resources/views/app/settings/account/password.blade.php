@@ -1,4 +1,4 @@
-@extends('app.settings.account.layouts.account', ['titlePrefix' => __('Password')])
+@extends('mailcoach-ui::app.settings.account.layouts.account', ['titlePrefix' => __('Password')])
 
 @section('breadcrumbs')
     <li>

@@ -18,7 +18,7 @@
             </button>
 
             <x-modal title="Create user" name="create-user" :open="$errors->any()">
-                @include('app.settings.users.partials.create')
+                @include('mailcoach-ui::app.settings.users.partials.create')
             </x-modal>
 
             <div class=table-filters>

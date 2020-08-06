@@ -1,4 +1,4 @@
-@extends('auth.layouts.master', ['title' => __('Log in')])
+@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Log in')])
 
 @section('breadcrumbs')
     <ul class="breadcrumbs">

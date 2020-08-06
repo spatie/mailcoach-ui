@@ -8,7 +8,7 @@ class AccountController
 {
     public function index()
     {
-        return view('app.settings.account.index', [
+        return view('mailcoach-ui::app.settings.account.index', [
             'user' => auth()->user(),
         ]);
     }

@@ -11,7 +11,7 @@ class SendTestMailController
 {
     public function show()
     {
-        return view('app.settings.mailConfiguration.sendTestMail');
+        return view('mailcoach-ui::app.settings.mailConfiguration.sendTestMail');
     }
 
     public function sendTestEmail(Request $request)

@@ -14,7 +14,7 @@ class ForgotPasswordController
 
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email');
+        return view('mailcoach-ui::auth.passwords.email');
     }
 
     protected function sendResetLinkResponse(Request $request, $response)

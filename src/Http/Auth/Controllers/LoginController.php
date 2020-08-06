@@ -16,7 +16,7 @@ class LoginController
 
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('mailcoach-ui::auth.login');
     }
 
     public function authenticated(Request $request, $user)

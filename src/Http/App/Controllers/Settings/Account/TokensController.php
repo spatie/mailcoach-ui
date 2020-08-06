@@ -9,7 +9,7 @@ class TokensController
 {
     public function index()
     {
-        return view('app.settings.account.tokens', [
+        return view('mailcoach-ui::app.settings.account.tokens', [
             'tokens' => auth()->user()->tokens,
         ]);
     }

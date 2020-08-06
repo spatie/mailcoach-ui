@@ -1,4 +1,4 @@
-@extends('app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['titlePrefix' => __('Send test mail')])
+@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['titlePrefix' => __('Send test mail')])
 
 @section('breadcrumbs')
     <li>

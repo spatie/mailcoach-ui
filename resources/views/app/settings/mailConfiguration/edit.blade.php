@@ -1,4 +1,4 @@
-@extends('app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Mail configuration')])
+@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Mail configuration')])
 
 @section('breadcrumbs')
     <li>{{ __('Mail configuration') }}</li>
@@ -29,23 +29,23 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('app.settings.mailConfiguration.partials.ses')
+            @include('mailcoach-ui::app.settings.mailConfiguration.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('app.settings.mailConfiguration.partials.mailgun')
+            @include('mailcoach-ui::app.settings.mailConfiguration.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('app.settings.mailConfiguration.partials.sendgrid')
+            @include('mailcoach-ui::app.settings.mailConfiguration.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('app.settings.mailConfiguration.partials.postmark')
+            @include('mailcoach-ui::app.settings.mailConfiguration.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('app.settings.mailConfiguration.partials.smtp')
+            @include('mailcoach-ui::app.settings.mailConfiguration.partials.smtp')
         </div>
 
         <x-text-field :label="__('Default from mail')" name="default_from_mail" type="text" :value="$mailConfiguration->default_from_mail"/>
