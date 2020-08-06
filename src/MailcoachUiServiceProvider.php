@@ -137,10 +137,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             __DIR__ . '/../resources/views' => resource_path('views/vendor/mailcoach-ui'),
         ], 'mailcoach-ui-views');
 
-        $this->publishes([
-            __DIR__ . '/../resources/dist' => public_path('vendor/mailcoach-ui'),
-        ], 'mailcoach-ui-assets');
-
         if (! class_exists('CreateMailcoachUiTables')) {
             $this->publishes([
                 __DIR__ . '/../database/migrations/create_mailcoach_ui_tables.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_mailcoach_ui_tables.php'),

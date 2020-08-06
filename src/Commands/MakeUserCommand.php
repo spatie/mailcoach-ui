@@ -7,7 +7,7 @@ use Spatie\MailcoachUi\Models\User;
 
 class MakeUserCommand extends Command
 {
-    protected $signature = 'make:user {--username=} {--email=} {--password=}';
+    protected $signature = 'mailcoach:make-user {--username=} {--email=} {--password=}';
 
     protected $description = 'Create a user with credentials.';
 
