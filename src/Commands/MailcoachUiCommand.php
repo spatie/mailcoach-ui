@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Spatie\MailcoachUi\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MailcoachUiCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'mailcoach-ui';
 
     public $description = 'My command';
 

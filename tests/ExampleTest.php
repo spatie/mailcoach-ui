@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Spatie\MailcoachUi\Tests;
 
 class ExampleTest extends TestCase
 {
