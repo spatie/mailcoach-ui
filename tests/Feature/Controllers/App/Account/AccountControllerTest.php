@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Spatie\MailcoachUi\Account;
+namespace Spatie\MailcoachUi\Tests\Feature\Controllers\App\Account;
 
-use Spatie\MailcoachUi\Http\Spatie\MailcoachUi\Controllers\Settings\Account\AccountController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\AccountController;
 use Spatie\MailcoachUi\Tests\TestCase;
 
 class AccountControllerTest extends TestCase

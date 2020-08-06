@@ -74,7 +74,14 @@ class TestCase extends Orchestra
 
         include_once __DIR__.'/../database/migrations/create_mailcoach_ui_tables.php.stub';
         (new CreateMailcoachUiTables())->up();
+    }
 
+    public function authenticate()
+    {
+        $user = factory(User::class)->create();
 
+        $user->createToken('test');
+
+        $this->actingAs($user);
     }
 }

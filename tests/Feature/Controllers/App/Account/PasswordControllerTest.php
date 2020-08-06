@@ -1,8 +1,7 @@
 <?php
 
-namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Spatie\MailcoachUi\Account;
 
-use Spatie\MailcoachUi\Http\Spatie\MailcoachUi\Controllers\Settings\Account\PasswordController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\PasswordController;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;
 
