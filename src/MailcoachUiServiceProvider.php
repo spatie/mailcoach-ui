@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Spatie\Flash\Flash;
+use Spatie\MailcoachUi\Commands\ComposerHookCommand;
+use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
@@ -85,6 +87,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                ExecuteComposerHookCommand::class,
                 MakeUserCommand::class,
                 PrepareGitIgnoreCommand::class,
             ]);
@@ -185,6 +188,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
         app(MailConfiguration::class)->registerConfigValues();
 
         return $this;
+
+
     }
 
     protected function registerEditorConfiguration(): self

@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Tests;
 
+use App\Providers\HorizonServiceProvider;
 use CreateMailcoachTables;
 use CreateMailcoachUiTables;
 use CreateMediaTable;
@@ -41,12 +42,12 @@ class TestCase extends Orchestra
     {
         return [
             SanctumServiceProvider::class,
-            MailcoachServiceProvider::class,
             FeedServiceProvider::class,
             MediaLibraryServiceProvider::class,
             QueryBuilderServiceProvider::class,
-            MailcoachUiServiceProvider::class,
 
+            MailcoachServiceProvider::class,
+            MailcoachUiServiceProvider::class,
             MailcoachSesFeedbackServiceProvider::class,
             MailcoachMailgunFeedbackServiceProvider::class,
             MailcoachSendgridFeedbackServiceProvider::class,
