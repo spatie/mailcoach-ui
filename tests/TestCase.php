@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Tests;
 
-use App\Providers\HorizonServiceProvider;
 use CreateMailcoachTables;
 use CreateMailcoachUiTables;
 use CreateMediaTable;
