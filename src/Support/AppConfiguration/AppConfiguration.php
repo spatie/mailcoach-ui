@@ -40,6 +40,7 @@ class AppConfiguration
     public function registerConfigValues()
     {
         config()->set('app.name', $this->valuestore->get('name', config('app.name')));
+        config()->set('app.timezone', $this->valuestore->get('timezone', config('app.timezone')));
         config()->set('app.url', $this->valuestore->get('url', config('app.url')));
         config()->set('filesystems.disks.public.url', $this->valuestore->get('url', config('app.url')) . '/storage');
 

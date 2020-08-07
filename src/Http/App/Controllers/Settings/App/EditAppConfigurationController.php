@@ -6,12 +6,18 @@ use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateAppConfigurationRequest;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\ConfigCache;
+use Spatie\MailcoachUi\Support\TimeZone;
 
 class EditAppConfigurationController
 {
     public function edit(AppConfiguration $appConfiguration)
     {
-        return view('mailcoach-ui::app.settings.appConfiguration.edit', compact('appConfiguration'));
+        $timeZones = TimeZone::all();
+
+        return view('mailcoach-ui::app.settings.appConfiguration.edit', compact(
+            'appConfiguration',
+            'timeZones',
+        ));
     }
 
     public function update(UpdateAppConfigurationRequest $request, AppConfiguration $appConfiguration)
