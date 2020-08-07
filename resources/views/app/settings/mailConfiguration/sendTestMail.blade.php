@@ -11,6 +11,7 @@
 
 @section('mailConfiguration')
     <form class="flex items-end justify-start" method="POST">
+        @csrf
         <div class="flex-grow max-w-lg">
             <x-text-field :placeholder="__('From Email')" :label="__('From Email')" name="from_email" type="email" :value="auth()->user()->email"/>
         </div>

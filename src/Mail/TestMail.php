@@ -28,6 +28,6 @@ class TestMail extends Mailable
             ->subject(__('Mailcoach testmail'))
             ->to($this->toEmail)
             ->from($this->fromEmail)
-            ->markdown('mails.test');
+            ->markdown('mailcoach-ui::mails.test');
     }
 }
