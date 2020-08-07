@@ -1,4 +1,4 @@
-@if ((! $mailConfigurationValid && ! request()->routeIs('mailConfiguration')) || ! $horizonActive)
+@if ((! $mailConfigurationValid && ! request()->routeIs('mailConfiguration')) || ! $horizonActive || ! $queueConfig)
     <div class="alert alert-error shadow-2xl">
         <div class="max-w-layout mx-auto grid">
             @if (! request()->routeIs('mailConfiguration'))
@@ -10,6 +10,15 @@
                         </span>
                     </div>
                 @endif
+            @endif
+
+            @if (! $queueConfig)
+                <div class="flex items-baseline">
+                    <span class="w-6"><i class="fas fa-database opacity-50"></i></span>
+                    <span class="ml-2 text-sm | lg:text-base">
+                        {!! __('No valid <strong>queue connection</strong> found. Configure a queue connection with the <strong>mailcoach-redis</strong> key. <a target="_blank" href=":docsLink">Read the docs</a>.', ['docsLink' => 'https://mailcoach.app/docs']) !!}
+                    </span>
+                </div>
             @endif
 
             @if(! $horizonActive)
