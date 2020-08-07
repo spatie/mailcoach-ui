@@ -24,6 +24,7 @@ class HealthViewComposer
         $view->with([
             'horizonActive' => $this->horizonStatus->is(HorizonStatus::STATUS_ACTIVE),
             'mailConfigurationValid' => $this->mailConfiguration->isValid(),
+            'queueConfig' => config('queue.connections.mailcoach-redis') && !empty(config('queue.connections.mailcoach-redis')),
         ]);
     }
 }
