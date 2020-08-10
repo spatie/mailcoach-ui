@@ -13,7 +13,7 @@ class SendTestTransactionalMailController
     public function show(TransactionalMailConfiguration $mailConfiguration)
     {
         return view(
-            'app.settings.transactionalMailConfiguration.sendTestMail',
+            'mailcoach-ui::app.settings.transactionalMailConfiguration.sendTestMail',
             compact('mailConfiguration')
         );
     }
