@@ -1,3 +1,3 @@
-<x-help>
+<x-mailcoach::help>
 {{ __('This editor is a plain textarea field.') }}
-</x-help>
+</x-mailcoach::help>

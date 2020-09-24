@@ -14,23 +14,23 @@
     <section class="card">
         <div class="table-actions">
             <button class="button" data-modal-trigger="create-user">
-                <x-icon-label icon="fa-user" :text="__('Create new user')" />
+                <x-mailcoach::icon-label icon="fa-user" :text="__('Create new user')" />
             </button>
 
-            <x-modal title="Create user" name="create-user" :open="$errors->any()">
+            <x-mailcoach::modal title="Create user" name="create-user" :open="$errors->any()">
                 @include('mailcoach-ui::app.settings.users.partials.create')
-            </x-modal>
+            </x-mailcoach::modal>
 
             <div class=table-filters>
-                <x-search :placeholder="__('Filter users…')" />
+                <x-mailcoach::search :placeholder="__('Filter users…')" />
             </div>
         </div>
 
         <table class="table">
             <thead>
                 <tr>
-                    <x-th sort-by="email" sort-default>{{ __('Email') }}</x-th>
-                    <x-th sort-by="-name">{{ __('Name') }}</x-th>
+                    <x-mailcoach::th sort-by="email" sort-default>{{ __('Email') }}</x-mailcoach::th>
+                    <x-mailcoach::th sort-by="-name">{{ __('Name') }}</x-mailcoach::th>
                     <th></th>
                 </tr>
             </thead>
@@ -51,9 +51,9 @@
                             </button>
                             <ul class="dropdown-list dropdown-list-left | hidden" data-dropdown-list>
                                 <li>
-                                    <x-form-button :action="route('users.delete', $user)" method="DELETE" data-confirm>
-                                        <x-icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true" />
-                                    </x-form-button>
+                                    <x-mailcoach::form-button :action="route('users.delete', $user)" method="DELETE" data-confirm>
+                                        <x-mailcoach::icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true" />
+                                    </x-mailcoach::form-button>
                                 </li>
                             </ul>
                         </div>
@@ -64,6 +64,6 @@
             </tbody>
         </table>
 
-        <x-table-status :name="__('user|users')" :paginator="$users" :total-count="$totalUsersCount" :show-all-url="route('users')">
-        </x-table-status>
+        <x-mailcoach::table-status :name="__('user|users')" :paginator="$users" :total-count="$totalUsersCount" :show-all-url="route('users')">
+        </x-mailcoach::table-status>
 @endsection

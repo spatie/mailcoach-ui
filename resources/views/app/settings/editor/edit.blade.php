@@ -19,7 +19,7 @@
         >
             @csrf
 
-            <x-select-field
+            <x-mailcoach::select-field
                 :label="__('Editor')"
                 name="editor"
                 :value="$editorConfiguration->editor"
@@ -41,7 +41,7 @@
 
             <div class="form-buttons">
                 <button class="button">
-                    <x-icon-label icon="fa-code" :text="__('Save')"/>
+                    <x-mailcoach::icon-label icon="fa-code" :text="__('Save')"/>
                 </button>
             </div>
         </form>

@@ -14,7 +14,7 @@
         @csrf
         @method('PUT')
 
-        <x-select-field
+        <x-mailcoach::select-field
             :label="__('Driver')"
             name="driver"
             :value="$mailConfiguration->driver"
@@ -48,11 +48,11 @@
             @include('mailcoach-ui::app.settings.mailConfiguration.partials.smtp')
         </div>
 
-        <x-text-field :label="__('Default from mail')" name="default_from_mail" type="text" :value="$mailConfiguration->default_from_mail"/>
+        <x-mailcoach::text-field :label="__('Default from mail')" name="default_from_mail" type="text" :value="$mailConfiguration->default_from_mail"/>
 
         <div class="form-buttons">
             <button class="button">
-                <x-icon-label icon="fa-server" :text="__('Save configuration')" />
+                <x-mailcoach::icon-label icon="fa-server" :text="__('Save configuration')" />
             </button>
         </div>
     </form>

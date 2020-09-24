@@ -20,7 +20,7 @@
             </div>
         @endif
 
-        <x-select-field
+        <x-mailcoach::select-field
             :label="__('Driver')"
             name="driver"
             :value="$mailConfiguration->driver"
@@ -56,7 +56,7 @@
 
         <div class="form-buttons">
             <button class="button">
-                <x-icon-label icon="fa-server" :text="__('Save configuration')"/>
+                <x-mailcoach::icon-label icon="fa-server" :text="__('Save configuration')"/>
             </button>
         </div>
     </form>
@@ -72,7 +72,7 @@
             @method('DELETE')
             <div class="form-buttons">
                 <button class="text-red-400 hover:text-red-500">
-                    <x-icon-label caution="true" icon="fa-trash" :text="__('Delete configuration')"/>
+                    <x-mailcoach::icon-label caution="true" icon="fa-trash" :text="__('Delete configuration')"/>
                 </button>
             </div>
         </form>

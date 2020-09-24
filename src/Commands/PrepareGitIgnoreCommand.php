@@ -17,10 +17,11 @@ class PrepareGitIgnoreCommand extends Command
 
         $newContent = collect(file(base_path('.gitignore')))
             ->reject(fn (string $line) => Str::startsWith($line, 'composer.lock'))
+            ->reject(fn (string $line) => Str::startsWith($line, 'resources/views/vendor'))
             ->implode('');
 
         file_put_contents($gitIgnorePath, $newContent);
 
-        $this->info('Not ignoring composer.lock anymore...');
+        $this->info('Not ignoring composer.lock and vendor views anymore...');
     }
 }

@@ -13,12 +13,12 @@
 @section('content')
     <nav class="tabs">
         <ul>
-            <x-navigation-item :href="route('transactionalMailConfiguration')">
-                <x-icon-label icon="fa-server" :text="__('Transactional mail configuration')" />
-            </x-navigation-item>
-            <x-navigation-item :href="route('sendTransactionalTestEmail')">
-                <x-icon-label icon="fa-paper-plane" :text="__('Send transactional test mail')" />
-            </x-navigation-item>
+            <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
+                <x-mailcoach::icon-label icon="fa-server" :text="__('Transactional mail configuration')" />
+            </x-mailcoach::navigation-item>
+            <x-mailcoach::navigation-item :href="route('sendTransactionalTestEmail')">
+                <x-mailcoach::icon-label icon="fa-paper-plane" :text="__('Send transactional test mail')" />
+            </x-mailcoach::navigation-item>
         </ul>
     </nav>
 

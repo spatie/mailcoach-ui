@@ -20,10 +20,10 @@
             @method('PUT')
             @csrf
 
-            <x-text-field name="name" id="name" :label="__('App name')" :value="$appConfiguration->name ?? config('app.name')" />
-            <x-text-field name="url" id="url" :label="__('App url')" :value="$appConfiguration->url ?? config('app.url')" />
+            <x-mailcoach::text-field name="name" id="name" :label="__('App name')" :value="$appConfiguration->name ?? config('app.name')" />
+            <x-mailcoach::text-field name="url" id="url" :label="__('App url')" :value="$appConfiguration->url ?? config('app.url')" />
 
-            <x-select-field
+            <x-mailcoach::select-field
                 :label="__('Timezone')"
                 name="timezone"
                 :value="$appConfiguration->timezone"
@@ -32,7 +32,7 @@
 
             <div class="form-buttons">
                 <button class="button">
-                    <x-icon-label icon="fa-code" :text="__('Save')"/>
+                    <x-mailcoach::icon-label icon="fa-code" :text="__('Save')"/>
                 </button>
             </div>
         </form>

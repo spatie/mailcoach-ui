@@ -20,7 +20,7 @@
 
         <div class="flex items-end">
             <div class="flex-grow max-w-xl">
-                <x-text-field
+                <x-mailcoach::text-field
                     :label="__('Token name')"
                     name="name"
                     :placeholder="__('My API token')"
@@ -31,7 +31,7 @@
             </div>
 
             <button type="submit" class="ml-2 button">
-                <x-icon-label icon="fa-key" :text="__('Create token')"/>
+                <x-mailcoach::icon-label icon="fa-key" :text="__('Create token')"/>
             </button>
         </div>
 
@@ -42,7 +42,7 @@
 
     @if (session()->has('newToken'))
         @push('modals')
-            <x-modal :open="true" :title="__('Your new token')" name="token">
+            <x-mailcoach::modal :open="true" :title="__('Your new token')" name="token">
                 <p data-confirm-modal-text class="mb-2">
                     We will display this token only once. Make sure to copy it to a save place.
                 </p>
@@ -59,7 +59,7 @@
                     </button>
                     </div>
                 </div>
-            </x-modal>
+            </x-mailcoach::modal>
             <script>
                 function copyToClipboard(element, key)
                 {
@@ -80,8 +80,8 @@
         <table class="table mb-6">
             <thead>
             <tr>
-                <x-th>{{ __('Name') }}</x-th>
-                <x-th>{{ __('Last used at') }}</x-th>
+                <x-mailcoach::th>{{ __('Name') }}</x-mailcoach::th>
+                <x-mailcoach::th>{{ __('Last used at') }}</x-mailcoach::th>
                 <th></th>
             </tr>
             </thead>
@@ -97,10 +97,10 @@
                             </button>
                             <ul class="dropdown-list dropdown-list-left | hidden" data-dropdown-list>
                                 <li>
-                                    <x-form-button :action="route('tokens.delete', $token)" method="DELETE"
+                                    <x-mailcoach::form-button :action="route('tokens.delete', $token)" method="DELETE"
                                                    data-confirm>
-                                        <x-icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true"/>
-                                    </x-form-button>
+                                        <x-mailcoach::icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true"/>
+                                    </x-mailcoach::form-button>
                                 </li>
                             </ul>
                         </div>
@@ -111,8 +111,8 @@
         </table>
     @endif
 
-    <x-help>
+    <x-mailcoach::help>
         You can use tokens to authenticate against our the Mailcoach. You'll find more info in <a
             href="https://mailcoach.app/docs">our docs</a>.
-    </x-help>
+    </x-mailcoach::help>
 @endsection

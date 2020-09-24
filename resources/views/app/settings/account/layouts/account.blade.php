@@ -13,15 +13,15 @@
 @section('content')
     <nav class="tabs">
         <ul>
-            <x-navigation-item :href="route('account')">
-                <x-icon-label icon="fa-user" :text="__('User details')" />
-            </x-navigation-item>
-            <x-navigation-item :href="route('password')">
-                <x-icon-label icon="fa-lock" :text="__('Password')" />
-            </x-navigation-item>
-            <x-navigation-item :href="route('tokens')">
-                <x-icon-label icon="fa-key" :text="__('API Tokens')" />
-            </x-navigation-item>
+            <x-mailcoach::navigation-item :href="route('account')">
+                <x-mailcoach::icon-label icon="fa-user" :text="__('User details')" />
+            </x-mailcoach::navigation-item>
+            <x-mailcoach::navigation-item :href="route('password')">
+                <x-mailcoach::icon-label icon="fa-lock" :text="__('Password')" />
+            </x-mailcoach::navigation-item>
+            <x-mailcoach::navigation-item :href="route('tokens')">
+                <x-mailcoach::icon-label icon="fa-key" :text="__('API Tokens')" />
+            </x-mailcoach::navigation-item>
         </ul>
     </nav>
 
