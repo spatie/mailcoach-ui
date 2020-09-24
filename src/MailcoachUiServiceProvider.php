@@ -104,6 +104,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         Route::macro('mailcoachUi', function (string $url = '') {
             Route::mailcoach($url);
+            Route::mailcoachUnlayer('mailcoachUnlayer');
 
             Route::redirect($url, "/{$url}/campaigns");
 

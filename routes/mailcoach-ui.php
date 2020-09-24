@@ -17,9 +17,6 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
-/*TODO: figure out why this is not working */
-//Route::mailcoachUnlayer();
-
 Route::prefix('settings')->group(function () {
     Route::get('app-configuration', [EditAppConfigurationController::class, 'edit'])->name('appConfiguration');
     Route::put('app-configuration', [EditAppConfigurationController::class, 'update']);
