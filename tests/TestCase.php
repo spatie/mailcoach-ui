@@ -6,6 +6,7 @@ use CreateMailcoachTables;
 use CreateMailcoachUiTables;
 use CreateMediaTable;
 use CreateUsersTable;
+use CreatePersonalAccessTokensTable;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\SanctumServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,6 +18,7 @@ use Spatie\MailcoachSendgridFeedback\MailcoachSendgridFeedbackServiceProvider;
 use Spatie\MailcoachSesFeedback\MailcoachSesFeedbackServiceProvider;
 use Spatie\MailcoachUi\MailcoachUiServiceProvider;
 use Spatie\MailcoachUi\Models\User;
+use Spatie\MailcoachUnlayer\MailcoachUnlayerServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 use Spatie\QueryBuilder\QueryBuilderServiceProvider;
 
@@ -51,6 +53,7 @@ class TestCase extends Orchestra
             MailcoachMailgunFeedbackServiceProvider::class,
             MailcoachSendgridFeedbackServiceProvider::class,
             MailcoachPostmarkFeedbackServiceProvider::class,
+            MailcoachUnlayerServiceProvider::class,
         ];
     }
 
@@ -71,6 +74,9 @@ class TestCase extends Orchestra
 
         include_once __DIR__.'/../vendor/spatie/laravel-medialibrary/database/migrations/create_media_table.php.stub';
         (new CreateMediaTable())->up();
+
+        include_once __DIR__.'/../vendor/laravel/sanctum/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php';
+        (new CreatePersonalAccessTokensTable())->up();
 
         include_once __DIR__.'/../database/migrations/create_mailcoach_ui_tables.php.stub';
         (new CreateMailcoachUiTables())->up();
