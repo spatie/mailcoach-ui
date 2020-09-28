@@ -2,10 +2,7 @@
 
 namespace Spatie\MailcoachUi\Tests\Database\Factories;
 
-use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spatie\Mailcoach\Models\EmailList;
-use Spatie\Mailcoach\Models\Send;
 use Spatie\Mailcoach\Models\Subscriber;
 
 class SubscriberFactory extends Factory

@@ -15,6 +15,5 @@ class CampaignLinkFactory extends Factory
             'campaign_id' => CampaignFactory::new()->create()->id,
             'url' => $this->faker->url,
         ];
-
     }
 }
