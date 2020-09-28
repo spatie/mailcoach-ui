@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Tests\Feature\Controllers\Spatie\MailcoachUi\Account;
+namespace Spatie\MailcoachUi\Tests\Feature\Controllers\App\Account;
 
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Tests\TestCase;
@@ -33,7 +33,7 @@ class TokensControllerTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $anotherUser = factory(User::class)->create();
+        $anotherUser = User::factory()->create();
 
         $anotherUser->createToken('test');
 

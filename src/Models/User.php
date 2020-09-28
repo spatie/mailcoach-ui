@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +11,7 @@ use Spatie\WelcomeNotification\ReceivesWelcomeNotification;
 
 class User extends Authenticatable
 {
-    use Notifiable, ReceivesWelcomeNotification, HasApiTokens;
+    use Notifiable, ReceivesWelcomeNotification, HasApiTokens, HasFactory;
 
     /**
      * The attributes that are mass assignable.

@@ -7,6 +7,7 @@ use CreateMailcoachUiTables;
 use CreateMediaTable;
 use CreatePersonalAccessTokensTable;
 use CreateUsersTable;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\SanctumServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -28,13 +29,17 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->withFactories(__DIR__.'/database/factories');
-
         Route::mailcoachUi();
 
         config()->set('auth.providers.users.model', User::class);
 
         $this->app['router']->getRoutes()->refreshNameLookups();
+
+        Factory::guessFactoryNamesUsing(
+            function (string $modelName) {
+                return 'Spatie\\MailcoachUi\\Tests\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
+            }
+        );
 
         $this->withoutExceptionHandling();
     }
@@ -84,7 +89,7 @@ class TestCase extends Orchestra
 
     public function authenticate()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $user->createToken('test');
 

@@ -11,7 +11,7 @@ class UserControllerTest extends TestCase
     /** @test */
     public function it_can_use_the_api_via_sanctum()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         Sanctum::actingAs($user, ['*'], 'api');
 
