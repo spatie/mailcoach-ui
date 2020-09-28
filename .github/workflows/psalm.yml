@@ -21,13 +21,15 @@ jobs:
                   coverage: none
 
             - name: Cache composer dependencies
-              uses: actions/cache@v1
+              uses: actions/cache@v2
               with:
                   path: vendor
                   key: composer-${{ hashFiles('composer.lock') }}
 
             - name: Run composer install
               run: composer install -n --prefer-dist
+              env:
+                COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
             - name: Run psalm
               run: ./vendor/bin/psalm -c psalm.xml

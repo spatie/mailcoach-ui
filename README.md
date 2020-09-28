@@ -1,5 +1,8 @@
 # The UI of the Mailcoach app
 
+![Tests](https://github.com/spatie/mailcoach-ui/workflows/Tests/badge.svg)
+
+
 This package is an add on for [spatie/laravel-mailcoach](https://github.com/spatie/laravel-mailcoach).
 
 ## Support us
