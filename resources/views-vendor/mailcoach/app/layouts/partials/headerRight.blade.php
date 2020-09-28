@@ -12,6 +12,7 @@
         </li>
         <li>
             <form method="post" action="{{ route('logout') }}">
+                {{ csrf_field() }}
                 <button type="submit">
                     <span class="icon-label">
                         <i class="fas fa-fw fa-power-off text-red-500"></i>
