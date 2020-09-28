@@ -2,11 +2,8 @@
 
 namespace Spatie\MailcoachUi\Tests\Database\Factories;
 
-use Faker\Generator;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Spatie\Mailcoach\Enums\SubscriberImportStatus;
-use Spatie\Mailcoach\Models\EmailList;
-use Spatie\Mailcoach\Models\Subscriber;
 use Spatie\Mailcoach\Models\SubscriberImport;
 
 class SubscriberImportFactory extends Factory
