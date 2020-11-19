@@ -31,3 +31,10 @@
     type="password"
     :value="$mailConfiguration->postmark_signing_secret"
 />
+
+<x-mailcoach::text-field
+    :label="__('Message Stream')"
+    name="message_stream"
+    type="text"
+    :value="$mailConfiguration->message_stream"
+/>

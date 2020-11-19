@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 1.1.0 - 2020-11-19
+
+- add Postmark message stream config
+
 ## 1.0.3 - 2020-09-29
 
 - fix page expired error on send test screen

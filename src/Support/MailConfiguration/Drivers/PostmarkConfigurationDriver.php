@@ -18,6 +18,7 @@ class PostmarkConfigurationDriver extends MailConfigurationDriver
             'postmark_mails_per_second' => 'required|numeric|between:1,100',
             'postmark_token' => 'required',
             'postmark_signing_secret' => 'required',
+            'message_stream' => ['nullable', 'string'],
         ];
     }
 
@@ -33,6 +34,7 @@ class PostmarkConfigurationDriver extends MailConfigurationDriver
         ]);
         $config->set('mailcoach.postmark_feedback', [
             'signing_secret' => $values['postmark_signing_secret'],
+            'message_stream' => $values['message_stream'],
         ]);
     }
 }
