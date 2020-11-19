@@ -1,4 +1,4 @@
-@component('mailcoach::mails.layout.layout')
+@component('mailcoach::mails.layout.message')
 
 {{ __('Hi') }}
 
