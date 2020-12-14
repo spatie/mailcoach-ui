@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0|^7.4",
         "laravel/sanctum": "^2.4",
         "laravel/ui": "^3.0",
         "league/html-to-markdown": "^4.10",
