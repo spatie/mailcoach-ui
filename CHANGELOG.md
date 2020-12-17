@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 1.1.1 - 2020-12-17
+
+- allow PHP 8
+
 ## 1.1.0 - 2020-11-19
 
 - add Postmark message stream config
