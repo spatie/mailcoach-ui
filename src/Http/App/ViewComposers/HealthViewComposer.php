@@ -3,7 +3,7 @@
 namespace Spatie\MailcoachUi\Http\App\ViewComposers;
 
 use Illuminate\View\View;
-use Spatie\Mailcoach\Support\HorizonStatus;
+use Spatie\Mailcoach\Domain\Shared\Support\HorizonStatus;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class HealthViewComposer
