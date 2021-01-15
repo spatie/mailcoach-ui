@@ -5,6 +5,7 @@
 @endsection
 
 @section('account')
+    <h1 class="text-xl font-bold mb-8">User details</h1>
     <form
         class="form-grid"
         action="{{ route('account') }}"
@@ -18,7 +19,7 @@
 
         <div class="form-buttons">
             <button type="submit" class="button">
-                <x-mailcoach::icon-label icon="fa-user" :text="__('Save user')" />
+                <x-mailcoach::icon-label icon="fas fa-user" :text="__('Save user')" />
             </button>
         </div>
     </form>
