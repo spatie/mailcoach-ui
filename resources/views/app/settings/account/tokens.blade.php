@@ -1,17 +1,22 @@
-@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('Tokens')])
+@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('API Tokens')])
 
 @section('account')
-    <h1 class="markup-h1">{{ __('Tokens') }}</h1>
+    <h1 class="markup-h1">{{ __('API Tokens') }}</h1>
 
-    <form class="mb-6"
+ <x-mailcoach::help>
+        You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
+            href="https://mailcoach.app/docs">our docs</a>.
+    </x-mailcoach::help>
+
+    <form class="my-6"
           action="{{ route('tokens.create') }}"
           method="POST"
           data-dirty-check
     >
         @csrf
 
-        <div class="flex items-end">
-            <div class="flex-grow max-w-xl mr-2">
+        <div class="flex items-end max-w-xl">
+            <div class="flex-grow mr-2">
                 <x-mailcoach::text-field
                     :label="__('Token name')"
                     name="name"
@@ -22,7 +27,7 @@
                 />
             </div>
 
-            <x-mailcoach::submit-button :label="__('Create token')"/>
+            <x-mailcoach::button :label="__('Create token')"/>
         </div>
 
         @error('emails')
@@ -31,10 +36,7 @@
 
     </form>
         
-        <x-mailcoach::help>
-        You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
-            href="https://mailcoach.app/docs">our docs</a>.
-    </x-mailcoach::help>
+       
 
     @if (session()->has('newToken'))
         @push('modals')
@@ -95,7 +97,7 @@
                                 <li>
                                     <x-mailcoach::form-button :action="route('tokens.delete', $token)" method="DELETE"
                                                    data-confirm>
-                                        <x-mailcoach::icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true"/>
+                                        <x-mailcoach::icon-label icon="far fa-trash-alt" :text="__('Delete')" :caution="true"/>
                                     </x-mailcoach::form-button>
                                 </li>
                             </ul>

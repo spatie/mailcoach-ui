@@ -16,7 +16,7 @@
         <x-mailcoach::text-field :label="__('Confirm new password')" name="password_confirmation" type="password" required />
 
         <div class="form-buttons">
-            <x-mailcoach::submit-button :label="__('Update password')" />
+            <x-mailcoach::button :label="__('Update password')" />
         </div>
     </form>
 @endsection

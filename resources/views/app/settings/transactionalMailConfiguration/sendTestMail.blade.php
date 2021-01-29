@@ -1,13 +1,4 @@
-@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['titlePrefix' => __('Send test mail')])
-
-@section('breadcrumbs')
-    <li>
-        <a href="{{ route('mailConfiguration') }}">
-            {{ __('Transactional mail configuration') }}
-        </a>
-    </li>
-    <li>{{ __('Send test mail') }}</li>
-@endsection
+@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Send Test')])
 
 @section('mailConfiguration')
     @if ($mailConfiguration->isValid())
@@ -27,8 +18,8 @@
         </button>
     </form>
     @else
-        <div class="alert alert-warning max-w-xl">
+        <x-mailcoach::warning>
             {{ __("You haven't configured a transactional mailer yet.") }}
-        </div>
+        </x-mailcoach::warning>
     @endif
 @endsection

@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional mail configuration')])
+@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional Mail Configuration')])
 
 @section('breadcrumbs')
     <li>{{ __('Transactional mail configuration') }}</li>
@@ -15,9 +15,9 @@
         @method('PUT')
 
         @if(! $mailConfiguration->isValid())
-            <div class="alert alert-warning max-w-xl">
+            <x-mailcoach::warning>
                 {{ __("You haven't configured a transactional mailer yet. Mailcoach will send confirmation mails and welcome mails using the regular mailer.") }}
-            </div>
+            </x-mailcoach::warning>
         @endif
 
         <x-mailcoach::select-field
@@ -55,9 +55,7 @@
         </div>
 
         <div class="form-buttons">
-            <button class="button">
-                <x-mailcoach::icon-label icon="fa-server" :text="__('Save configuration')"/>
-            </button>
+            <x-mailcoach::button :label="__('Save configuration')"/>
         </div>
     </form>
 
@@ -72,7 +70,7 @@
             @method('DELETE')
             <div class="form-buttons">
                 <button class="text-red-400 hover:text-red-500">
-                    <x-mailcoach::icon-label caution="true" icon="fa-trash" :text="__('Delete configuration')"/>
+                    <x-mailcoach::icon-label caution="true" icon="far fa-trash" :text="__('Delete configuration')"/>
                 </button>
             </div>
         </form>

@@ -1,20 +1,7 @@
-@extends('mailcoach::app.layouts.app', ['title' => $user->name])
+@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => $user->name])
 
-@section('header')
-<nav>
-    <ul class="breadcrumbs">
-        <li>
-            <a href="{{ route('users') }}">{{ __('Users') }}</a>
-        </li>
-        <li>
-            {{ $user->email }}
-        </li>
-    </ul>
-</nav>
-@endsection
-
-@section('content')
-<section class="card">
+@section('configuration')
+    <h1 class="markup-h1">{{ $user->name }}</h1>
 
     <form class="form-grid" action="{{ route('users.edit', $user) }}" method="POST">
         @csrf
@@ -25,10 +12,7 @@
         <x-mailcoach::text-field :label="__('Name')" name="name" :value="$user->name" required />
 
         <div class="form-buttons">
-            <button type="submit" class="button">
-                <x-mailcoach::icon-label icon="fa-user" :text="__('Save user')" />
-            </button>
+            <x-mailcoach::button :label="__('Save user')" />
         </div>
     </form>
-</section>
 @endsection

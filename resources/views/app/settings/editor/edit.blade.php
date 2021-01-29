@@ -1,16 +1,7 @@
-@extends('mailcoach::app.layouts.app', [
-    'title' => __('Editor configuration')
-])
-@section('header')
-    <nav>
-        <ul class="breadcrumbs">
-            <li>{{ __('Editor') }}</li>
-        </ul>
-    </nav>
-@endsection
+@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => __('Editor')])
 
-@section('content')
-    <section class="card card-grid">
+@section('configuration')
+    <h1 class="markup-h1">{{ __('Editor') }}</h1>
         <form
             class="form-grid"
             action="{{ route('editor') }}"
@@ -40,9 +31,7 @@
             </div>
 
             <div class="form-buttons">
-                <button class="button">
-                    <x-mailcoach::icon-label icon="fa-code" :text="__('Save')"/>
-                </button>
+                <x-mailcoach::button :label="__('Save')"/>
             </div>
         </form>
     </section>

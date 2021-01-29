@@ -5,7 +5,9 @@
         {{ __('Mailcoach uses the free version of Unlayer.') }}
     </x-mailcoach::help>
 
-    <div class="alert alert-warning max-w-xl text-sm">
-        {{ __('Unlayer editor stores content in a structured way. When switching from or to Unlayer, content in existing templates and draft campaigns will get lost.') }}
+    <div class="mt-6">
+        <x-mailcoach::warning>
+            {{ __('Unlayer editor stores content in a structured way. When switching from or to Unlayer, content in existing templates and draft campaigns will get lost.') }}
+        </x-mailcoach::warning>
     </div>
 </div>

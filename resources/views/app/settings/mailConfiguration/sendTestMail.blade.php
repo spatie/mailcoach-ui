@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['titlePrefix' => __('Send test mail')])
+@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Send Test')])
 
 @section('breadcrumbs')
     <li>
@@ -10,18 +10,14 @@
 @endsection
 
 @section('mailConfiguration')
-    <form class="flex items-end justify-start" method="POST">
+    <form class="form-grid" method="POST">
         @csrf
-        <div class="flex-grow max-w-lg">
-            <x-mailcoach::text-field :placeholder="__('From Email')" :label="__('From Email')" name="from_email" type="email" :value="auth()->user()->email"/>
-        </div>
+        <x-mailcoach::text-field :placeholder="__('From Email')" :label="__('From Email')" name="from_email" type="email" :value="auth()->user()->email"/>
 
-        <div class="flex-grow max-w-lg ml-2">
-            <x-mailcoach::text-field :placeholder="__('To Email')" :label="__('To Email')" name="to_email" type="email"/>
-        </div>
+        <x-mailcoach::text-field :placeholder="__('To Email')" :label="__('To Email')" name="to_email" type="email"/>
 
-        <button type="submit" class="ml-2 button">
-            <x-mailcoach::icon-label icon="fa-paper-plane" :text="__('Send test mail')" />
-        </button>
+        <div class="form-buttons">
+            <x-mailcoach::button :label="__('Send Test Mail')" />
+        </div>
     </form>
 @endsection

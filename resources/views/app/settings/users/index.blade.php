@@ -1,21 +1,10 @@
-@extends('mailcoach::app.layouts.app', ['title' => __('Users')])
+@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => __('Users')])
 
-@section('header')
-<nav class="breadcrumbs">
-    <ul>
-        <li>
-            {{ __('Users') }}
-        </li>
-    </ul>
-</nav>
-@endsection
-
-@section('content')
-    <section class="card">
+@section('configuration')
+    <h1 class="markup-h1">{{ __('Users') }}</h1>
+    
         <div class="table-actions">
-            <button class="button" data-modal-trigger="create-user">
-                <x-mailcoach::icon-label icon="fa-user" :text="__('Create new user')" />
-            </button>
+            <x-mailcoach::button dataModalTrigger="create-user" :label="__('Create new user')" />
 
             <x-mailcoach::modal title="Create user" name="create-user" :open="$errors->any()">
                 @include('mailcoach-ui::app.settings.users.partials.create')
@@ -52,7 +41,7 @@
                             <ul class="dropdown-list dropdown-list-left | hidden" data-dropdown-list>
                                 <li>
                                     <x-mailcoach::form-button :action="route('users.delete', $user)" method="DELETE" data-confirm>
-                                        <x-mailcoach::icon-label icon="fa-trash-alt" :text="__('Delete')" :caution="true" />
+                                        <x-mailcoach::icon-label icon="far fa-trash-alt" :text="__('Delete')" :caution="true" />
                                     </x-mailcoach::form-button>
                                 </li>
                             </ul>

@@ -1,12 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.configuration')
-
-@section('header')
-    <nav>
-        <ul class="breadcrumbs">
-            <li>{{ __('App') }}</li>
-        </ul>
-    </nav>
-@endsection
+@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => __('App')])
 
 @section('configuration')
     <h1 class="markup-h1">{{ __('App') }}</h1>
@@ -30,7 +22,7 @@
         />
 
         <div class="form-buttons">
-            <x-mailcoach::submit-button :label="__('Save')"/>
+            <x-mailcoach::button :label="__('Save')"/>
         </div>
     </form>
 @endsection

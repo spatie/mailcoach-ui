@@ -51,9 +51,7 @@
         <x-mailcoach::text-field :label="__('Default from mail')" name="default_from_mail" type="text" :value="$mailConfiguration->default_from_mail"/>
 
         <div class="form-buttons">
-            <button class="button">
-                <x-mailcoach::icon-label icon="fa-server" :text="__('Save configuration')" />
-            </button>
+            <x-mailcoach::button :label="__('Save configuration')" />
         </div>
     </form>
 @endsection

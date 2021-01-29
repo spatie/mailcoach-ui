@@ -1,8 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.account')
-
-@section('breadcrumbs')
-    <li>{{ __('Account') }}</li>
-@endsection
+@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('User Details')])
 
 @section('account')
     <h1 class="markup-h1">{{ __('User Details') }}</h1>
@@ -19,7 +15,7 @@
         <x-mailcoach::text-field :label="__('Name')" name="name" :value="$user->name" required />
 
         <div class="form-buttons">
-            <x-mailcoach::submit-button :label="__('Save user')" />
+            <x-mailcoach::button :label="__('Save user')" />
         </div>
     </form>
 @endsection

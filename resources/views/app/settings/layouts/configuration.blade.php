@@ -1,14 +1,4 @@
-@extends('mailcoach::app.layouts.app', [
-    'title' => isset($titlePrefix) ?  $titlePrefix . ' | ' . __('Configuration') : __('Configuration')
-])
-
-@section('header')
-    <nav>
-        <ul class="breadcrumbs">
-            @yield('breadcrumbs')
-        </ul>
-    </nav>
-@endsection
+@extends('mailcoach::app.layouts.app')
 
 @section('content')
     <x-mailcoach::card>
