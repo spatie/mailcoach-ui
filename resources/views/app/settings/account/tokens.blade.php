@@ -1,15 +1,7 @@
-@extends('mailcoach-ui::app.settings.account.layouts.account', ['titlePrefix' => __('Tokens')])
-
-@section('breadcrumbs')
-    <li>
-        <a href="{{ route('account') }}">
-            {{ __('Account') }}
-        </a>
-    </li>
-    <li>{{ __('Tokens') }}</li>
-@endsection
+@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('Tokens')])
 
 @section('account')
+    <h1 class="markup-h1">{{ __('Tokens') }}</h1>
 
     <form class="mb-6"
           action="{{ route('tokens.create') }}"
@@ -19,7 +11,7 @@
         @csrf
 
         <div class="flex items-end">
-            <div class="flex-grow max-w-xl">
+            <div class="flex-grow max-w-xl mr-2">
                 <x-mailcoach::text-field
                     :label="__('Token name')"
                     name="name"
@@ -30,15 +22,19 @@
                 />
             </div>
 
-            <button type="submit" class="ml-2 button">
-                <x-mailcoach::icon-label icon="fa-key" :text="__('Create token')"/>
-            </button>
+            <x-mailcoach::submit-button :label="__('Create token')"/>
         </div>
 
         @error('emails')
         <p class="form-error">{{ $message }}</p>
         @enderror
+
     </form>
+        
+        <x-mailcoach::help>
+        You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
+            href="https://mailcoach.app/docs">our docs</a>.
+    </x-mailcoach::help>
 
     @if (session()->has('newToken'))
         @push('modals')
@@ -53,10 +49,10 @@
 
                 <div class="form-buttons justify-end">
                     <div>
-                    <span class="underline text-sm mr-4" onclick="copyToClipboard(this, '{{ session()->get('newToken') }}')">Copy to clipboard</span>
-                    <button type="button" class="button" data-modal-dismiss>
-                        {{ __('OK') }}
-                    </button>
+                        <span class="cursor-pointer underline text-sm mr-4" onclick="copyToClipboard(this, '{{ session()->get('newToken') }}')">Copy to clipboard</span>
+                        <button type="button" class="button" data-modal-dismiss>
+                            {{ __('OK') }}
+                        </button>
                     </div>
                 </div>
             </x-mailcoach::modal>
@@ -77,7 +73,7 @@
     @endif
 
     @if (count($tokens))
-        <table class="table mb-6">
+        <table class="table mt-8">
             <thead>
             <tr>
                 <x-mailcoach::th>{{ __('Name') }}</x-mailcoach::th>
@@ -111,8 +107,5 @@
         </table>
     @endif
 
-    <x-mailcoach::help>
-        You can use tokens to authenticate against our the Mailcoach. You'll find more info in <a
-            href="https://mailcoach.app/docs">our docs</a>.
-    </x-mailcoach::help>
+   
 @endsection

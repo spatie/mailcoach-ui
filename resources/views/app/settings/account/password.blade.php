@@ -1,15 +1,8 @@
-@extends('mailcoach-ui::app.settings.account.layouts.account', ['titlePrefix' => __('Password')])
-
-@section('breadcrumbs')
-    <li>
-        <a href="{{ route('account') }}">
-            {{ __('Account') }}
-        </a>
-    </li>
-    <li>{{ __('Password') }}</li>
-@endsection
+@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('Password')])
 
 @section('account')
+    <h1 class="markup-h1">{{ __('Password') }}</h1>
+
     <form
         class="form-grid"
         action="{{ route('password') }}"
@@ -23,9 +16,7 @@
         <x-mailcoach::text-field :label="__('Confirm new password')" name="password_confirmation" type="password" required />
 
         <div class="form-buttons">
-            <button type="submit" class="button">
-                <x-mailcoach::icon-label icon="fa-lock" :text="__('Update password')" />
-            </button>
+            <x-mailcoach::submit-button :label="__('Update password')" />
         </div>
     </form>
 @endsection
