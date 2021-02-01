@@ -29,15 +29,14 @@
         <div class="min-h-screen flex flex-col p-6">
             <div class="flex-grow flex items-center justify-center">
                 <div class="w-full max-w-md">
-                    <div class="flex justify-center -mb-8 z-10">
-                        <a href="/" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
+                    <div class="flex justify-center -mb-4 z-10">
+                        <a href="{{ route('login') }}" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
                             <span class="w-10 h-10 transform group-hover:scale-90 transition-transform duration-150">
                                 @include('mailcoach::app.layouts.partials.logoSvg')
                             </span>
                         </a>
                     </div>
                     <x-mailcoach::card>
-
                         @yield('content')
                     </x-mailcoach::card>
                 </div>

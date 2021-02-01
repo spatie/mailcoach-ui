@@ -1,6 +1,8 @@
-@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Forgot password?')])
+@extends('mailcoach-ui::auth.layouts.auth', ['title' => __('Forgot password?')])
 
 @section('content')
+    <h1 class="markup-h1">{{ __('Forgot password?') }}</h1>
+
     <form class="form-grid" method="POST" action="{{ route('password.email') }}">
         @csrf
 
@@ -18,12 +20,7 @@
         </div>
 
         <div class="form-buttons">
-            <button type="submit" class="button">
-                <span class="icon-label">
-                    <i class="fas fa-envelope"></i>
-                    <span class="icon-label-text">{{ __('Send password reset link') }}</span>
-                </span>
-            </button>
+            <x-mailcoach::button :label="__('Send password reset link')" />
         </div>
     </form>
 @endsection

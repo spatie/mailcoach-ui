@@ -1,6 +1,8 @@
-@extends('mailcoach-ui::auth.layouts.master')
+@extends('mailcoach-ui::auth.layouts.auth')
 
 @section('content')
+    <h1 class="markup-h1">{{ __('Register') }}</h1>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
