@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Mail configuration')])
+@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional Mail Driver')])
 
 @section('mailConfiguration')
     <form

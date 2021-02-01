@@ -22,42 +22,24 @@
 
     <script type="text/javascript" src="{{ asset('vendor/mailcoach/app.js') }}" defer></script>
 </head>
-<body class="bg-blue-100">
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-0 bg-blue-900 overflow-hidden"
-        style="border-bottom-left-radius: 40vw 10px; border-bottom-right-radius: 60vw 35px; height: 52vh; width: 110%; left: -5%;">
-            <div class="absolute inset-0"
-                style="opacity: .1;">
-                <img loading="eager"
-                class="absolute w-full h-full"
-                srcset="{{ asset('images/banner-3000.jpg') }} 3000w,
-                {{ asset('images/banner-2000.jpg') }} 2000w,
-                {{ asset('images/banner-1000.jpg') }} 1000w"
-                sizes="100vw"
-                src="{{ asset('images/banner-3000.jpg') }}"
-                style="object-fit: cover; object-position: center right;"
-                alt="">
-            </div>
-        </div>
-    </div>
-
-
+<body class="bg-gray-100">
     <div id="app">
         @include('mailcoach::app.layouts.partials.flash')
 
         <div class="min-h-screen flex flex-col p-6">
             <div class="flex-grow flex items-center justify-center">
-                <div class="w-full max-w-lg">
-                    <div class="grid grid-cols-auto-1fr mb-8 text-white">
-                        <a href="{{ route('mailcoach.home') }}" class="opacity-50 h-8 mr-1 | hover:opacity-75">
-                            @include('mailcoach::app.layouts.partials.logoSvg')
+                <div class="w-full max-w-md">
+                    <div class="flex justify-center -mb-8 z-10">
+                        <a href="/" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
+                            <span class="w-10 h-10 transform group-hover:scale-90 transition-transform duration-150">
+                                @include('mailcoach::app.layouts.partials.logoSvg')
+                            </span>
                         </a>
-                        @yield('breadcrumbs')
                     </div>
+                    <x-mailcoach::card>
 
-                    <div class="card shadow-2xl">
                         @yield('content')
-                    </div>
+                    </x-mailcoach::card>
                 </div>
             </div>
             @include('mailcoach::app.layouts.partials.footer')
