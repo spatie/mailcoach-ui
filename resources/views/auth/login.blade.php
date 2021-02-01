@@ -1,13 +1,5 @@
 @extends('mailcoach-ui::auth.layouts.master', ['title' => __('Log in')])
 
-@section('breadcrumbs')
-    <ul class="breadcrumbs">
-        <li>
-            <span class="breadcrumb"> {{ __('Log in') }}</span>
-        </li>
-    </ul>
-@endsection
-
 @section('content')
     <form class="form-grid" method="POST" action="{{ route('login') }}">
         @csrf

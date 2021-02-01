@@ -1,16 +1,5 @@
 @extends('mailcoach-ui::auth.layouts.master', ['title' => __('Forgot password?')])
 
-@section('breadcrumbs')
-    <ul class="breadcrumbs">
-        <li>
-            <a class="breadcrumb" href="{{ route('login') }}"> {{ __('Log in') }}</a>
-        </li>
-        <li>
-            <span class="breadcrumb"> {{ __('Forgot password?') }}</span>
-        </li>
-    </ul>
-@endsection
-
 @section('content')
     <form class="form-grid" method="POST" action="{{ route('password.email') }}">
         @csrf

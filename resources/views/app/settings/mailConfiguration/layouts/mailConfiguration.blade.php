@@ -4,10 +4,10 @@
     <nav class="tabs">
         <ul>
             <x-mailcoach::navigation-item :href="route('mailConfiguration')">
-                {{ __('Mail Configuration') }}
+                {{ __('Campaigns') }}
             </x-mailcoach::navigation-item>
-            <x-mailcoach::navigation-item :href="route('sendTestMail')">
-                {{ __('Send Test') }}
+            <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
+                {{ __('Transactional Mails') }}
             </x-mailcoach::navigation-item>
         </ul>
     </nav>

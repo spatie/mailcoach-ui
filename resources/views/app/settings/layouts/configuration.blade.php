@@ -13,11 +13,7 @@
                 </x-mailcoach::navigation-item>
             
                 <x-mailcoach::navigation-item :href="route('mailConfiguration')">
-                    {{ __('Mail') }}
-                </x-mailcoach::navigation-item>
-            
-                <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
-                    {{ __('Transactional Mail') }}
+                    {{ __('Mail Drivers') }}
                 </x-mailcoach::navigation-item>
             
                 <x-mailcoach::navigation-item :href="route('editor')">

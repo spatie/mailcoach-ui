@@ -1,16 +1,5 @@
 @extends('mailcoach-ui::auth.layouts.master', ['title' => __('Reset Password')])
 
-@section('breadcrumbs')
-    <ul class="breadcrumbs">
-        <li>
-            <a class="breadcrumb" href="{{ route('login') }}"> {{ __('Log in') }}</a>
-        </li>
-        <li>
-            <span class="breadcrumb"> {{ __('Reset Password') }}</span>
-        </li>
-    </ul>
-@endsection
-
 @section('content')
     <form class="form-grid" method="POST" action="{{ route('password.update') }}">
         @csrf

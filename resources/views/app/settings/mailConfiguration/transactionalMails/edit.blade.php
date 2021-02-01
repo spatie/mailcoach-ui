@@ -1,8 +1,4 @@
-@extends('mailcoach-ui::app.settings.transactionalMailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional Mail Configuration')])
-
-@section('breadcrumbs')
-    <li>{{ __('Transactional mail configuration') }}</li>
-@endsection
+@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Mail configuration')])
 
 @section('mailConfiguration')
     <form
@@ -16,7 +12,7 @@
 
         @if(! $mailConfiguration->isValid())
             <x-mailcoach::warning>
-                {{ __("You haven't configured a transactional mailer yet. Mailcoach will send confirmation mails and welcome mails using the regular mailer.") }}
+                {{ __("You haven't configured a transactional driver yet. Mailcoach will send confirmation mails and welcome mails using the campaign driver.") }}
             </x-mailcoach::warning>
         @endif
 
@@ -35,31 +31,39 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.ses')
+            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.mailgun')
+            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.sendgrid')
+            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.postmark')
+            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('mailcoach-ui::app.settings.transactionalMailConfiguration.partials.smtp')
+            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.smtp')
         </div>
 
         <div class="form-buttons">
             <x-mailcoach::button :label="__('Save configuration')"/>
+            @if($mailConfiguration->isValid())
+                <x-mailcoach::button type="button" :secondary="true" dataModalTrigger="send-test" :label="__('Send Test')" />
+            @endif
         </div>
     </form>
 
     @if($mailConfiguration->isValid())
+
+    <x-mailcoach::modal title="Send Test" name="send-test">
+        @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.sendTestMail')
+    </x-mailcoach::modal>
+
         <form
             class="mt-8"
             action="{{ route('deleteTransactionalMailConfiguration') }}"
