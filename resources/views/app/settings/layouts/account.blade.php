@@ -1,13 +1,5 @@
 @extends('mailcoach::app.layouts.app')
 
-@section('header')
-    <nav>
-        <ul class="breadcrumbs">
-            @yield('breadcrumbs')
-        </ul>
-    </nav>
-@endsection
-
 @section('content')
     <x-mailcoach::card>
         <x-slot name="nav">

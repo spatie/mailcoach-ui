@@ -24,7 +24,6 @@
 </head>
 <body class="bg-gray-100">
     <div id="app">
-        @include('mailcoach::app.layouts.partials.flash')
 
         <div class="min-h-screen flex flex-col p-6">
             <div class="flex-grow flex items-center justify-center">
@@ -37,6 +36,8 @@
                         </a>
                     </div>
                     <x-mailcoach::card>
+                        @include('mailcoach::app.layouts.partials.flash')
+                        
                         @yield('content')
                     </x-mailcoach::card>
                 </div>
