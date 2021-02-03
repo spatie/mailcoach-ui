@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => $user->name])
+@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => $user->name])
 
 @section('configuration')
     <h1 class="markup-h1">{{ $user->name }}</h1>

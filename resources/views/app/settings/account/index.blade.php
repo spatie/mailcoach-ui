@@ -1,6 +1,6 @@
-@extends('mailcoach-ui::app.settings.layouts.account', ['title' => __('User Details')])
+@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => __('User Details')])
 
-@section('account')
+@section('main')
     <h1 class="markup-h1">{{ __('User Details') }}</h1>
     
     <form

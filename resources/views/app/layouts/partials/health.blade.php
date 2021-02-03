@@ -1,5 +1,5 @@
 @if ((! $mailConfigurationValid && ! request()->routeIs('mailConfiguration')) || ! $horizonActive || ! $queueConfig)
-    <div class="alert alert-error shadow-lg mt-8">
+    <div class="alert alert-error shadow-lg mb-6">
         <div class="max-w-layout mx-auto grid gap-1">
             @if (! request()->routeIs('mailConfiguration'))
                 @if(! $mailConfigurationValid)

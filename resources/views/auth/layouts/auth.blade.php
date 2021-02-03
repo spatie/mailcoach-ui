@@ -35,11 +35,13 @@
                             </span>
                         </a>
                     </div>
-                    <x-mailcoach::card>
-                        @include('mailcoach::app.layouts.partials.flash')
-                        
-                        @yield('content')
-                    </x-mailcoach::card>
+                    <div class="card">
+                        <div class="card-main">
+                            @include('mailcoach::app.layouts.partials.flash')
+                            
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
             </div>
             @include('mailcoach::app.layouts.partials.footer')

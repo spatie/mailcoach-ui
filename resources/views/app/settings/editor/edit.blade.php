@@ -1,6 +1,6 @@
-@extends('mailcoach-ui::app.settings.layouts.configuration', ['title' => __('Editor')])
+@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => __('Editor')])
 
-@section('configuration')
+@section('main')
     <h1 class="markup-h1">{{ __('Editor') }}</h1>
         <form
             class="form-grid"

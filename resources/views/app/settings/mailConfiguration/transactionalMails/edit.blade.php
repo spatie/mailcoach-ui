@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.mailConfiguration.layouts.mailConfiguration', ['title' => __('Transactional Mail Driver')])
+@extends('mailcoach-ui::app.settings.layouts.mailConfiguration', ['title' => __('Transactional Mail Driver')])
 
 @section('mailConfiguration')
     <form
@@ -53,7 +53,7 @@
         <div class="form-buttons">
             <x-mailcoach::button :label="__('Save configuration')"/>
             @if($mailConfiguration->isValid())
-                <x-mailcoach::button type="button" :secondary="true" dataModalTrigger="send-test" :label="__('Send Test')" />
+                <x-mailcoach::button-secondary data-modal-trigger="send-test" :label="__('Send Test')" />
             @endif
         </div>
     </form>
