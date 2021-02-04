@@ -1,11 +1,11 @@
-@extends('mailcoach::app.layouts.main', ['logoIcon' => 'far fa-cog'])
+@extends('mailcoach::app.layouts.main', ['title' => $title  . ' | Settings' , 'logoIcon' => 'far fa-cog'])
 
 @section('up')
     <x-mailcoach::navigation-back :href="route('mailcoach.home')" :label="__('Back to App')"/>
 @endsection
 
 @section('nav')
-    <x-mailcoach::navigation>
+    <x-mailcoach::navigation deep>
         <x-mailcoach::navigation-group icon="fas fa-user" :title="__('Account')">
             <x-mailcoach::navigation-item :href="route('account')">
                 {{ __('User details') }}
