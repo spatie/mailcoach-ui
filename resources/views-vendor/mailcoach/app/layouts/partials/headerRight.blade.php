@@ -1,5 +1,5 @@
 <ul class="navigation">
     <x-mailcoach::navigation-item :href="route('account')">
-        <x-mailcoach::icon-label icon="fas fa-fw fa-cog" />
+        <i class="fas fa-cog"></i>
     </x-mailcoach::navigation-item>
 </ul>

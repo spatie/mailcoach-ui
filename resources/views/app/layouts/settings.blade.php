@@ -1,7 +1,7 @@
 @extends('mailcoach::app.layouts.main')
 
 @section('up')
-    <x-mailcoach::navigation-back :href="route('mailcoach.campaigns')" :label="__('To the app')"/>
+    <x-mailcoach::navigation-back :href="route('mailcoach.home')" :label="__('Back to App')"/>
 @endsection
 
 @section('nav')

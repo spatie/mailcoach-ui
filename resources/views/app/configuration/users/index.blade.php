@@ -34,18 +34,15 @@
                     <td>{{ $user->name }}</td>
                     <td class="td-action">
                         @if ($user->id !== auth()->user()->id)
-                        <div class="dropdown" data-dropdown>
-                            <button class="icon-button" data-dropdown-trigger>
-                                <i class="fas fa-ellipsis-v | dropdown-trigger-rotate"></i>
-                            </button>
-                            <ul class="dropdown-list dropdown-list-left | hidden" data-dropdown-list>
+                        <x-mailcoach::dropdown direction="left">
+                            <ul>
                                 <li>
                                     <x-mailcoach::form-button :action="route('users.delete', $user)" method="DELETE" data-confirm>
                                         <x-mailcoach::icon-label icon="far fa-trash-alt" :text="__('Delete')" :caution="true" />
                                     </x-mailcoach::form-button>
                                 </li>
                             </ul>
-                        </div>
+                        </x-mailcoach::dropdown>
                         @endif
                     </td>
                 </tr>
