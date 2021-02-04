@@ -6,7 +6,7 @@
             {{ __('Campaigns') }}
         </x-mailcoach::navigation-item>
         <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
-            {{ __('Transactional Mails') }}
+            {{ __('Transactional Mail') }}
         </x-mailcoach::navigation-item>
     </x-mailcoach::navigation-tabs>
 

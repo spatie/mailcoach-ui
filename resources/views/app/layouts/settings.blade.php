@@ -36,7 +36,7 @@
             </x-mailcoach::navigation-item>
         
             <x-mailcoach::navigation-item :href="route('mailConfiguration')">
-                {{ __('Mail Drivers') }}
+                {{ __('Mail') }}
             </x-mailcoach::navigation-item>
         
             <x-mailcoach::navigation-item :href="route('editor')">
