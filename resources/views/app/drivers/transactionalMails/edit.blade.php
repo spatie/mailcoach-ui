@@ -1,6 +1,7 @@
-@extends('mailcoach-ui::app.configuration.mail.layouts.mail', ['title' => __('Transactional Mail Driver')])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Transactional Mail')])
 
-@section('mailConfiguration')
+@section('main')
+    <h1 class="markup-h1">{{ __('Transactional Mail') }}</h1>
     <form
         class="form-grid"
         action="{{ route('transactionalMailConfiguration') }}"
@@ -31,23 +32,23 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.ses')
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.mailgun')
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.sendgrid')
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.postmark')
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.smtp')
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.smtp')
         </div>
 
         <div class="form-buttons">
@@ -61,7 +62,7 @@
     @if($mailConfiguration->isValid())
 
     <x-mailcoach::modal title="Send Test" name="send-test">
-        @include('mailcoach-ui::app.configuration.mail.campaigns.partials.sendTestMail')
+        @include('mailcoach-ui::app.drivers.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>
 
         <form

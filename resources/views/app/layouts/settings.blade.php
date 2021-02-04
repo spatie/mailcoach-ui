@@ -1,4 +1,4 @@
-@extends('mailcoach::app.layouts.main')
+@extends('mailcoach::app.layouts.main', ['logoIcon' => 'far fa-cog'])
 
 @section('up')
     <x-mailcoach::navigation-back :href="route('mailcoach.home')" :label="__('Back to App')"/>
@@ -30,17 +30,24 @@
             <x-mailcoach::navigation-item :href="route('appConfiguration')">
                 {{__('App') }}
             </x-mailcoach::navigation-item>
-            
+
+            <x-mailcoach::navigation-item :href="route('editor')">
+                {{ __('Editor') }}
+            </x-mailcoach::navigation-item>
+
             <x-mailcoach::navigation-item :href="route('users')">
                 {{ __('Users') }}
             </x-mailcoach::navigation-item>
-        
+
+        </x-mailcoach::navigation-group>
+
+        <x-mailcoach::navigation-group icon="far fa-server" :title="__('Drivers')">
             <x-mailcoach::navigation-item :href="route('mailConfiguration')">
-                {{ __('Mail') }}
+                {{ __('Campaigns') }}
             </x-mailcoach::navigation-item>
-        
-            <x-mailcoach::navigation-item :href="route('editor')">
-                {{ __('Editor') }}
+           
+            <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
+                {{ __('Transactional Mail') }}
             </x-mailcoach::navigation-item>
 
         </x-mailcoach::navigation-group>
