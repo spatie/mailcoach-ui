@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.mailConfiguration', ['title' => __('Campaigns Driver')])
+@extends('mailcoach-ui::app.configuration.mail.layouts.mail', ['title' => __('Campaigns Driver')])
 
 @section('mailConfiguration')
     <form
@@ -25,23 +25,23 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.ses')
+            @include('mailcoach-ui::app.configuration.mail.campaigns.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.mailgun')
+            @include('mailcoach-ui::app.configuration.mail.campaigns.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.sendgrid')
+            @include('mailcoach-ui::app.configuration.mail.campaigns.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.postmark')
+            @include('mailcoach-ui::app.configuration.mail.campaigns.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.smtp')
+            @include('mailcoach-ui::app.configuration.mail.campaigns.partials.smtp')
         </div>
 
         <x-mailcoach::text-field :label="__('Default from mail')" name="default_from_mail" type="text" :value="$mailConfiguration->default_from_mail"/>
@@ -54,6 +54,6 @@
     </form>
     
     <x-mailcoach::modal title="Send Test" name="send-test">
-        @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.sendTestMail')
+        @include('mailcoach-ui::app.configuration.mail.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>
 @endsection

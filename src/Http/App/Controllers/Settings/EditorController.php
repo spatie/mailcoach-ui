@@ -11,7 +11,7 @@ class EditorController
 {
     public function edit(EditorConfiguration $editorConfiguration)
     {
-        return view('mailcoach-ui::app.settings.editor.edit', compact('editorConfiguration'));
+        return view('mailcoach-ui::app.configuration.editor.edit', compact('editorConfiguration'));
     }
 
     public function update(UpdateEditorRequest $request, EditorConfiguration $editorConfiguration)

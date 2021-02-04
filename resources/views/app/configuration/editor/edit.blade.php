@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => __('Editor')])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Editor')])
 
 @section('main')
     <h1 class="markup-h1">{{ __('Editor') }}</h1>
@@ -19,15 +19,15 @@
             />
 
             <div class="form-grid" data-conditional-editor="Textarea">
-                @include('mailcoach-ui::app.settings.editor.partials.textarea')
+                @include('mailcoach-ui::app.configuration.editor.partials.textarea')
             </div>
 
             <div class="form-grid" data-conditional-editor="Unlayer">
-                @include('mailcoach-ui::app.settings.editor.partials.unlayer')
+                @include('mailcoach-ui::app.configuration.editor.partials.unlayer')
             </div>
 
             <div class="form-grid" data-conditional-editor="Monaco">
-                @include('mailcoach-ui::app.settings.editor.partials.monaco')
+                @include('mailcoach-ui::app.configuration.editor.partials.monaco')
             </div>
 
             <div class="form-buttons">

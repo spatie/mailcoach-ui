@@ -1,13 +1,13 @@
-@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => __('Users')])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Users')])
 
-@section('configuration')
+@section('main')
     <h1 class="markup-h1">{{ __('Users') }}</h1>
     
         <div class="table-actions">
             <x-mailcoach::button data-modal-trigger="create-user" :label="__('Create new user')" />
 
             <x-mailcoach::modal title="Create user" name="create-user" :open="$errors->any()">
-                @include('mailcoach-ui::app.settings.users.partials.create')
+                @include('mailcoach-ui::app.configuration.users.partials.create')
             </x-mailcoach::modal>
 
             <div class=table-filters>

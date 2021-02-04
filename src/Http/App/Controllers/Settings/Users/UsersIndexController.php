@@ -9,7 +9,7 @@ class UsersIndexController
 {
     public function __invoke(UsersQuery $usersQuery)
     {
-        return view('mailcoach-ui::app.settings.users.index', [
+        return view('mailcoach-ui::app.configuration.users.index', [
             'users' => $usersQuery->paginate(),
             'totalUsersCount' => User::count(),
         ]);

@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.mailConfiguration', ['title' => __('Transactional Mail Driver')])
+@extends('mailcoach-ui::app.configuration.mail.layouts.mail', ['title' => __('Transactional Mail Driver')])
 
 @section('mailConfiguration')
     <form
@@ -31,23 +31,23 @@
         />
 
         <div class="form-grid" data-conditional-driver="ses">
-            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.ses')
+            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.ses')
         </div>
 
         <div class="form-grid" data-conditional-driver="mailgun">
-            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.mailgun')
+            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.mailgun')
         </div>
 
         <div class="form-grid" data-conditional-driver="sendgrid">
-            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.sendgrid')
+            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.sendgrid')
         </div>
 
         <div class="form-grid" data-conditional-driver="postmark">
-            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.postmark')
+            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.postmark')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
-            @include('mailcoach-ui::app.settings.mailConfiguration.transactionalMails.partials.smtp')
+            @include('mailcoach-ui::app.configuration.mail.transactionalMails.partials.smtp')
         </div>
 
         <div class="form-buttons">
@@ -61,7 +61,7 @@
     @if($mailConfiguration->isValid())
 
     <x-mailcoach::modal title="Send Test" name="send-test">
-        @include('mailcoach-ui::app.settings.mailConfiguration.campaigns.partials.sendTestMail')
+        @include('mailcoach-ui::app.configuration.mail.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>
 
         <form

@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.settings.layouts.settings', ['title' => __('API Tokens')])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => __('API Tokens')])
 
 @section('main')
     <h1 class="markup-h1">{{ __('API Tokens') }}</h1>
