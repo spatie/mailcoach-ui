@@ -1,4 +1,4 @@
-@extends('mailcoach::app.layouts.app', ['title' => $title  . ' | Settings'])
+@extends('mailcoach::app.layouts.app', ['subTitle' => $subTitle ?? __("Settings")])
 
 @section('nav')
     <x-mailcoach::navigation :title="__('Mailcoach Settings')" :backHref="route('mailcoach.home')" :backLabel="__('Back')">
@@ -22,7 +22,7 @@
             </li>
         </x-mailcoach::navigation-group>
 
-        <x-mailcoach::navigation-group icon="far fa-cogs" :title="__('Configuration')">
+        <x-mailcoach::navigation-group icon="fas fa-cogs" :title="__('Configuration')">
             <x-mailcoach::navigation-item :href="route('appConfiguration')">
                 {{__('App') }}
             </x-mailcoach::navigation-item>
@@ -37,7 +37,7 @@
 
         </x-mailcoach::navigation-group>
 
-        <x-mailcoach::navigation-group icon="far fa-server" :title="__('Drivers')">
+        <x-mailcoach::navigation-group icon="fas fa-server" :title="__('Drivers')">
             <x-mailcoach::navigation-item :href="route('mailConfiguration')">
                 {{ __('Campaigns') }}
             </x-mailcoach::navigation-item>
@@ -50,10 +50,6 @@
     </x-mailcoach::navigation>    
 @endsection
 
-@section('content')
-        <h1 class="markup-h1">
-            <div class="markup-h1-small">{{ __('Mailcoach Settings') }}</div>
-            {{ $title }}
-        </h1>
-        @yield('settings')
+@section('app')
+    @yield('settings')
 @endsection

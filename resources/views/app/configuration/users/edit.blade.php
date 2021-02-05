@@ -1,4 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => $user->name])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => $user->name, 'subTitle' => __('Users')])
 
 @section('settings')
     <form class="form-grid" action="{{ route('users.edit', $user) }}" method="POST">

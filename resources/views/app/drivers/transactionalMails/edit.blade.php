@@ -74,7 +74,7 @@
             @method('DELETE')
             <div class="form-buttons">
                 <button class="text-red-400 hover:text-red-500">
-                    <x-mailcoach::icon-label caution="true" icon="far fa-trash" :text="__('Delete configuration')"/>
+                    <x-mailcoach::icon-label caution="true" icon="far fa-trash-alt" :text="__('Delete configuration')"/>
                 </button>
             </div>
         </form>
