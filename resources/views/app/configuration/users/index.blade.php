@@ -1,8 +1,6 @@
 @extends('mailcoach-ui::app.layouts.settings', ['title' => __('Users')])
 
-@section('main')
-    <h1 class="markup-h1">{{ __('Users') }}</h1>
-    
+@section('settings')    
     <div class="table-actions">
         <x-mailcoach::button data-modal-trigger="create-user" :label="__('Create new user')" />
 

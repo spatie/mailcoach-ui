@@ -1,9 +1,7 @@
 @extends('mailcoach-ui::app.layouts.settings', ['title' => __('API Tokens')])
 
-@section('main')
-    <h1 class="markup-h1">{{ __('API Tokens') }}</h1>
-
- <x-mailcoach::help>
+@section('settings')
+    <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://mailcoach.app/docs">our docs</a>.
     </x-mailcoach::help>

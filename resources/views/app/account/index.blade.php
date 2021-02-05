@@ -1,8 +1,6 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('User Details')])
+@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Profile')])
 
-@section('main')
-    <h1 class="markup-h1">{{ __('User Details') }}</h1>
-    
+@section('settings')
     <form
         class="form-grid"
         action="{{ route('account') }}"

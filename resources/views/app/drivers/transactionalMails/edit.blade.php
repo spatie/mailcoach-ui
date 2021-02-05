@@ -1,7 +1,6 @@
 @extends('mailcoach-ui::app.layouts.settings', ['title' => __('Transactional Mail')])
 
-@section('main')
-    <h1 class="markup-h1">{{ __('Transactional Mail') }}</h1>
+@section('settings')
     <form
         class="form-grid"
         action="{{ route('transactionalMailConfiguration') }}"
