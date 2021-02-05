@@ -1,4 +1,4 @@
-@extends('mailcoach::app.layouts.app', ['subTitle' => $subTitle ?? __("Settings")])
+@extends('mailcoach::app.layouts.app', ['originTitle' => $originTitle ?? __("Settings")])
 
 @section('nav')
     <x-mailcoach::navigation :title="__('Mailcoach Settings')" :backHref="route('mailcoach.home')" :backLabel="__('Back')">
