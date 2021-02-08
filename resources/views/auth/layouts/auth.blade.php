@@ -24,9 +24,9 @@
 </head>
 <body class="bg-gray-100">
     <div id="app">
-
-        <div class="min-h-screen flex flex-col p-6">
-            <div class="flex-grow flex items-center justify-center">
+        <div class="min-h-screen flex flex-col">
+            <div class="flex-grow flex items-center justify-center mx-12 my-4">
+                @include('mailcoach::app.layouts.partials.flash')
                 <div class="w-full max-w-md">
                     <div class="flex justify-center -mb-4 z-10">
                         <a href="{{ route('login') }}" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
@@ -37,7 +37,6 @@
                     </div>
                     <div class="card">
                         <div class="card-main">
-                            @include('mailcoach::app.layouts.partials.flash')
                             
                             @yield('content')
                         </div>
