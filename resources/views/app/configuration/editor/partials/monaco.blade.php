@@ -15,23 +15,25 @@
     :value="$editorConfiguration->monaco_font_family ?? 'Courier New, Courier, monospace'"
 />
 
-<x-mailcoach::text-field
-    :label="__('Font size')"
-    name="monaco_font_size"
-    :value="$editorConfiguration->monaco_font_size ?? 16"
-    type="number"
-/>
+<div class="form-row">
+    <x-mailcoach::text-field
+        :label="__('Font size')"
+        name="monaco_font_size"
+        :value="$editorConfiguration->monaco_font_size ?? 16"
+        type="number"
+    />
 
-<x-mailcoach::text-field
-    :label="__('Font weight')"
-    name="monaco_font_weight"
-    :value="$editorConfiguration->monaco_font_weight ?? 400"
-    type="number"
-/>
+    <x-mailcoach::text-field
+        :label="__('Font weight')"
+        name="monaco_font_weight"
+        :value="$editorConfiguration->monaco_font_weight ?? 400"
+        type="number"
+    />
 
-<x-mailcoach::text-field
-    :label="__('Line height')"
-    name="monaco_line_height"
-    :value="$editorConfiguration->monaco_line_height ?? 18"
-    type="number"
-/>
+    <x-mailcoach::text-field
+        :label="__('Line height')"
+        name="monaco_line_height"
+        :value="$editorConfiguration->monaco_line_height ?? 18"
+        type="number"
+    />
+</div>

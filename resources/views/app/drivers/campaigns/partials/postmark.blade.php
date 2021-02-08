@@ -16,6 +16,7 @@
     name="postmark_mails_per_second"
     type="number"
     :value="$mailConfiguration->postmark_mails_per_second ?? 5"
+    inputClass="input-sm"
 />
 
 <x-mailcoach::text-field

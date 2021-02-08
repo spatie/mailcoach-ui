@@ -12,7 +12,7 @@
             </a>
         </p>
 
-        <div class="form-row">
+        <div class="form-field">
             @error('email')
                 <p class="form-error" role="alert">
                 {{ $message }}
@@ -25,7 +25,7 @@
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             @error('password')
                 <p class="form-error" role="alert">
                 {{ $message }}
@@ -38,7 +38,7 @@
                 name="password" required autocomplete="current-password">
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             <label class="checkbox-label" for="remember">
                 <input class="checkbox" type="checkbox" name="remember" id="remember"
                     {{ old('remember') ? 'checked' : '' }}>

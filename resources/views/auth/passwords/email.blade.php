@@ -6,7 +6,7 @@
     <form class="form-grid" method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <div class="form-row">
+        <div class="form-field">
             @error('email')
                 <p class="form-error" role="alert">
                 {{ $message }}

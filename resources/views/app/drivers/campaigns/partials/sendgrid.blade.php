@@ -11,6 +11,7 @@
     name="sendgrid_mails_per_second"
     type="number"
     :value="$mailConfiguration->sendgrid_mails_per_second ?? 5"
+    inputClass="input-sm"
 />
 
 <x-mailcoach::text-field

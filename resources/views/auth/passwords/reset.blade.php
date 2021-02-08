@@ -8,7 +8,7 @@
 
         <input type="hidden" name="token" value="{{ $token }}">
 
-        <div class="form-row">
+        <div class="form-field">
             <label for="email" class="label">{{ __('Email') }}</label>
 
             <div>
@@ -19,7 +19,7 @@
         <input id="email" type="hidden" class="input @error('email') is-invalid @enderror" name="email"
                 value="{{ $email ?? old('email') }}" required autocomplete="email">
 
-        <div class="form-row">
+        <div class="form-field">
             @error('password')
                 <p class="form-error" role="alert">
                     {{ $message }}
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             <label for="password-confirm"
                     class="label">{{ __('Confirm password') }}</label>
 
