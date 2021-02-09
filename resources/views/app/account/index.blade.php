@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Profile')])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings :title="__('Profile')">
     <form
         class="form-grid"
         action="{{ route('account') }}"
@@ -16,4 +14,4 @@
             <x-mailcoach::button :label="__('Save user')" />
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-settings>

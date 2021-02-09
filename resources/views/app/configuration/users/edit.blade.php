@@ -1,10 +1,8 @@
-@extends('mailcoach-ui::app.layouts.settings', [
-    'title' => $user->name, 
-    'originTitle' => __('Users'),
-    'originHref' => route('users')
-])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings 
+    :title="$user->name" 
+    :originTitle="__('Users')"
+    :originHref="route('users')"
+>
     <form class="form-grid" action="{{ route('users.edit', $user) }}" method="POST">
         @csrf
         @method('PUT')
@@ -17,4 +15,4 @@
             <x-mailcoach::button :label="__('Save user')" />
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-settings>

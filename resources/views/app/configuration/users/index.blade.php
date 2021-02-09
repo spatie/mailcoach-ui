@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Users')])
-
-@section('settings')    
+<x-mailcoach-ui::layout-settings :title="__('Users')">
     <div class="table-actions">
         <x-mailcoach::button data-modal-trigger="create-user" :label="__('Create new user')" />
 
@@ -50,4 +48,4 @@
 
     <x-mailcoach::table-status :name="__('user|users')" :paginator="$users" :total-count="$totalUsersCount" :show-all-url="route('users')">
     </x-mailcoach::table-status>
-@endsection
+</x-mailcoach-ui::layout-settings>

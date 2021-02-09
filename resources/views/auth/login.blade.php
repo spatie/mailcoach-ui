@@ -1,7 +1,5 @@
-@extends('mailcoach-ui::auth.layouts.auth', ['title' => __('Log in')])
-
-@section('content')
-    <h1 class="markup-h1">{{ __('Log in') }}</h1>
+<x-mailcoach-ui::layout-auth :title="__('Log in')">
+    <h1 class="markup-h1">{{ __('Log in to Mailcoach') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('login') }}">
         @csrf
@@ -57,4 +55,4 @@
             @endif
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-app>

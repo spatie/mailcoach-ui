@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::auth.layouts.auth', ['title' => __('Reset Password')])
-
-@section('content')
+<x-mailcoach-ui::layout-auth :title="__('Reset Password')">
     <h1 class="markup-h1">{{ __('Reset Password') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('password.update') }}">
@@ -49,4 +47,4 @@
         </div>
 
     </form>
-@endsection
+</x-mailcoach-ui::layout-auth>

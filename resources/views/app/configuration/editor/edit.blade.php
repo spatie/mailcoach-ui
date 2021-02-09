@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Editor')])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings :title="__('Editor')">
     <form
         class="form-grid"
         action="{{ route('editor') }}"
@@ -33,4 +31,4 @@
             <x-mailcoach::button :label="__('Save')"/>
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-settings>

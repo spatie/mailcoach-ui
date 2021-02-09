@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::auth.layouts.auth', ['title' => __('Forgot password?')])
-
-@section('content')
+<x-mailcoach-ui::layout-auth :title="__('Forgot password?')">
     <h1 class="markup-h1">{{ __('Forgot password?') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('password.email') }}">
@@ -23,4 +21,4 @@
             <x-mailcoach::button :label="__('Send password reset link')" />
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-auth>

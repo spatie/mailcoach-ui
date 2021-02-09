@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Campaigns')])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings :title="__('Campaigns')">
     <form
         class="form-grid"
         action="{{ route('mailConfiguration') }}"
@@ -56,4 +54,4 @@
     <x-mailcoach::modal title="Send Test" name="send-test">
         @include('mailcoach-ui::app.drivers.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>
-@endsection
+</x-mailcoach-ui::layout-settings>

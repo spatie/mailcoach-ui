@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('API Tokens')])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings :title="__('API Tokens')">
     <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://mailcoach.app/docs">our docs</a>.
@@ -102,6 +100,4 @@
             </tbody>
         </table>
     @endif
-
-   
-@endsection
+</x-mailcoach-ui::layout-settings>

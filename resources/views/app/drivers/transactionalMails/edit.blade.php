@@ -1,6 +1,4 @@
-@extends('mailcoach-ui::app.layouts.settings', ['title' => __('Transactional Mail')])
-
-@section('settings')
+<x-mailcoach-ui::layout-settings :title="__('Transactional Mail')">
     <form
         class="form-grid"
         action="{{ route('transactionalMailConfiguration') }}"
@@ -79,5 +77,4 @@
             </div>
         </form>
     @endif
-@endsection
-
+</x-mailcoach-ui::layout-settings>
