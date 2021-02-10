@@ -51,14 +51,12 @@ Route::prefix('settings')->group(function () {
 
     Route::get('mail-configuration', [EditMailConfigurationController::class, 'edit'])->name('mailConfiguration');
     Route::put('mail-configuration', [EditMailConfigurationController::class, 'update']);
-    Route::get('send-test-mail', [SendTestMailController::class, 'show'])->name('sendTestMail');
-    Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail']);
+    Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail'])->name('sendTestMail');
 
     Route::get('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'edit'])->name('transactionalMailConfiguration');
     Route::put('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'update']);
     Route::delete('transactional-mail-configuration', DeleteTransactionalMailConfiguration::class)->name('deleteTransactionalMailConfiguration');
-    Route::get('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'show'])->name('sendTransactionalTestEmail');
-    Route::post('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'sendTransactionalTestEmail']);
+    Route::post('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'sendTransactionalTestEmail'])->name('sendTransactionalTestEmail');
 
     Route::get('editor', [EditorController::class, 'edit'])->name('editor');
     Route::post('editor', [EditorController::class, 'update']);

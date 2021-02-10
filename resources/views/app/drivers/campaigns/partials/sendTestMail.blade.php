@@ -1,4 +1,4 @@
-<form class="form-grid" method="POST">
+<form class="form-grid" method="POST" action={{ route('sendTestMail') }}>
     @csrf
     <x-mailcoach::text-field :placeholder="__('From Email')" :label="__('From Email')" name="from_email" type="email" :value="auth()->user()->email"/>
 
