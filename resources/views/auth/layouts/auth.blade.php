@@ -23,6 +23,8 @@
     <script type="text/javascript" src="{{ asset('vendor/mailcoach/app.js') }}" defer></script>
 </head>
 <body class="bg-gray-100">
+    <img style="mix-blend-mode: multiply;" class="fixed w-full bottom-0 opacity-10" src="{{ asset('vendor/mailcoach/images/auth-footer.jpg') }}">
+
     <div id="app">
         <div class="min-h-screen flex flex-col">
             <div class="flex-grow flex items-center justify-center mx-12 my-4">
@@ -46,5 +48,6 @@
             @include('mailcoach::app.layouts.partials.footer')
         </div>
     </div>
+
 </body>
 </html>
