@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Support\EditorConfiguration\Editors;
 
-use Illuminate\Contracts\Config\Repository;
 use Spatie\MailcoachUnlayer\UnlayerEditor;
 
 class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver

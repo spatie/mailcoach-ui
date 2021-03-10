@@ -3,7 +3,6 @@
 namespace Spatie\MailcoachUi\Support\EditorConfiguration;
 
 use Illuminate\Contracts\Config\Repository;
-use Spatie\Mailcoach\Support\Editor\TextEditor;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
 use Spatie\Valuestore\Valuestore;
 
