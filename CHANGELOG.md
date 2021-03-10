@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.0 - 2021-03-10
+
+- Mailcoach v4
+
 ## 1.1.1 - 2020-12-17
 
 - allow PHP 8
