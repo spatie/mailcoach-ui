@@ -20,9 +20,4 @@ class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
     {
         return [];
     }
-
-    public function registerConfigValues(Repository $config, array $values): void
-    {
-        parent::registerConfigValues($config, $values);
-    }
 }

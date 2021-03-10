@@ -52,9 +52,7 @@ class EditorConfiguration
             return;
         }
 
-        $editorClassName = $this->editorClasses[$editorName] ?? TextEditor::class;
-
-        if (! class_exists($editorClassName)) {
+        if (! in_array($editorName, $this->getAvailableEditors())) {
             return;
         }
 
