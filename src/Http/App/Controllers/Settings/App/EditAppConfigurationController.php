@@ -14,7 +14,7 @@ class EditAppConfigurationController
     {
         $timeZones = TimeZone::all();
 
-        return view('mailcoach-ui::app.settings.appConfiguration.edit', compact(
+        return view('mailcoach-ui::app.configuration.app.edit', compact(
             'appConfiguration',
             'timeZones',
         ));

@@ -1,23 +1,12 @@
-@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Reset Password')])
+<x-mailcoach-ui::layout-auth :title="__('Reset Password')">
+    <h1 class="markup-h1">{{ __('Reset Password') }}</h1>
 
-@section('breadcrumbs')
-    <ul class="breadcrumbs">
-        <li>
-            <a class="breadcrumb" href="{{ route('login') }}"> {{ __('Log in') }}</a>
-        </li>
-        <li>
-            <span class="breadcrumb"> {{ __('Reset Password') }}</span>
-        </li>
-    </ul>
-@endsection
-
-@section('content')
     <form class="form-grid" method="POST" action="{{ route('password.update') }}">
         @csrf
 
         <input type="hidden" name="token" value="{{ $token }}">
 
-        <div class="form-row">
+        <div class="form-field">
             <label for="email" class="label">{{ __('Email') }}</label>
 
             <div>
@@ -28,7 +17,7 @@
         <input id="email" type="hidden" class="input @error('email') is-invalid @enderror" name="email"
                 value="{{ $email ?? old('email') }}" required autocomplete="email">
 
-        <div class="form-row">
+        <div class="form-field">
             @error('password')
                 <p class="form-error" role="alert">
                     {{ $message }}
@@ -44,7 +33,7 @@
             </div>
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             <label for="password-confirm"
                     class="label">{{ __('Confirm password') }}</label>
 
@@ -54,10 +43,8 @@
         </div>
 
         <div class="form-buttons">
-            <button type="submit" class="button">
-                {{ __('Reset Password') }}
-            </button>
+            <x-mailcoach::button :label="__('Reset Password')" />
         </div>
 
     </form>
-@endsection
+</x-mailcoach-ui::layout-auth>

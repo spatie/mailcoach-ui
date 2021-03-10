@@ -14,6 +14,7 @@ abstract class EditorConfigurationDriver
 
     public function registerConfigValues(Repository $config, array $values): void
     {
-        $config->set('mailcoach.editor', $this->getClass());
+        $config->set('mailcoach.campaigns.editor', $this->getClass());
+        $config->set('mailcoach.automation.editor', $this->getClass());
     }
 }

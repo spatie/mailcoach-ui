@@ -1,29 +1,16 @@
-@extends('mailcoach-ui::auth.layouts.master', ['title' => __('Log in')])
+<x-mailcoach-ui::layout-auth :title="__('Log in')">
+    <h1 class="markup-h1">{{ __('Log in to Mailcoach') }}</h1>
 
-@section('breadcrumbs')
-    <ul class="breadcrumbs">
-        <li>
-            <span class="breadcrumb"> {{ __('Log in') }}</span>
-        </li>
-    </ul>
-@endsection
-
-@section('content')
     <form class="form-grid" method="POST" action="{{ route('login') }}">
         @csrf
 
         <p>
-            <a class="link-icon" href="{{ route('forgot-password') }}">
-                <span class="icon-label">
-                    <i class="fas fa-envelope"></i>
-                    <span class="icon-label-text">
-                        {{ __('Forgot password?') }}
-                    </span>
-                </span>
+            <a class="link" href="{{ route('forgot-password') }}">
+                {{ __('Forgot password?') }}  
             </a>
         </p>
 
-        <div class="form-row">
+        <div class="form-field">
             @error('email')
                 <p class="form-error" role="alert">
                 {{ $message }}
@@ -36,7 +23,7 @@
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             @error('password')
                 <p class="form-error" role="alert">
                 {{ $message }}
@@ -49,7 +36,7 @@
                 name="password" required autocomplete="current-password">
         </div>
 
-        <div class="form-row">
+        <div class="form-field">
             <label class="checkbox-label" for="remember">
                 <input class="checkbox" type="checkbox" name="remember" id="remember"
                     {{ old('remember') ? 'checked' : '' }}>
@@ -59,12 +46,7 @@
         </div>
 
         <div class="form-buttons">
-            <button type="submit" class="button">
-                <span class="icon-label">
-                    <i class="fas fa-unlock"></i>
-                    <span class="icon-label-text">{{ __('Log in') }}</span>
-                </span>
-            </button>
+            <x-mailcoach::button :label="__('Log in')" />
 
             @if (Route::has('password.request'))
             <a class="link" href="{{ route('password.request') }}">
@@ -73,4 +55,4 @@
             @endif
         </div>
     </form>
-@endsection
+</x-mailcoach-ui::layout-app>

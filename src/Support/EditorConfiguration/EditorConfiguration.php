@@ -3,7 +3,6 @@
 namespace Spatie\MailcoachUi\Support\EditorConfiguration;
 
 use Illuminate\Contracts\Config\Repository;
-use Spatie\Mailcoach\Support\Editor\TextEditor;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
 use Spatie\Valuestore\Valuestore;
 
@@ -52,9 +51,7 @@ class EditorConfiguration
             return;
         }
 
-        $editorClassName = $this->editorClasses[$editorName] ?? TextEditor::class;
-
-        if (! class_exists($editorClassName)) {
+        if (! in_array($editorName, $this->getAvailableEditors())) {
             return;
         }
 

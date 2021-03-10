@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Support\EditorConfiguration\Editors;
 
-use Illuminate\Contracts\Config\Repository;
 use Spatie\MailcoachUnlayer\UnlayerEditor;
 
 class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
@@ -19,10 +18,5 @@ class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
     public function validationRules(): array
     {
         return [];
-    }
-
-    public function registerConfigValues(Repository $config, array $values): void
-    {
-        parent::registerConfigValues($config, $values);
     }
 }

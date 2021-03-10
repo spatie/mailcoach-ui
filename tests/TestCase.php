@@ -10,6 +10,7 @@ use CreateUsersTable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\SanctumServiceProvider;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Mailcoach\MailcoachServiceProvider;
@@ -59,6 +60,8 @@ class TestCase extends Orchestra
             MailcoachSendgridFeedbackServiceProvider::class,
             MailcoachPostmarkFeedbackServiceProvider::class,
             MailcoachUnlayerServiceProvider::class,
+
+            LivewireServiceProvider::class,
         ];
     }
 

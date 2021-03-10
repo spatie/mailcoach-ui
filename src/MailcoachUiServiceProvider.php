@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi;
 
 use Carbon\Laravel\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -125,6 +126,18 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function bootViews(): self
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'mailcoach-ui');
+
+        if (config("mailcoach.views.use_blade_components", true)) {
+            $this->bootBladeComponents();
+        }
+
+        return $this;
+    }
+
+    protected function bootBladeComponents(): self
+    {
+        Blade::component('mailcoach-ui::auth.layouts.auth', 'mailcoach-ui::layout-auth');
+        Blade::component('mailcoach-ui::app.layouts.settings', 'mailcoach-ui::layout-settings');
 
         return $this;
     }

@@ -11,7 +11,7 @@ class EditMailConfigurationController
 {
     public function edit(MailConfiguration $mailConfiguration)
     {
-        return view('mailcoach-ui::app.settings.mailConfiguration.edit', compact('mailConfiguration'));
+        return view('mailcoach-ui::app.drivers.campaigns.edit', compact('mailConfiguration'));
     }
 
     public function update(UpdateMailConfigurationRequest $request, MailConfiguration $mailConfiguration)
