@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.1 - 2021-03-11
+
+- Set transaction mail editor config value
+
 ## 4.0.0 - 2021-03-10
 
 - Mailcoach v4
