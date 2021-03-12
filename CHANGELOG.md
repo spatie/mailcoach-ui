@@ -2,6 +2,11 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.2 - 2021-03-12
+
+- Added validation on the make user command
+- Added the correct mail message template to the test mails
+
 ## 4.0.1 - 2021-03-11
 
 - Set transaction mail editor config value
