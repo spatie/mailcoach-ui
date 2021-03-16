@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.3 - 2021-03-16
+
+- Improve git ignore command
+
 ## 4.0.2 - 2021-03-12
 
 - Added validation on the make user command
