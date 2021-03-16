@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.4 - 2021-03-16
+
+- Remove unnecessary tables from migrations
+
 ## 4.0.3 - 2021-03-16
 
 - Improve git ignore command
