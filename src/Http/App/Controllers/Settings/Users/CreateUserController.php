@@ -20,7 +20,7 @@ class CreateUserController
         try {
             $user->sendWelcomeNotification($expiresAt);
 
-            flash()->success('The user has been created. A mail with login instructions has been sent to :email', ['email' => $user->email]);
+            flash()->success(__('The user has been created. A mail with login instructions has been sent to :email', ['email' => $user->email]));
         } catch (Exception $exception) {
             report($exception);
             flash()->warning(__('The user has been created. A mail with setup instructions could not be sent.'));

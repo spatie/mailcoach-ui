@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 1.1.2 - 2021-03-22
+
+- Fix a translation issue in the user controller - #4
+
 ## 1.1.1 - 2020-12-17
 
 - allow PHP 8
