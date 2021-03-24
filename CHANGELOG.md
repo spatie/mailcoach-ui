@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.5 - 2021-03-24
+
+- Add correct Mailcoach header on test mail
+
 ## 4.0.4 - 2021-03-16
 
 - Remove unnecessary tables from migrations
