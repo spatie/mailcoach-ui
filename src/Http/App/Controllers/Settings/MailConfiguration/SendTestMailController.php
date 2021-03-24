@@ -3,10 +3,10 @@
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration;
 
 use Exception;
-use Swift_Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Spatie\MailcoachUi\Mail\TestMail;
+use Swift_Message;
 
 class SendTestMailController
 {
