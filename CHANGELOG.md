@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.6 - 2021-03-25
+
+- fix editor namespace
+
 ## 4.0.5 - 2021-03-24
 
 - Add correct Mailcoach header on test mail
