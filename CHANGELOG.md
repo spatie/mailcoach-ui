@@ -2,6 +2,11 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+
+## 4.0.7 - 2021-04-14
+
+- Add AWS sdk as a dependency
+
 ## 4.0.6 - 2021-03-25
 
 - fix editor namespace
