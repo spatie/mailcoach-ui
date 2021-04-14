@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "aws/aws-sdk-php": "~3.0",
         "laravel/sanctum": "^2.6",
         "laravel/ui": "^3.0",
         "league/html-to-markdown": "^4.10",
