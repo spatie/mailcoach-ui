@@ -1,7 +1,7 @@
 <x-mailcoach-ui::layout-settings :title="__('API Tokens')">
     <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
-            href="https://mailcoach.app/docs">our docs</a>.
+            href="https://spatie.be/docs/laravel-mailcoach/">our docs</a>.
     </x-mailcoach::help>
 
     <form class="my-6"
@@ -31,7 +31,7 @@
         @enderror
 
     </form>
-        
+
 
     @if (session()->has('newToken'))
         @push('modals')

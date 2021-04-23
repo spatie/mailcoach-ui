@@ -16,7 +16,7 @@
                 <div class="flex items-baseline">
                     <span class="w-6"><i class="fas fa-database opacity-50"></i></span>
                     <span class="ml-2 text-sm">
-                        {!! __('No valid <strong>queue connection</strong> found. Configure a queue connection with the <strong>mailcoach-redis</strong> key. <a target="_blank" href=":docsLink">Read the docs</a>.', ['docsLink' => 'https://mailcoach.app/docs']) !!}
+                        {!! __('No valid <strong>queue connection</strong> found. Configure a queue connection with the <strong>mailcoach-redis</strong> key. <a target="_blank" href=":docsLink">Read the docs</a>.', ['docsLink' => 'https://spatie.be/docs/laravel-mailcoach']) !!}
                     </span>
                 </div>
             @endif
@@ -25,7 +25,7 @@
                 <div class="flex items-baseline">
                     <span class="w-6"><i class="fas fa-database opacity-50"></i></span>
                     <span class="ml-2 text-sm">
-                        {!! __('<strong>Horizon</strong> is not active on your server. <a target="_blank" href=":docsLink">Read the docs</a>.', ['docsLink' => 'https://mailcoach.app/docs']) !!}
+                        {!! __('<strong>Horizon</strong> is not active on your server. <a target="_blank" href=":docsLink">Read the docs</a>.', ['docsLink' => 'https://spatie.be/docs/laravel-mailcoach']) !!}
                     </span>
                 </div>
             @endif

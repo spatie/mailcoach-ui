@@ -2,6 +2,9 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.8 - 2021-04-23
+
+- fix links to docs
 
 ## 4.0.7 - 2021-04-14
 

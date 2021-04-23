@@ -1,5 +1,5 @@
 <x-mailcoach::help>
-    {!! __('Learn how to configure :provider by reading <a target="_blank" href=":docsLink">this section of the Mailcoach docs</a>.', ['provider' => 'Mailgun', 'docsLink' => 'https://mailcoach.app/docs/v2/app/mail-configuration/mailgun']) !!}
+    {!! __('Learn how to configure :provider by reading <a target="_blank" href=":docsLink">this section of the Mailcoach docs</a>.', ['provider' => 'Mailgun', 'docsLink' => 'https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/mailgun']) !!}
 </x-mailcoach::help>
 
 <x-mailcoach::text-field
