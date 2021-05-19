@@ -37,7 +37,7 @@
         @push('modals')
             <x-mailcoach::modal :open="true" :title="__('Your new token')" name="token">
                 <p data-confirm-modal-text class="mb-2">
-                    We will display this token only once. Make sure to copy it to a save place.
+                    We will display this token only once. Make sure to copy it to a safe place.
                 </p>
 
 
