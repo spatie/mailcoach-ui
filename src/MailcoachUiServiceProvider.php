@@ -32,12 +32,23 @@ class MailcoachUiServiceProvider extends ServiceProvider
         View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
 
         $this
+            ->bootConfig()
             ->bootPublishables()
             ->bootAuthorization()
             ->bootFlash()
             ->bootRoutes()
             ->bootCommands()
             ->bootViews();
+    }
+
+    protected function bootConfig(): self
+    {
+        app(AppConfiguration::class)->registerConfigValues();
+        app(TransactionalMailConfiguration::class)->registerConfigValues();
+        app(MailConfiguration::class)->registerConfigValues();
+        app(EditorConfiguration::class)->registerConfigValues();
+
+        return $this;
     }
 
     protected function bootPublishables()
@@ -164,8 +175,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             );
         });
 
-        app(AppConfiguration::class)->registerConfigValues();
-
         return $this;
     }
 
@@ -180,8 +189,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
                 new TransactionalMailConfigurationDriverRepository()
             );
         });
-
-        app(TransactionalMailConfiguration::class)->registerConfigValues();
 
         return $this;
     }
@@ -198,8 +205,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             );
         });
 
-        app(MailConfiguration::class)->registerConfigValues();
-
         return $this;
     }
 
@@ -214,8 +219,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
                 new EditorConfigurationDriverRepository()
             );
         });
-
-        app(EditorConfiguration::class)->registerConfigValues();
 
         return $this;
     }
