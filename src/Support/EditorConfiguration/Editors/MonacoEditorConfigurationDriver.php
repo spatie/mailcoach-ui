@@ -31,10 +31,10 @@ class MonacoEditorConfigurationDriver extends EditorConfigurationDriver
     {
         parent::registerConfigValues($config, $values);
 
-        config()->set('mailcoach.monaco.theme', $values['monaco_theme']);
-        config()->set('mailcoach.monaco.fontFamily', $values['monaco_font_family']);
-        config()->set('mailcoach.monaco.fontSize', $values['monaco_font_size']);
-        config()->set('mailcoach.monaco.fontWeight', $values['monaco_font_weight']);
-        config()->set('mailcoach.monaco.lineHeight', $values['monaco_line_height']);
+        config()->set('mailcoach.monaco.theme', $values['monaco_theme'] ?? 'vs-light');
+        config()->set('mailcoach.monaco.fontFamily', $values['monaco_font_family'] ?? 'Menlo, Monaco, "Courier New", monospace');
+        config()->set('mailcoach.monaco.fontSize', $values['monaco_font_size'] ?? '12');
+        config()->set('mailcoach.monaco.fontWeight', $values['monaco_font_weight'] ?? '400');
+        config()->set('mailcoach.monaco.lineHeight', $values['monaco_line_height'] ?? '18');
     }
 }
