@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.0.11 - 2021-08-19
+
+- Add defaults for the monaco editor configuration
+
 ## 4.0.10 - 2021-08-03
 
 - Change boot order for config (#8)
