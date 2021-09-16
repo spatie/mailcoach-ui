@@ -18,6 +18,7 @@ use Spatie\MailcoachMailgunFeedback\MailcoachMailgunFeedbackServiceProvider;
 use Spatie\MailcoachPostmarkFeedback\MailcoachPostmarkFeedbackServiceProvider;
 use Spatie\MailcoachSendgridFeedback\MailcoachSendgridFeedbackServiceProvider;
 use Spatie\MailcoachSesFeedback\MailcoachSesFeedbackServiceProvider;
+use IDCH\MailcoachPostalFeedback\MailcoachPostalFeedbackServiceProvider;
 use Spatie\MailcoachUi\MailcoachUiServiceProvider;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUnlayer\MailcoachUnlayerServiceProvider;
@@ -59,6 +60,7 @@ class TestCase extends Orchestra
             MailcoachMailgunFeedbackServiceProvider::class,
             MailcoachSendgridFeedbackServiceProvider::class,
             MailcoachPostmarkFeedbackServiceProvider::class,
+            MailcoachPostalFeedbackServiceProvider::class,
             MailcoachUnlayerServiceProvider::class,
 
             LivewireServiceProvider::class,
