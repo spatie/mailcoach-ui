@@ -29,7 +29,8 @@
         "spatie/laravel-mailcoach-unlayer": "^2.0",
         "spatie/laravel-welcome-notification": "^2.0",
         "spatie/valuestore": "^1.2",
-        "wildbit/swiftmailer-postmark": "^3.1"
+        "wildbit/swiftmailer-postmark": "^3.1",
+        "idch/laravel-mailcoach-postal-feedback": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -38,6 +39,10 @@
         "psalm/plugin-laravel": "^1.2"
     },
     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/idcloudhost/laravel-mailcoach-postal-feedback"
+        },
         {
             "type": "composer",
             "url": "https://satis.spatie.be"
