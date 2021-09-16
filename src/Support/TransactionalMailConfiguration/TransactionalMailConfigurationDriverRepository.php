@@ -6,6 +6,7 @@ use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\MailgunCon
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\PostmarkConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\SendgridConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\SesConfigurationDriver;
+use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\PostalConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\SmtpConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\TransactionalMailConfigurationDriver;
 
@@ -16,6 +17,7 @@ class TransactionalMailConfigurationDriverRepository
         'mailgun' => MailgunConfigurationDriver::class,
         'sendgrid' => SendgridConfigurationDriver::class,
         'postmark' => PostmarkConfigurationDriver::class,
+        'postal' => PostalConfigurationDriver::class,
         'smtp' => SmtpConfigurationDriver::class,
     ];
 

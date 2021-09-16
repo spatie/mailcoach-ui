@@ -17,6 +17,7 @@
                 'sendgrid' => 'SendGrid',
                 'mailgun' => 'Mailgun',
                 'postmark' => 'Postmark',
+                'postal' => 'Postal',
                 'smtp' => 'SMTP',
             ]"
             data-conditional="driver"
@@ -38,6 +39,10 @@
             @include('mailcoach-ui::app.drivers.campaigns.partials.postmark')
         </div>
 
+        <div class="form-grid" data-conditional-driver="postal">
+            @include('mailcoach-ui::app.drivers.campaigns.partials.postal')
+        </div>
+
         <div class="form-grid" data-conditional-driver="smtp">
             @include('mailcoach-ui::app.drivers.campaigns.partials.smtp')
         </div>
@@ -50,7 +55,7 @@
         </div>
 
     </form>
-    
+
     <x-mailcoach::modal title="Send Test" name="send-test">
         @include('mailcoach-ui::app.drivers.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>

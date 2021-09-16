@@ -23,6 +23,7 @@
                 'sendgrid' => 'SendGrid',
                 'mailgun' => 'Mailgun',
                 'postmark' => 'Postmark',
+                'postal' => 'Postal',
                 'smtp' => 'SMTP',
             ]"
             data-conditional="driver"
@@ -42,6 +43,10 @@
 
         <div class="form-grid" data-conditional-driver="postmark">
             @include('mailcoach-ui::app.drivers.transactionalMails.partials.postmark')
+        </div>
+
+        <div class="form-grid" data-conditional-driver="postal">
+            @include('mailcoach-ui::app.drivers.transactionalMails.partials.postal')
         </div>
 
         <div class="form-grid" data-conditional-driver="smtp">
