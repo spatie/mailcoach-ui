@@ -11,7 +11,10 @@ use Spatie\WelcomeNotification\ReceivesWelcomeNotification;
 
 class User extends Authenticatable
 {
-    use Notifiable, ReceivesWelcomeNotification, HasApiTokens, HasFactory;
+    use Notifiable;
+    use ReceivesWelcomeNotification;
+    use HasApiTokens;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

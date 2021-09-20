@@ -16,6 +16,7 @@ class MonacoEditorConfigurationDriver extends EditorConfigurationDriver
     {
         return MonacoEditor::class;
     }
+
     public function validationRules(): array
     {
         return [

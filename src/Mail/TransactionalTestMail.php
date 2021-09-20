@@ -8,7 +8,8 @@ use Illuminate\Queue\SerializesModels;
 
 class TransactionalTestMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public $theme = 'mailcoach::mails.layout.mailcoach';
 

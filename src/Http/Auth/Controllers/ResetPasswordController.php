@@ -11,7 +11,10 @@ use Spatie\Mailcoach\Http\App\Controllers\Campaigns\CampaignsIndexController;
 
 class ResetPasswordController
 {
-    use ResetsPasswords, AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use ResetsPasswords;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     public function showResetForm(Request $request)
     {

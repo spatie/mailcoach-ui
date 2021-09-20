@@ -4,10 +4,10 @@ namespace Spatie\MailcoachUi\Support\MailConfiguration;
 
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\MailConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\MailgunConfigurationDriver;
+use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\PostalConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\PostmarkConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\SendgridConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\SesConfigurationDriver;
-use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\PostalConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\SmtpConfigurationDriver;
 
 class MailConfigurationDriverRepository

@@ -9,7 +9,6 @@ class SendFactory extends Factory
 {
     protected $model = Send::class;
 
-
     public function definition()
     {
         return [

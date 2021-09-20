@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 
 class LoginController
 {
-    use AuthenticatesUsers, AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthenticatesUsers;
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     protected string $redirectTo = '/campaigns';
 

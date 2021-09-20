@@ -36,7 +36,7 @@ class PostalConfigurationDriver extends MailConfigurationDriver
         $config->set('mail.mailers.mailcoach.password', $values['postal_token']);
 
         $config->set('mailcoach.postal_feedback', [
-            'signing_secret' => $values['postal_secret']
+            'signing_secret' => $values['postal_secret'],
         ]);
     }
 }

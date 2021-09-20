@@ -16,7 +16,7 @@ class PostalConfigurationDriver extends TransactionalMailConfigurationDriver
         return [
             'postal_host' => 'required',
             'postal_port' => 'required',
-            'postal_token' => 'required'
+            'postal_token' => 'required',
         ];
     }
 

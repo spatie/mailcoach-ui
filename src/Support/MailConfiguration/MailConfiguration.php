@@ -61,7 +61,7 @@ class MailConfiguration
         return $this->getDriver() !== null;
     }
 
-    protected function getDriver() : ?MailConfigurationDriver
+    protected function getDriver(): ?MailConfigurationDriver
     {
         return $this->mailConfigurationDriverRepository->getForDriver($this->valuestore->get('driver', ''));
     }

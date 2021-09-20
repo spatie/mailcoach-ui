@@ -2,8 +2,8 @@
 
 namespace Spatie\MailcoachUi\Tests\Unit\Support\TransactionalMailConfiguration;
 
-use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\SmtpConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\PostalConfigurationDriver;
+use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\SmtpConfigurationDriver;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfigurationDriverRepository;
 use Spatie\MailcoachUi\Tests\TestCase;
 

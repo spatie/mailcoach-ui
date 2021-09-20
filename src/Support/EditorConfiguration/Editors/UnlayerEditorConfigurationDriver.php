@@ -15,6 +15,7 @@ class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
     {
         return UnlayerEditor::class;
     }
+
     public function validationRules(): array
     {
         return [];

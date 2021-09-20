@@ -15,6 +15,7 @@ class TextareaEditorConfigurationDriver extends EditorConfigurationDriver
     {
         return TextEditor::class;
     }
+
     public function validationRules(): array
     {
         return [];

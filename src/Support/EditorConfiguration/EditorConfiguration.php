@@ -68,7 +68,7 @@ class EditorConfiguration
         return array_combine($editors, $editors);
     }
 
-    protected function getEditor() : EditorConfigurationDriver
+    protected function getEditor(): EditorConfigurationDriver
     {
         return $this->editorConfigurationRepository->getForEditor($this->valuestore->get('editor', ''));
     }

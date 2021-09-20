@@ -68,7 +68,7 @@ class TransactionalMailConfiguration
         return $this->getDriver() !== null;
     }
 
-    protected function getDriver() : ?TransactionalMailConfigurationDriver
+    protected function getDriver(): ?TransactionalMailConfigurationDriver
     {
         return $this
             ->transactionalMailConfigurationDriverRepository

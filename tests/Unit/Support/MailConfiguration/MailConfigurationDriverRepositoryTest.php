@@ -2,8 +2,8 @@
 
 namespace Spatie\MailcoachUi\Tests\Unit\Support\MailConfiguration;
 
-use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\SmtpConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\PostalConfigurationDriver;
+use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\SmtpConfigurationDriver;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfigurationDriverRepository;
 use Spatie\MailcoachUi\Tests\TestCase;
 

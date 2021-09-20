@@ -10,7 +10,6 @@ class SubscriberImportFactory extends Factory
 {
     protected $model = SubscriberImport::class;
 
-
     public function definition()
     {
         return [
