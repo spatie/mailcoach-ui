@@ -113,6 +113,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Route::mailgunFeedback('mailgun-feedback');
         Route::sendgridFeedback('sendgrid-feedback');
         Route::postmarkFeedback('postmark-feedback');
+        Route::postalFeedback('postal-feedback');
 
         Route::macro('mailcoachUi', function (string $url = '') {
             Route::mailcoach($url);
