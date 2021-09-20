@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.1.0 - 2021-09-20
+
+- Add support for [Postal](https://github.com/postalserver/postal) (#9)
+
 ## 4.0.11 - 2021-08-19
 
 - Add defaults for the monaco editor configuration
