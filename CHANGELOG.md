@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.3.0 - 2021-10-04
+
+- Added the possibility to define your own Valuestore class. Mailcoach UI now also ships with a `DatabaseValueStore`, make sure to apply the necessary migrations if you want to use this class.
+
 ## 4.2.0 - 2021-10-04
 
 - Customizable url after login (#10)

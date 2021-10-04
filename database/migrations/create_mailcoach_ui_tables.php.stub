@@ -16,5 +16,10 @@ class CreateMailcoachUiTables extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
         });
+
+        Schema::create('mailcoach_settings', function (Blueprint $table) {
+            $table->string('key')->index();
+            $table->json('value')->nullable();
+        });
     }
 }

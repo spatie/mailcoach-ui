@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration;
 
+use Composer\InstalledVersions;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateMailConfigurationRequest;
 use Spatie\MailcoachUi\Support\ConfigCache;
@@ -20,9 +21,11 @@ class EditMailConfigurationController
 
         ConfigCache::clear();
 
-        dispatch(function () {
-            Artisan::call('horizon:terminate');
-        });
+        if (InstalledVersions::isInstalled("laravel/horizon")) {
+            dispatch(function () {
+                Artisan::call('horizon:terminate');
+            });
+        }
 
         flash()->success(__('The mail configuration was saved.'));
 

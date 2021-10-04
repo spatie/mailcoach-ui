@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\App;
 
+use Composer\InstalledVersions;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\MailcoachUi\Http\App\Requests\UpdateAppConfigurationRequest;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
@@ -26,9 +27,11 @@ class EditAppConfigurationController
 
         ConfigCache::clear();
 
-        dispatch(function () {
-            Artisan::call('horizon:terminate');
-        });
+        if (InstalledVersions::isInstalled("laravel/horizon")) {
+            dispatch(function () {
+                Artisan::call('horizon:terminate');
+            });
+        }
 
         flash()->success(__('The app configuration was saved.'));
 

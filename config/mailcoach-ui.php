@@ -12,5 +12,10 @@ return [
     /*
      * The relative url to redirect to after the user is authenticated.
      */
-    'url_after_login' => 'campaigns'
+    'url_after_login' => 'campaigns',
+
+    /*
+     * The valuestore class that should be used to store the Mailcoach UI settings
+     */
+    'valuestore' => \Spatie\Valuestore\Valuestore::class,
 ];

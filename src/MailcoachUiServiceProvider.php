@@ -168,7 +168,9 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function registerAppConfiguration(): self
     {
         $this->app->bind(AppConfiguration::class, function () {
-            $valueStore = Valuestore::make(base_path('config-mailcoach-app/app.json'));
+            /** @var class-string<ValueStore> $valueStoreClass */
+            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
+            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/app.json'));
 
             return new AppConfiguration(
                 $valueStore,
@@ -182,7 +184,9 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function registerTransactionalMailConfiguration(): self
     {
         $this->app->bind(TransactionalMailConfiguration::class, function () {
-            $valueStore = Valuestore::make(base_path('config-mailcoach-app/transactional-mail.json'));
+            /** @var class-string<ValueStore> $valueStoreClass */
+            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
+            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/transactional-mail.json'));
 
             return new TransactionalMailConfiguration(
                 $valueStore,
@@ -197,7 +201,9 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function registerMailConfiguration(): self
     {
         $this->app->bind(MailConfiguration::class, function () {
-            $valueStore = Valuestore::make(base_path('config-mailcoach-app/mail.json'));
+            /** @var class-string<ValueStore> $valueStoreClass */
+            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
+            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/mail.json'));
 
             return new MailConfiguration(
                 $valueStore,
@@ -212,7 +218,9 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function registerEditorConfiguration(): self
     {
         $this->app->bind(EditorConfiguration::class, function () {
-            $valueStore = Valuestore::make(base_path('config-mailcoach-app/editor.json'));
+            /** @var class-string<ValueStore> $valueStoreClass */
+            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
+            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/editor.json'));
 
             return new EditorConfiguration(
                 $valueStore,
