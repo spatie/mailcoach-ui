@@ -8,4 +8,9 @@ return [
     'middleware' => [
         'web',
     ],
+
+    /*
+     * The relative url to redirect to after the user is authenticated.
+     */
+    'url_after_login' => 'campaigns'
 ];

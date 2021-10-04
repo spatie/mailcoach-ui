@@ -15,7 +15,12 @@ class LoginController
     use DispatchesJobs;
     use ValidatesRequests;
 
-    protected string $redirectTo = '/campaigns';
+    protected string $redirectTo;
+
+    public function __construct()
+    {
+        $this->redirectTo = config('mailcoach-ui.url_after_login') ?? 'campaigns';
+    }
 
     public function showLoginForm()
     {
@@ -26,6 +31,6 @@ class LoginController
     {
         flash()->success(__('You are now logged in!'));
 
-        return redirect()->intended(route('mailcoach.campaigns'));
+        return redirect()->intended($this->redirectTo);
     }
 }
