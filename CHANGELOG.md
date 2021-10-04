@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.2.0 - 2021-10-04
+
+- Customizable url after login (#10)
+
 ## 4.1.0 - 2021-09-20
 
 - Add support for [Postal](https://github.com/postalserver/postal) (#9)
