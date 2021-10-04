@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            @if(! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon"))
+            @if(! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon"))
                 <div class="flex items-baseline">
                     <span class="w-6"><i class="fas fa-database opacity-50"></i></span>
                     <span class="ml-2 text-sm">
