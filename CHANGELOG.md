@@ -2,6 +2,10 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.3.2 - 2021-10-04
+
+- add support for Vapor
+
 ## 4.3.1 - 2021-10-04
 
 - add support for Vapor
