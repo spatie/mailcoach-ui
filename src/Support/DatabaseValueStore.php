@@ -2,11 +2,9 @@
 
 namespace Spatie\MailcoachUi\Support;
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Spatie\Valuestore\Valuestore;
 use Exception;
+use Illuminate\Support\Facades\DB;
+use Spatie\Valuestore\Valuestore;
 
 class DatabaseValueStore extends ValueStore
 {
@@ -31,7 +29,7 @@ class DatabaseValueStore extends ValueStore
      *
      * @return array
      */
-    public function all() : array
+    public function all(): array
     {
         try {
             $values = DB::table('mailcoach_settings')->where('key', $this->fileName)->select('value')->first()?->value;
