@@ -19,6 +19,10 @@
             @include('mailcoach-ui::app.configuration.editor.partials.textarea')
         </div>
 
+        <div class="form-grid" data-conditional-editor="Editor.js">
+            @include('mailcoach-ui::app.configuration.editor.partials.editor')
+        </div>
+
         <div class="form-grid" data-conditional-editor="Unlayer">
             @include('mailcoach-ui::app.configuration.editor.partials.unlayer')
         </div>

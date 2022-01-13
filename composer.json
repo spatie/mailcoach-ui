@@ -17,10 +17,12 @@
     "require": {
         "php": "^8.0",
         "aws/aws-sdk-php": "~3.0",
+        "idch/laravel-mailcoach-postal-feedback": "^1.0",
         "laravel/sanctum": "^2.6",
         "laravel/ui": "^3.0",
         "league/html-to-markdown": "^4.10",
         "spatie/laravel-mailcoach": "^4.0",
+        "spatie/laravel-mailcoach-editor": "*",
         "spatie/laravel-mailcoach-mailgun-feedback": "^3.0",
         "spatie/laravel-mailcoach-monaco": "^2.0",
         "spatie/laravel-mailcoach-postmark-feedback": "^3.0",
@@ -29,8 +31,7 @@
         "spatie/laravel-mailcoach-unlayer": "^2.0",
         "spatie/laravel-welcome-notification": "^2.0",
         "spatie/valuestore": "^1.2",
-        "wildbit/swiftmailer-postmark": "^3.1",
-        "idch/laravel-mailcoach-postal-feedback": "^1.0"
+        "wildbit/swiftmailer-postmark": "^3.1"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."

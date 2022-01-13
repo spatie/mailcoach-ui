@@ -22,6 +22,7 @@ class ExecuteComposerHookCommand extends Command
             'vendor:publish --tag mailcoach-ui-vendor-views --force',
             'vendor:publish --tag mailcoach-assets --force',
             'vendor:publish --tag mailcoach-monaco-assets --force',
+            'vendor:publish --tag mailcoach-editor-assets --force',
         ];
 
         collect($commands)->each(function (string $command) {

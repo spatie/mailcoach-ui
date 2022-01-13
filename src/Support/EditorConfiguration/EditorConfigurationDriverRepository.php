@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi\Support\EditorConfiguration;
 
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
+use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorJsEditorConfigurationDriver;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\MonacoEditorConfigurationDriver;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\TextareaEditorConfigurationDriver;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\UnlayerEditorConfigurationDriver;
@@ -11,6 +12,7 @@ class EditorConfigurationDriverRepository
 {
     protected array $editors = [
         'Textarea' => TextareaEditorConfigurationDriver::class,
+        'Editor.js' => EditorJsEditorConfigurationDriver::class,
         'Unlayer' => UnlayerEditorConfigurationDriver::class,
         'Monaco' => MonacoEditorConfigurationDriver::class,
     ];
