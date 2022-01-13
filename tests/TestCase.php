@@ -15,6 +15,7 @@ use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Feed\FeedServiceProvider;
 use Spatie\Mailcoach\MailcoachServiceProvider;
+use Spatie\MailcoachEditor\MailcoachEditorServiceProvider;
 use Spatie\MailcoachMailgunFeedback\MailcoachMailgunFeedbackServiceProvider;
 use Spatie\MailcoachPostmarkFeedback\MailcoachPostmarkFeedbackServiceProvider;
 use Spatie\MailcoachSendgridFeedback\MailcoachSendgridFeedbackServiceProvider;
@@ -62,6 +63,7 @@ class TestCase extends Orchestra
             MailcoachPostmarkFeedbackServiceProvider::class,
             MailcoachPostalFeedbackServiceProvider::class,
             MailcoachUnlayerServiceProvider::class,
+            MailcoachEditorServiceProvider::class,
 
             LivewireServiceProvider::class,
         ];
