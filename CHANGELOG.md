@@ -2,6 +2,12 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 4.4.0 - 2022-01-13
+
+- Add Editor.js
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/4.3.2...4.4.0
+
 ## 4.3.2 - 2021-10-04
 
 - add support for Vapor
