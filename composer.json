@@ -29,8 +29,7 @@
         "spatie/laravel-mailcoach-ses-feedback": "^5.0",
         "spatie/laravel-mailcoach-unlayer": "^5.0",
         "spatie/laravel-welcome-notification": "^2.3",
-        "spatie/valuestore": "^1.2",
-        "wildbit/swiftmailer-postmark": "^3.1"
+        "spatie/valuestore": "^1.2"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."
