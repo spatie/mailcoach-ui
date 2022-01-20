@@ -24,7 +24,6 @@
         "spatie/laravel-mailcoach-editor": "^5.0",
         "spatie/laravel-mailcoach-mailgun-feedback": "^5.0",
         "spatie/laravel-mailcoach-monaco": "^5.0",
-        "spatie/laravel-mailcoach-postmark-feedback": "^5.0",
         "spatie/laravel-mailcoach-sendgrid-feedback": "^5.0",
         "spatie/laravel-mailcoach-ses-feedback": "^5.0",
         "spatie/laravel-mailcoach-unlayer": "^5.0",
