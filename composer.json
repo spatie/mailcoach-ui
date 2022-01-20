@@ -35,7 +35,6 @@
         "laravel/horizon": "If you want to manage your queues using Horizon."
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
         "orchestra/testbench": "^7.5",
         "phpunit/phpunit": "^9.5"
     },
@@ -63,7 +62,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
     },
     "extra": {
         "laravel": {
