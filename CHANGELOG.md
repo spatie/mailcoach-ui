@@ -2,6 +2,18 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.0.0 - 2022-02-10
+
+## What's Changed
+
+- V5 by @riasvdv in https://github.com/spatie/mailcoach-ui/pull/11
+
+## New Contributors
+
+- @riasvdv made their first contribution in https://github.com/spatie/mailcoach-ui/pull/11
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/4.4.1...5.0.0
+
 ## 4.4.1 - 2022-01-13
 
 - Use the correct version of laravel-mailcoach-editor
