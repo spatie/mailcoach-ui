@@ -8,7 +8,9 @@
     </ul>
     <br>
 
+    {{--
     {!! __('You must set a webhook to: <code class="markup-code">:webhookUrl</code>', ['webhookUrl' => url(action(\IDCH\MailcoachPostalFeedback\PostalWebhookController::class)) . '?secret=' . $mailConfiguration->postal_secret ]) !!}
+    --}}
 </x-mailcoach::help>
 
 
