@@ -2,6 +2,12 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.0.1 - 2022-02-10
+
+- Fix dependencies
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.0.0...5.0.1
+
 ## 5.0.0 - 2022-02-10
 
 ## What's Changed
