@@ -19,10 +19,10 @@ abstract class MailConfigurationDriver
 
     protected function throttleNumberOfMailsPerSecond(Repository $config, int $mailsPerSecond): self
     {
-        $config->set('mailcoach.throttling.enabled', true);
-        $config->set('mailcoach.throttling.allowed_number_of_jobs_in_timespan', $mailsPerSecond);
-        $config->set('mailcoach.throttling.timespan_in_seconds', 1);
-        $config->set('mailcoach.throttling.release_in_seconds', $mailsPerSecond);
+        $config->set('mailcoach.campaigns.throttling.allowed_number_of_jobs_in_timespan', $mailsPerSecond);
+        $config->set('mailcoach.campaigns.throttling.timespan_in_seconds', 1);
+        $config->set('mailcoach.automation.throttling.allowed_number_of_jobs_in_timespan', $mailsPerSecond);
+        $config->set('mailcoach.automation.throttling.timespan_in_seconds', 1);
 
         return $this;
     }
