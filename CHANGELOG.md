@@ -2,6 +2,18 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.0.2 - 2022-02-13
+
+## What's Changed
+
+- Allow league/html-to-markdown version 5 by @bashgeek in https://github.com/spatie/mailcoach-ui/pull/13
+
+## New Contributors
+
+- @bashgeek made their first contribution in https://github.com/spatie/mailcoach-ui/pull/13
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.0.1...5.0.2
+
 ## 5.0.1 - 2022-02-10
 
 - Fix dependencies
