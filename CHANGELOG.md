@@ -2,6 +2,12 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.0.3 - 2022-04-19
+
+- Add the postmark feedback package
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.0.2...5.0.3
+
 ## 5.0.2 - 2022-02-13
 
 ## What's Changed
