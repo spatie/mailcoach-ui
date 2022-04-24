@@ -6,15 +6,6 @@
     {!! __('You must set a webhook to: <code class="markup-code">:webhookUrl</code>', ['webhookUrl' => url(action(\Spatie\MailcoachMailgunFeedback\MailgunWebhookController::class))]) !!}
 </x-mailcoach::help>
 
-
-<x-mailcoach::text-field
-    :label="__('Mails per second')"
-    name="mailgun_mails_per_second"
-    type="number"
-    :value="$mailConfiguration->mailgun_mails_per_second ?? 5"
-    inputClass="input-sm"
-/>
-
 <x-mailcoach::text-field
     :label="__('Domain')"
     name="mailgun_domain"

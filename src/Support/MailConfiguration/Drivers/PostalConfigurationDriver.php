@@ -15,7 +15,8 @@ class PostalConfigurationDriver extends MailConfigurationDriver
     {
         return [
             'default_from_mail' => 'required',
-            'postal_mails_per_second' => 'required|numeric|between:1,100',
+            'timespan_in_seconds' => 'required|numeric|gte:1',
+            'mails_per_timespan' => 'required|numeric|gte:1',
             'postal_host' => 'required',
             'postal_port' => 'required',
             'postal_token' => 'required',
@@ -27,7 +28,11 @@ class PostalConfigurationDriver extends MailConfigurationDriver
     {
         $this
             ->setDefaultFromEmail($config, $values['default_from_mail'] ?? '')
-            ->throttleNumberOfMailsPerSecond($config, $values['postal_mails_per_second'] ?? 5);
+            ->throttleNumberOfMailsPerSecond(
+                $config,
+                $values['mails_per_timespan'] ?? $values['postal_mails_per_second'] ?? 5,
+                $values['timespan_in_seconds'] ?? 1,
+            );
 
         $config->set('mail.mailers.mailcoach.transport', 'smtp');
         $config->set('mail.mailers.mailcoach.host', $values['postal_host']);

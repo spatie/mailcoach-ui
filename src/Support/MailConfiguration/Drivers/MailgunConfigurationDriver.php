@@ -15,7 +15,8 @@ class MailgunConfigurationDriver extends MailConfigurationDriver
     {
         return [
             'default_from_mail' => 'required',
-            'mailgun_mails_per_second' => 'required|numeric|between:1,100',
+            'timespan_in_seconds' => 'required|numeric|gte:1',
+            'mails_per_timespan' => 'required|numeric|gte:1',
             'mailgun_domain' => 'required',
             'mailgun_secret' => 'required',
             'mailgun_endpoint' => 'required',
@@ -27,7 +28,11 @@ class MailgunConfigurationDriver extends MailConfigurationDriver
     {
         $this
             ->setDefaultFromEmail($config, $values['default_from_mail'] ?? '')
-            ->throttleNumberOfMailsPerSecond($config, $values['mailgun_mails_per_second'] ?? 5);
+            ->throttleNumberOfMailsPerSecond(
+                $config,
+                $values['mailgun_mails_per_second'] ?? 5,
+                $values['timespan_in_seconds'] ?? 1,
+            );
 
         $config->set('mail.mailers.mailcoach.transport', $this->name());
         $config->set('services.mailgun', [

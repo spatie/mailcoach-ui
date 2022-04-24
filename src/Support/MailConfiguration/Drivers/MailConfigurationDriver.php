@@ -17,12 +17,12 @@ abstract class MailConfigurationDriver
         return array_keys($this->validationRules());
     }
 
-    protected function throttleNumberOfMailsPerSecond(Repository $config, int $mailsPerSecond): self
+    protected function throttleNumberOfMailsPerSecond(Repository $config, int $mailsPerSecond, int $timespanInSeconds): self
     {
         $config->set('mailcoach.campaigns.throttling.allowed_number_of_jobs_in_timespan', $mailsPerSecond);
-        $config->set('mailcoach.campaigns.throttling.timespan_in_seconds', 1);
+        $config->set('mailcoach.campaigns.throttling.timespan_in_seconds', $timespanInSeconds);
         $config->set('mailcoach.automation.throttling.allowed_number_of_jobs_in_timespan', $mailsPerSecond);
-        $config->set('mailcoach.automation.throttling.timespan_in_seconds', 1);
+        $config->set('mailcoach.automation.throttling.timespan_in_seconds', $timespanInSeconds);
 
         return $this;
     }

@@ -15,7 +15,8 @@ class SesConfigurationDriver extends MailConfigurationDriver
     {
         return [
             'default_from_mail' => 'required|email',
-            'ses_mails_per_second' => 'required',
+            'timespan_in_seconds' => 'required|numeric|gte:1',
+            'mails_per_timespan' => 'required|numeric|gte:1',
             'ses_key' => 'required',
             'ses_secret' => 'required',
             'ses_region' => 'required',
@@ -27,7 +28,11 @@ class SesConfigurationDriver extends MailConfigurationDriver
     {
         $this
             ->setDefaultFromEmail($config, $values['default_from_mail'] ?? '')
-            ->throttleNumberOfMailsPerSecond($config, $values['ses_mails_per_second'] ?? 5);
+            ->throttleNumberOfMailsPerSecond(
+                $config,
+                $values['mails_per_timespan'] ?? $values['ses_mails_per_second'] ?? 5,
+                $values['timespan_in_seconds'] ?? 1,
+            );
 
         $config->set('mail.mailers.mailcoach.transport', $this->name());
         $config->set('services.ses', [

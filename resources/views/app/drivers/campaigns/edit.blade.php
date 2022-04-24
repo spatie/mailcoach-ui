@@ -23,6 +23,23 @@
             data-conditional="driver"
         />
 
+        @php($key = $mailConfiguration->driver . '_mails_per_second')
+        <x-mailcoach::text-field
+            :label="__('Mails per timespan')"
+            name="mails_per_timespan"
+            type="number"
+            :value="$mailConfiguration->mails_per_timespan ?? $mailConfiguration->$key ?? 5"
+            inputClass="input-sm"
+        />
+
+        <x-mailcoach::text-field
+            :label="__('Timespan in seconds')"
+            name="timespan_in_seconds"
+            type="number"
+            :value="$mailConfiguration->timespan_in_seconds ?? 1"
+            inputClass="input-sm"
+        />
+
         <div class="form-grid" data-conditional-driver="ses">
             @include('mailcoach-ui::app.drivers.campaigns.partials.ses')
         </div>

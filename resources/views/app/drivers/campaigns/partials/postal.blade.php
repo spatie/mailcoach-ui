@@ -13,15 +13,6 @@
     --}}
 </x-mailcoach::help>
 
-
-<x-mailcoach::text-field
-    :label="__('Mails per second')"
-    name="postal_mails_per_second"
-    type="number"
-    :value="$mailConfiguration->postal_mails_per_second ?? 5"
-    inputClass="input-sm"
-/>
-
 <x-mailcoach::text-field
     :label="__('Host')"
     name="postal_host"

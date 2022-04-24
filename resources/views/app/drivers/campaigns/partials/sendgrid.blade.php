@@ -7,14 +7,6 @@
 </x-mailcoach::help>
 
 <x-mailcoach::text-field
-    :label="__('Mails per second')"
-    name="sendgrid_mails_per_second"
-    type="number"
-    :value="$mailConfiguration->sendgrid_mails_per_second ?? 5"
-    inputClass="input-sm"
-/>
-
-<x-mailcoach::text-field
     :label="__('API key')"
     name="sendgrid_api_key"
     type="password"
