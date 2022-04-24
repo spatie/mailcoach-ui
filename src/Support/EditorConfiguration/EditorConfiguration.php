@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi\Support\EditorConfiguration;
 
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Collection;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
 use Spatie\Valuestore\Valuestore;
 
@@ -51,7 +52,7 @@ class EditorConfiguration
             return;
         }
 
-        if (! in_array($editorName, $this->getAvailableEditors())) {
+        if (! $this->getAvailableEditors()->map->label()->contains($editorName)) {
             return;
         }
 
@@ -61,11 +62,19 @@ class EditorConfiguration
         );
     }
 
-    public function getAvailableEditors(): array
+    /** @return Collection<EditorConfigurationDriver> */
+    public function getAvailableEditors(): Collection
     {
-        $editors = $this->editorConfigurationRepository->getSupportedEditors();
+        return $this->editorConfigurationRepository->getSupportedEditors();
+    }
 
-        return array_combine($editors, $editors);
+    public function getEditorOptions(): array
+    {
+        return $this->getAvailableEditors()->mapWithKeys(function (EditorConfigurationDriver $driver) {
+            return [
+                $driver->label() => $driver->label(),
+            ];
+        })->toArray();
     }
 
     protected function getEditor(): EditorConfigurationDriver

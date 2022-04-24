@@ -18,4 +18,9 @@ abstract class EditorConfigurationDriver
         $config->set('mailcoach.automation.editor', $this->getClass());
         $config->set('mailcoach.transactional.editor', $this->getClass());
     }
+
+    public static function settingsPartial(): ?string
+    {
+        return null;
+    }
 }

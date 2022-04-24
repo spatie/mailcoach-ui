@@ -20,4 +20,9 @@ class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
     {
         return [];
     }
+
+    public static function settingsPartial(): ?string
+    {
+        return 'mailcoach-ui::app.configuration.editor.partials.unlayer';
+    }
 }

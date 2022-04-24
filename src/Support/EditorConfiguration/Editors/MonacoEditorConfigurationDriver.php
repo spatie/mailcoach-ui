@@ -38,4 +38,9 @@ class MonacoEditorConfigurationDriver extends EditorConfigurationDriver
         config()->set('mailcoach.monaco.fontWeight', $values['monaco_font_weight'] ?? '400');
         config()->set('mailcoach.monaco.lineHeight', $values['monaco_line_height'] ?? '18');
     }
+
+    public static function settingsPartial(): ?string
+    {
+        return 'mailcoach-ui::app.configuration.editor.partials.monaco';
+    }
 }
