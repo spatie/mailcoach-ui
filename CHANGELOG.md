@@ -2,6 +2,16 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.1.0 - 2022-04-24
+
+## What's changed
+
+- Added a way to configure the encryption in the SMTP settings
+- Added the new Toast UI Markdown editor (https://github.com/spatie/laravel-mailcoach-markdown-editor)
+- Added a way to configure the timespan for rate limiting
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.0.3...5.1.0
+
 ## 5.0.3 - 2022-04-19
 
 - Add the postmark feedback package
