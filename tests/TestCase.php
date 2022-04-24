@@ -7,7 +7,6 @@ use CreateMailcoachUiTables;
 use CreateMediaTable;
 use CreatePersonalAccessTokensTable;
 use CreateUsersTable;
-use IDCH\MailcoachPostalFeedback\MailcoachPostalFeedbackServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\SanctumServiceProvider;
@@ -17,6 +16,7 @@ use Spatie\Feed\FeedServiceProvider;
 use Spatie\Mailcoach\MailcoachServiceProvider;
 use Spatie\MailcoachEditor\MailcoachEditorServiceProvider;
 use Spatie\MailcoachMailgunFeedback\MailcoachMailgunFeedbackServiceProvider;
+use Spatie\MailcoachMarkdownEditor\MailcoachMarkdownEditorServiceProvider;
 use Spatie\MailcoachPostmarkFeedback\MailcoachPostmarkFeedbackServiceProvider;
 use Spatie\MailcoachSendgridFeedback\MailcoachSendgridFeedbackServiceProvider;
 use Spatie\MailcoachSesFeedback\MailcoachSesFeedbackServiceProvider;
@@ -61,9 +61,9 @@ class TestCase extends Orchestra
             MailcoachMailgunFeedbackServiceProvider::class,
             MailcoachSendgridFeedbackServiceProvider::class,
             MailcoachPostmarkFeedbackServiceProvider::class,
-            MailcoachPostalFeedbackServiceProvider::class,
             MailcoachUnlayerServiceProvider::class,
             MailcoachEditorServiceProvider::class,
+            MailcoachMarkdownEditorServiceProvider::class,
 
             LivewireServiceProvider::class,
         ];
