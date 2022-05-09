@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
+use Livewire\Livewire;
 use Spatie\Flash\Flash;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
+use Spatie\MailcoachUi\Http\Livewire\CreateUser;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
@@ -143,6 +145,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
         if (config("mailcoach.views.use_blade_components", true)) {
             $this->bootBladeComponents();
         }
+
+        Livewire::component('mailcoach-ui::create-user', CreateUser::class);
 
         return $this;
     }

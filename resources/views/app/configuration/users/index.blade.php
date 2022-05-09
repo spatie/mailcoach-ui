@@ -1,9 +1,9 @@
 <x-mailcoach-ui::layout-settings :title="__('Users')">
-    <div class="table-actions">
-        <x-mailcoach::button data-modal-trigger="create-user" :label="__('Create new user')" />
+    <div class="table-actions" x-data>
+        <x-mailcoach::button x-on:click="$store.modals.open('create-user')" :label="__('Create new user')" />
 
         <x-mailcoach::modal title="Create user" name="create-user" :open="$errors->any()">
-            @include('mailcoach-ui::app.configuration.users.partials.create')
+            @livewire('mailcoach-ui::create-user')
         </x-mailcoach::modal>
 
         <div class=table-filters>

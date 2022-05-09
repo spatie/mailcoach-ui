@@ -36,7 +36,7 @@
     @if (session()->has('newToken'))
         @push('modals')
             <x-mailcoach::modal :open="true" :title="__('Your new token')" name="token">
-                <p data-confirm-modal-text class="mb-2">
+                <p class="mb-2">
                     We will display this token only once. Make sure to copy it to a safe place.
                 </p>
 
@@ -46,24 +46,36 @@
 
                 <div class="form-buttons justify-end">
                     <div>
-                        <span class="cursor-pointer underline text-sm mr-4" onclick="copyToClipboard(this, '{{ session()->get('newToken') }}')">Copy to clipboard</span>
-                        <button type="button" class="button" data-modal-dismiss>
+                        <span class="cursor-pointer underline text-sm mr-4" x-on:click="(e) => window.copyToClipboard('{{ session()->get('newToken') }}').then(() => e.target.innerText = 'Copied!')">Copy to clipboard</span>
+                        <button type="button" class="button" x-on:click="$store.modals.close('token')">
                             {{ __('OK') }}
                         </button>
                     </div>
                 </div>
             </x-mailcoach::modal>
             <script>
-                function copyToClipboard(element, key)
-                {
-                    const el = document.createElement('textarea');
-                    el.value = key;
-                    document.body.appendChild(el);
-                    el.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(el);
-
-                    element.innerText = 'Copied!';
+                function copyToClipboard(textToCopy) {
+                    // navigator clipboard api needs a secure context (https)
+                    if (navigator.clipboard && window.isSecureContext) {
+                        // navigator clipboard api method'
+                        return navigator.clipboard.writeText(textToCopy);
+                    } else {
+                        // text area method
+                        let textArea = document.createElement("textarea");
+                        textArea.value = textToCopy;
+                        // make the textarea out of viewport
+                        textArea.style.position = "fixed";
+                        textArea.style.left = "-999999px";
+                        textArea.style.top = "-999999px";
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        return new Promise((res, rej) => {
+                            // here the magic happens
+                            document.execCommand('copy') ? res() : rej();
+                            textArea.remove();
+                        });
+                    }
                 }
             </script>
         @endpush
@@ -87,10 +99,9 @@
                         <x-mailcoach::dropdown direction="left">
                             <ul>
                                 <li>
-                                    <x-mailcoach::form-button :action="route('tokens.delete', $token)" method="DELETE"
-                                                   data-confirm>
+                                    <x-mailcoach::confirm-button :action="route('tokens.delete', $token)" method="DELETE">
                                         <x-mailcoach::icon-label icon="far fa-trash-alt" :text="__('Delete')" :caution="true"/>
-                                    </x-mailcoach::form-button>
+                                    </x-mailcoach::confirm-button>
                                 </li>
                             </ul>
                         </x-mailcoach::dropdown>

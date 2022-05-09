@@ -3,7 +3,8 @@
         class="form-grid"
         action="{{ route('mailConfiguration') }}"
         method="POST"
-        data-cloak
+        x-cloak
+        x-data="{ driver: '{{ old('driver', $mailConfiguration->driver ?? 'ses') }}' }"
     >
         @csrf
         @method('PUT')
@@ -11,7 +12,7 @@
         <x-mailcoach::select-field
             :label="__('Driver')"
             name="driver"
-            :value="$mailConfiguration->driver"
+            x-model="driver"
             :options="[
                 'ses' => 'Amazon SES',
                 'sendgrid' => 'SendGrid',
@@ -20,7 +21,6 @@
                 'postal' => 'Postal',
                 'smtp' => 'SMTP',
             ]"
-            data-conditional="driver"
         />
 
         @php($key = $mailConfiguration->driver . '_mails_per_second')
@@ -40,27 +40,27 @@
             inputClass="input-sm"
         />
 
-        <div class="form-grid" data-conditional-driver="ses">
+        <div class="form-grid" x-show="driver === 'ses'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.ses')
         </div>
 
-        <div class="form-grid" data-conditional-driver="mailgun">
+        <div class="form-grid" x-show="driver === 'mailgun'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.mailgun')
         </div>
 
-        <div class="form-grid" data-conditional-driver="sendgrid">
+        <div class="form-grid" x-show="driver === 'sendgrid'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.sendgrid')
         </div>
 
-        <div class="form-grid" data-conditional-driver="postmark">
+        <div class="form-grid" x-show="driver === 'postmark'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.postmark')
         </div>
 
-        <div class="form-grid" data-conditional-driver="postal">
+        <div class="form-grid" x-show="driver === 'postal'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.postal')
         </div>
 
-        <div class="form-grid" data-conditional-driver="smtp">
+        <div class="form-grid" x-show="driver === 'smtp'">
             @include('mailcoach-ui::app.drivers.campaigns.partials.smtp')
         </div>
 
@@ -68,12 +68,12 @@
 
         <div class="form-buttons">
             <x-mailcoach::button :label="__('Save configuration')" />
-            <x-mailcoach::button-secondary data-modal-trigger="send-test" :label="__('Send Test')" />
+            <x-mailcoach::button-secondary x-on:click="$store.modals.open('send-test')" :label="__('Send Test')" />
         </div>
 
     </form>
 
-    <x-mailcoach::modal title="Send Test" name="send-test">
+    <x-mailcoach::modal title="Send Test" name="send-test" :open="$errors->has('to_email') || $errors->has('from_email')">
         @include('mailcoach-ui::app.drivers.campaigns.partials.sendTestMail')
     </x-mailcoach::modal>
 </x-mailcoach-ui::layout-settings>
