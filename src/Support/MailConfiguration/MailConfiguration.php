@@ -2,47 +2,25 @@
 
 namespace Spatie\MailcoachUi\Support\MailConfiguration;
 
+use Exception;
 use Illuminate\Config\Repository;
+use Illuminate\Support\Arr;
+use Spatie\MailcoachUi\Models\Setting;
+use Spatie\MailcoachUi\Support\Concerns\UsesSettings;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\MailConfigurationDriver;
-use Spatie\Valuestore\Valuestore;
 
 class MailConfiguration
 {
-    protected Valuestore $valuestore;
-
-    protected Repository $config;
-
-    protected MailConfigurationDriverRepository $mailConfigurationDriverRepository;
+    use UsesSettings;
 
     public function __construct(
-        Valuestore $valuestore,
-        Repository $config,
-        MailConfigurationDriverRepository $mailConfigurationDriverRepository
+        protected Repository $config,
+        protected MailConfigurationDriverRepository $mailConfigurationDriverRepository
     ) {
-        $this->valuestore = $valuestore;
-        $this->config = $config;
-        $this->mailConfigurationDriverRepository = $mailConfigurationDriverRepository;
     }
 
-    public function put(array $values)
-    {
-        $this->valuestore->flush();
-
-        return $this->valuestore->put($values);
-    }
-
-    public function all()
-    {
-        return $this->valuestore->all();
-    }
-
-    public function __get(string $property)
-    {
-        return $this->valuestore->get($property);
-    }
-
-    public function registerConfigValues()
+    public function registerConfigValues(): void
     {
         if (! $this->getDriver()) {
             return;
@@ -50,7 +28,7 @@ class MailConfiguration
 
         $this->getDriver()->registerConfigValues(
             $this->config,
-            $this->valuestore->all()
+            $this->all()
         );
 
         ConfigCache::clear();
@@ -63,6 +41,11 @@ class MailConfiguration
 
     protected function getDriver(): ?MailConfigurationDriver
     {
-        return $this->mailConfigurationDriverRepository->getForDriver($this->valuestore->get('driver', ''));
+        return $this->mailConfigurationDriverRepository->getForDriver($this->get('driver', ''));
+    }
+
+    public function getKeyName(): string
+    {
+        return 'mailConfiguration';
     }
 }

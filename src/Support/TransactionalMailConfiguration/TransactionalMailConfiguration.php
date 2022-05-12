@@ -3,53 +3,21 @@
 namespace Spatie\MailcoachUi\Support\TransactionalMailConfiguration;
 
 use Illuminate\Config\Repository;
+use Spatie\MailcoachUi\Support\Concerns\UsesSettings;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\Drivers\TransactionalMailConfigurationDriver;
-use Spatie\Valuestore\Valuestore;
 
 class TransactionalMailConfiguration
 {
-    protected Valuestore $valuestore;
-
-    protected Repository $config;
-
-    protected TransactionalMailConfigurationDriverRepository $transactionalMailConfigurationDriverRepository;
+    use UsesSettings;
 
     public function __construct(
-        Valuestore $valuestore,
-        Repository $config,
-        TransactionalMailConfigurationDriverRepository $mailConfigurationDriverRepository
+        protected Repository $config,
+        protected TransactionalMailConfigurationDriverRepository $transactionalMailConfigurationDriverRepository
     ) {
-        $this->valuestore = $valuestore;
-        $this->config = $config;
-        $this->transactionalMailConfigurationDriverRepository = $mailConfigurationDriverRepository;
     }
 
-    public function empty(): self
-    {
-        $this->valuestore->flush();
-
-        return $this;
-    }
-
-    public function put(array $values)
-    {
-        $this->valuestore->flush();
-
-        return $this->valuestore->put($values);
-    }
-
-    public function all()
-    {
-        return $this->valuestore->all();
-    }
-
-    public function __get(string $property)
-    {
-        return $this->valuestore->get($property);
-    }
-
-    public function registerConfigValues()
+    public function registerConfigValues(): void
     {
         if (! $this->getDriver()) {
             return;
@@ -57,7 +25,7 @@ class TransactionalMailConfiguration
 
         $this->getDriver()->registerConfigValues(
             $this->config,
-            $this->valuestore->all()
+            $this->all()
         );
 
         ConfigCache::clear();
@@ -72,6 +40,11 @@ class TransactionalMailConfiguration
     {
         return $this
             ->transactionalMailConfigurationDriverRepository
-            ->getForDriver($this->valuestore->get('driver', ''));
+            ->getForDriver($this->get('driver', ''));
+    }
+
+    public function getKeyName(): string
+    {
+        return 'transactionalMailConfiguration';
     }
 }

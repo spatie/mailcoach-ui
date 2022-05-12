@@ -4,49 +4,22 @@ namespace Spatie\MailcoachUi\Support\EditorConfiguration;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Collection;
+use Spatie\MailcoachUi\Support\Concerns\UsesSettings;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
-use Spatie\Valuestore\Valuestore;
 
 class EditorConfiguration
 {
-    private Valuestore $valuestore;
-
-    private Repository $config;
-
-    private EditorConfigurationDriverRepository $editorConfigurationRepository;
+    use UsesSettings;
 
     public function __construct(
-        Valuestore $valuestore,
-        Repository $config,
-        EditorConfigurationDriverRepository $editorConfigurationRepository
+        protected Repository $config,
+        protected EditorConfigurationDriverRepository $editorConfigurationRepository
     ) {
-        $this->valuestore = $valuestore;
-
-        $this->config = $config;
-
-        $this->editorConfigurationRepository = $editorConfigurationRepository;
-    }
-
-    public function put(array $values)
-    {
-        $this->valuestore->flush();
-
-        return $this->valuestore->put($values);
-    }
-
-    public function all()
-    {
-        return $this->valuestore->all();
-    }
-
-    public function __get(string $property)
-    {
-        return $this->valuestore->get($property);
     }
 
     public function registerConfigValues(): void
     {
-        $editorName = $this->valuestore->get('editor');
+        $editorName = $this->get('editor');
 
         if (! $editorName) {
             return;
@@ -58,7 +31,7 @@ class EditorConfiguration
 
         $this->getEditor()->registerConfigValues(
             $this->config,
-            $this->valuestore->all()
+            $this->all()
         );
     }
 
@@ -79,6 +52,11 @@ class EditorConfiguration
 
     protected function getEditor(): EditorConfigurationDriver
     {
-        return $this->editorConfigurationRepository->getForEditor($this->valuestore->get('editor', ''));
+        return $this->editorConfigurationRepository->getForEditor($this->get('editor', ''));
+    }
+
+    public function getKeyName(): string
+    {
+        return 'EditorConfiguration';
     }
 }
