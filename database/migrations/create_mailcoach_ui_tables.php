@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMailcoachUiTables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -19,7 +19,7 @@ class CreateMailcoachUiTables extends Migration
 
         Schema::create('mailcoach_settings', function (Blueprint $table) {
             $table->string('key')->index();
-            $table->json('value')->nullable();
+            $table->text('value')->nullable();
         });
     }
-}
+};

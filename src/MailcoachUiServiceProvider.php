@@ -20,12 +20,8 @@ use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
-use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfigurationDriverRepository;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfigurationDriverRepository;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
-use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfigurationDriverRepository;
-use Spatie\Valuestore\Valuestore;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
@@ -162,78 +158,5 @@ class MailcoachUiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/mailcoach-ui.php', 'mailcoach-ui');
-
-        $this
-            ->registerAppConfiguration()
-            ->registerMailConfiguration()
-            ->registerTransactionalMailConfiguration()
-            ->registerEditorConfiguration();
-    }
-
-    protected function registerAppConfiguration(): self
-    {
-        $this->app->bind(AppConfiguration::class, function () {
-            /** @var class-string<ValueStore> $valueStoreClass */
-            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
-            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/app.json'));
-
-            return new AppConfiguration(
-                $valueStore,
-                app()->get('config'),
-            );
-        });
-
-        return $this;
-    }
-
-    protected function registerTransactionalMailConfiguration(): self
-    {
-        $this->app->bind(TransactionalMailConfiguration::class, function () {
-            /** @var class-string<ValueStore> $valueStoreClass */
-            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
-            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/transactional-mail.json'));
-
-            return new TransactionalMailConfiguration(
-                $valueStore,
-                app()->get('config'),
-                new TransactionalMailConfigurationDriverRepository()
-            );
-        });
-
-        return $this;
-    }
-
-    protected function registerMailConfiguration(): self
-    {
-        $this->app->bind(MailConfiguration::class, function () {
-            /** @var class-string<ValueStore> $valueStoreClass */
-            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
-            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/mail.json'));
-
-            return new MailConfiguration(
-                $valueStore,
-                app()->get('config'),
-                new MailConfigurationDriverRepository()
-            );
-        });
-
-        return $this;
-    }
-
-    protected function registerEditorConfiguration(): self
-    {
-        $this->app->bind(EditorConfiguration::class, function () {
-            /** @var class-string<ValueStore> $valueStoreClass */
-            $valueStoreClass = config('mailcoach-ui.valuestore', Valuestore::class);
-            $valueStore = $valueStoreClass::make(base_path('config-mailcoach-app/editor.json'));
-
-            return new EditorConfiguration(
-                $valueStore,
-                app()->get('config'),
-                new EditorConfigurationDriverRepository()
-            );
-        });
-
-        return $this;
     }
 }

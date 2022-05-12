@@ -3,47 +3,29 @@
 namespace Spatie\MailcoachUi\Support\AppConfiguration;
 
 use Illuminate\Config\Repository;
+use Spatie\MailcoachUi\Support\Concerns\UsesSettings;
 use Spatie\MailcoachUi\Support\ConfigCache;
-use Spatie\Valuestore\Valuestore;
 
 class AppConfiguration
 {
-    protected Valuestore $valuestore;
+    use UsesSettings;
 
-    protected Repository $config;
-
-    public function __construct(
-        Valuestore $valuestore,
-        Repository $config
-    ) {
-        $this->valuestore = $valuestore;
-        $this->config = $config;
+    public function __construct(protected Repository $config)
+    {
     }
 
-    public function put(array $values)
+    public function registerConfigValues(): void
     {
-        $this->valuestore->flush();
-
-        return $this->valuestore->put($values);
-    }
-
-    public function all()
-    {
-        return $this->valuestore->all();
-    }
-
-    public function __get(string $property)
-    {
-        return $this->valuestore->get($property);
-    }
-
-    public function registerConfigValues()
-    {
-        config()->set('app.name', $this->valuestore->get('name', config('app.name')));
-        config()->set('app.timezone', $this->valuestore->get('timezone', config('app.timezone')));
-        config()->set('app.url', $this->valuestore->get('url', config('app.url')));
-        config()->set('filesystems.disks.public.url', $this->valuestore->get('url', config('app.url')) . '/storage');
+        config()->set('app.name', $this->get('name', config('app.name')));
+        config()->set('app.timezone', $this->get('timezone', config('app.timezone')));
+        config()->set('app.url', $this->get('url', config('app.url')));
+        config()->set('filesystems.disks.public.url', $this->get('url', config('app.url')) . '/storage');
 
         ConfigCache::clear();
+    }
+
+    public function getKeyName(): string
+    {
+        return 'appConfiguration';
     }
 }
