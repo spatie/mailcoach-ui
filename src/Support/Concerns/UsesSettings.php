@@ -41,7 +41,7 @@ trait UsesSettings
             return null;
         }
 
-        $value = $setting?->value;
+        $value = $setting?->value ?? [];
 
         return Arr::get($value, $property, $default);
     }
