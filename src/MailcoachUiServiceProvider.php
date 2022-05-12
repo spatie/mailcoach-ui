@@ -20,12 +20,8 @@ use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
-use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfigurationDriverRepository;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfigurationDriverRepository;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
-use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfigurationDriverRepository;
-use Spatie\Valuestore\Valuestore;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {

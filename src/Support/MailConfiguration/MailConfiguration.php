@@ -2,10 +2,7 @@
 
 namespace Spatie\MailcoachUi\Support\MailConfiguration;
 
-use Exception;
 use Illuminate\Config\Repository;
-use Illuminate\Support\Arr;
-use Spatie\MailcoachUi\Models\Setting;
 use Spatie\MailcoachUi\Support\Concerns\UsesSettings;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\MailConfiguration\Drivers\MailConfigurationDriver;

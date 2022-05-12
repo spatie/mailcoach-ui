@@ -18,7 +18,7 @@ class Setting extends Model
     {
         static::query()->updateOrInsert([
             'key' => $key,
-        ],[
+        ], [
             'value' => json_encode($values),
         ]);
 
