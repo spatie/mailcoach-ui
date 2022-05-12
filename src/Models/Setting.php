@@ -37,7 +37,7 @@ class Setting extends Model
 
     public function allValues(): array
     {
-        return Cache::rememberForever($this->cacheName(), function() {
+        return Cache::rememberForever($this->cacheName(), function () {
             return json_decode(Crypt::decryptString($this->value), true) ?? [];
         });
     }
