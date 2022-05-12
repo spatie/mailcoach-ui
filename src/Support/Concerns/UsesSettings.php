@@ -36,7 +36,6 @@ trait UsesSettings
     {
         try {
             $setting = Setting::where('key', $this->getKeyName())->first();
-
         } catch (Exception) {
             return null;
         }
