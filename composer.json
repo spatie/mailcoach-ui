@@ -30,7 +30,8 @@
         "spatie/laravel-mailcoach-sendgrid-feedback": "^4.0",
         "spatie/laravel-mailcoach-ses-feedback": "^4.0",
         "spatie/laravel-mailcoach-unlayer": "^2.2",
-        "spatie/laravel-welcome-notification": "^2.3"
+        "spatie/laravel-welcome-notification": "^2.3",
+        "spatie/laravel-mailcoach-ses-setup": "dev-main"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."
@@ -43,6 +44,10 @@
         {
             "type": "composer",
             "url": "https://satis.spatie.be"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-mailcoach-ses-setup"
         }
     ],
     "autoload": {
