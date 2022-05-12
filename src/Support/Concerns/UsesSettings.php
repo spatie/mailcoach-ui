@@ -3,7 +3,6 @@
 namespace Spatie\MailcoachUi\Support\Concerns;
 
 use Exception;
-use Illuminate\Support\Arr;
 use Spatie\MailcoachUi\Models\Setting;
 
 trait UsesSettings
@@ -17,7 +16,7 @@ trait UsesSettings
 
     public function all(): array
     {
-        return Setting::where('key', $this->getKeyName())->first()?->value ?? [];
+        return Setting::where('key', $this->getKeyName())->first()?->allValues() ?? [];
     }
 
     public function empty(): self
@@ -35,14 +34,10 @@ trait UsesSettings
     public function get(string $property, mixed $default = null): mixed
     {
         try {
-            $setting = Setting::where('key', $this->getKeyName())->first();
+            return Setting::where('key', $this->getKeyName())->first()?->getValue($property) ?? $default;
         } catch (Exception) {
-            return null;
+            return $default;
         }
-
-        $value = $setting?->value ?? [];
-
-        return Arr::get($value, $property, $default);
     }
 
     abstract public function getKeyName(): string;
