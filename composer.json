@@ -21,6 +21,7 @@
         "laravel/ui": "^3.0",
         "league/html-to-markdown": "^4.10|^5.0",
         "livewire/livewire": "^2.10",
+        "spatie/laravel-collection-macros": "^7.11",
         "spatie/laravel-mailcoach": "^5.0",
         "spatie/laravel-mailcoach-editor": "^1.1",
         "spatie/laravel-mailcoach-mailgun-feedback": "^4.0",
@@ -29,9 +30,9 @@
         "spatie/laravel-mailcoach-postmark-feedback": "^4.0",
         "spatie/laravel-mailcoach-sendgrid-feedback": "^4.0",
         "spatie/laravel-mailcoach-ses-feedback": "^4.0",
+        "spatie/laravel-mailcoach-ses-setup": "dev-main",
         "spatie/laravel-mailcoach-unlayer": "^2.2",
-        "spatie/laravel-welcome-notification": "^2.3",
-        "spatie/laravel-mailcoach-ses-setup": "dev-main"
+        "spatie/laravel-welcome-notification": "^2.3"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."

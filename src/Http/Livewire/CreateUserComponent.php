@@ -8,7 +8,7 @@ use Livewire\Component;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Models\User;
 
-class CreateUser extends Component
+class CreateUserComponent extends Component
 {
     public string $email = '';
     public string $name = '';

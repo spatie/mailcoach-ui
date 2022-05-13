@@ -7,6 +7,7 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\App\EditAppConfigurationCon
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\EditorController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\EditMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SendTestMailController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SesMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\DeleteTransactionalMailConfiguration;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\EditTransactionalMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\SendTestTransactionalMailController;
@@ -51,6 +52,10 @@ Route::prefix('settings')->group(function () {
     Route::get('mail-configuration', [EditMailConfigurationController::class, 'edit'])->name('mailConfiguration');
     Route::put('mail-configuration', [EditMailConfigurationController::class, 'update']);
     Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail'])->name('sendTestMail');
+
+    Route::prefix('mail-configuration')->group(function() {
+        Route::get('ses', SesMailConfigurationController::class);
+    });
 
     Route::get('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'edit'])->name('transactionalMailConfiguration');
     Route::put('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'update']);

@@ -13,8 +13,9 @@ use Spatie\Flash\Flash;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesMailConfigurationComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
-use Spatie\MailcoachUi\Http\Livewire\CreateUser;
+use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
@@ -142,7 +143,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
             $this->bootBladeComponents();
         }
 
-        Livewire::component('mailcoach-ui::create-user', CreateUser::class);
+        Livewire::component('mailcoach-ui::create-user', CreateUserComponent::class);
+        Livewire::component('mailcoach-ui::ses-configuration', SesMailConfigurationComponent::class);
 
         return $this;
     }
