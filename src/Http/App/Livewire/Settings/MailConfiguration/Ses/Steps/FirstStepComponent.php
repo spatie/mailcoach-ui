@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
-
 use Spatie\LivewireWizard\StepComponent;
 
 class FirstStepComponent extends StepComponent
