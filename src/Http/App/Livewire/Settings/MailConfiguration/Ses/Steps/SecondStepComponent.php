@@ -2,7 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
-use Spatie\LivewireWizard\StepComponent;
+use Spatie\LivewireWizard\Components\StepComponent;
 
 class SecondStepComponent extends StepComponent
 {
@@ -33,8 +33,13 @@ class SecondStepComponent extends StepComponent
 
     public function render()
     {
-        ray($this->allStepsState());
-
         return view('mailcoach-ui::app.drivers.campaigns.livewire.second');
+    }
+
+    public function info(): array
+    {
+        return [
+            'label' => 'My second step',
+        ];
     }
 }
