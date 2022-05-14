@@ -2,11 +2,17 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
-use Spatie\MailcoachUi\Support\LivewireWizard\Step;
 
-class FirstStep extends Step
+use Spatie\LivewireWizard\StepComponent;
+
+class FirstStepComponent extends StepComponent
 {
     public string $myValue = 'first step value';
+
+    public function something()
+    {
+        $this->myValue = 'myValue';
+    }
 
     public function render()
     {

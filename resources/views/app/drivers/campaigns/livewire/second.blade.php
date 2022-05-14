@@ -5,7 +5,7 @@
     <div id="back" class="underline mt-2" wire:click="previousStep">Go back</div>
 
 
-    <div>My count: {{ $this->counter }}</div>
+    <div>My count: {{ $this->count }}</div>
     <div>My value: {{ $this->myValue }}</div>
 
     <div class="underline" id="increment" wire:click="increment">Increment</div>

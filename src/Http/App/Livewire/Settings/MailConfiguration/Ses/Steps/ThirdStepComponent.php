@@ -2,9 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
-use Spatie\MailcoachUi\Support\LivewireWizard\Step;
 
-class ThirdStep extends Step
+use Spatie\LivewireWizard\StepComponent;
+
+class ThirdStepComponent extends StepComponent
 {
     public function render()
     {

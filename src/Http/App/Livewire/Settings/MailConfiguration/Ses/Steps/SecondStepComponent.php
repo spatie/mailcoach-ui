@@ -2,9 +2,9 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
-use Spatie\MailcoachUi\Support\LivewireWizard\Step;
+use Spatie\LivewireWizard\StepComponent;
 
-class SecondStep extends Step
+class SecondStepComponent extends StepComponent
 {
     public array $rules = [
         'name' => 'required|min:6',
@@ -13,9 +13,15 @@ class SecondStep extends Step
 
     public string $myValue = 'second step value';
 
+    public $name;
+
+    public $email;
+
+    public int $count = 0;
+
     public function increment()
     {
-        $this->wizard->counter = $this->wizard->counter + 1;
+        $this->count = $this->count + 1;
     }
 
     public function submit()
@@ -27,6 +33,8 @@ class SecondStep extends Step
 
     public function render()
     {
+        ray($this->allStepsState());
+
         return view('mailcoach-ui::app.drivers.campaigns.livewire.second');
     }
 }

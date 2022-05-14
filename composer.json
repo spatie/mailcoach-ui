@@ -32,7 +32,8 @@
         "spatie/laravel-mailcoach-ses-feedback": "^4.0",
         "spatie/laravel-mailcoach-ses-setup": "dev-main",
         "spatie/laravel-mailcoach-unlayer": "^2.2",
-        "spatie/laravel-welcome-notification": "^2.3"
+        "spatie/laravel-welcome-notification": "^2.3",
+        "spatie/laravel-livewire-wizard": "dev-main"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."
@@ -49,6 +50,10 @@
         {
             "type": "path",
             "url": "../laravel-mailcoach-ses-setup"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-livewire-wizard"
         }
     ],
     "autoload": {
