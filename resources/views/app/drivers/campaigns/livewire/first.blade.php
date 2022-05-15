@@ -4,7 +4,7 @@
         @foreach($steps as $step)
             <li class="{{ $step->isPrevious() ? 'underline' : '' }} {{ $step->isCurrent() ? 'text-red-500' : '' }}"
                 @if ($step->isPrevious())
-                    wire:click="{{ $step->activate() }}"
+                    wire:click="{{ $step->show() }}"
                 @endif
             >
 
@@ -22,7 +22,7 @@
         Go to the next step
     </div>
 
-    <div class="underline mt-2" wire:click="activateStep('mailcoach-ui::step-3')">
+    <div class="underline mt-2" wire:click="showStep('mailcoach-ui::step-3')">
         Last step
     </div>
 </div>

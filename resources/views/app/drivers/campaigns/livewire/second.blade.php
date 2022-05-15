@@ -2,12 +2,11 @@
 
     <ul>
         @foreach($steps as $step)
-            <li class="{{ $step->isPrevious() ? 'underline' : '' }} {{ $step->isCurrent() ? 'text-red-500' : '' }}"
+            <li class="{{ $step->isCurrent() ? 'text-bold' : '' }}"
                 @if ($step->isPrevious())
                     wire:click="{{ $step->activate() }}"
                 @endif
             >
-
                 {{ $step->label }}</li>
         @endforeach
     </ul>
@@ -15,7 +14,6 @@
     You have arrived at the next step
 
     <div id="back" class="underline mt-2" wire:click="previousStep">Go back</div>
-
 
     <div>My count: {{ $this->count }}</div>
     <div>My value: {{ $this->myValue }}</div>
@@ -39,7 +37,6 @@
 
         <button class="underline" type="submit">Save Contact</button>
     </form>
-
 
 
 </div>
