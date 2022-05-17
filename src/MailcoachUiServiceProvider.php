@@ -15,7 +15,6 @@ use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesMailConfigurationComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\AuthenticationStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SecondStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SummaryStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThrottlingStepComponent;
