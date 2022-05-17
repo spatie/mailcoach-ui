@@ -10,11 +10,10 @@ use Spatie\MailcoachSesSetup\MailcoachSesConfig;
 
 class AuthenticationStepComponent extends StepComponent
 {
+    use LivewireFlash;
     public string $key = 'my key';
     public string $secret = '';
     public string $region = '';
-
-    use LivewireFlash;
 
     public $rules = [
         'key' => ['required'],
@@ -29,9 +28,9 @@ class AuthenticationStepComponent extends StepComponent
 
         try {
             (new MailcoachSes($config))->ensureValidAwsCredentials();
-
         } catch (InvalidAwsCredentials) {
             $this->flash('These credentials are not valid.', 'error');
+
             return;
         }
 

@@ -43,7 +43,7 @@ class SetupFromAddressStepComponent extends StepComponent
 
         $credentials = $this->allStepsState('mailcoach-ui::ses-authentication-step');
 
-        $sesConfig =  new MailcoachSesConfig(
+        $sesConfig = new MailcoachSesConfig(
             $credentials['key'],
             $credentials['secret'],
             $credentials['region'],
