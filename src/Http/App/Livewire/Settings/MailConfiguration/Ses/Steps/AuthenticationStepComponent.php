@@ -12,7 +12,7 @@ use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 class AuthenticationStepComponent extends StepComponent
 {
     use LivewireFlash;
-    public string $key = 'my key';
+    public string $key = '';
     public string $secret = '';
     public string $region = 'us-east-1';
 
@@ -56,13 +56,6 @@ class AuthenticationStepComponent extends StepComponent
         $this->nextStep();
     }
 
-    public function render()
-    {
-        return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.authentication', [
-            'regions' => $this->availableRegions(),
-        ]);
-    }
-
     public function stepInfo(): array
     {
         return [
@@ -70,7 +63,7 @@ class AuthenticationStepComponent extends StepComponent
         ];
     }
 
-    protected function availableRegions(): array
+    public function availableRegions(): array
     {
         $regions = [
             'us-east-1',
@@ -81,5 +74,12 @@ class AuthenticationStepComponent extends StepComponent
         ];
 
         return array_combine($regions, $regions);
+    }
+
+    public function render()
+    {
+        return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.authentication', [
+            'regions' => $this->availableRegions(),
+        ]);
     }
 }
