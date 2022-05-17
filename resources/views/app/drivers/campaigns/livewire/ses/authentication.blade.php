@@ -14,6 +14,7 @@
                 :label="__('Key')"
                 name="key"
                 type="password"
+                autocomplete="off"
             />
 
             <x-mailcoach::text-field
@@ -21,6 +22,7 @@
                 :label="__('Secret')"
                 name="secret"
                 type="password"
+                autocomplete="off"
             />
 
             <x-mailcoach::select-field

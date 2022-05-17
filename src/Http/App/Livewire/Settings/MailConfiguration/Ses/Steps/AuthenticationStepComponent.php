@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
 use Spatie\LivewireWizard\Components\StepComponent;
+use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\Exception\InvalidAwsCredentials;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
@@ -12,6 +13,8 @@ class AuthenticationStepComponent extends StepComponent
     public string $key = 'my key';
     public string $secret = '';
     public string $region = '';
+
+    use LivewireFlash;
 
     public $rules = [
         'key' => ['required'],
@@ -28,10 +31,13 @@ class AuthenticationStepComponent extends StepComponent
             (new MailcoachSes($config))->ensureValidAwsCredentials();
 
         } catch (InvalidAwsCredentials) {
-
+            $this->flash('These credentials are not valid.', 'error');
+            return;
         }
 
-        ray($this->key, $this->secret, $this->region);
+        $this->flash('Your credentials were correct.');
+
+        $this->nextStep();
     }
 
     public function render()
@@ -41,7 +47,7 @@ class AuthenticationStepComponent extends StepComponent
         ]);
     }
 
-    public function info(): array
+    public function stepInfo(): array
     {
         return [
             'label' => 'Authenticate',

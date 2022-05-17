@@ -5,7 +5,6 @@
                 wire:click="{{ $step->show() }}"
             @endif
         >
-
             {{ $step->label }}</li>
     @endforeach
 </ul>
