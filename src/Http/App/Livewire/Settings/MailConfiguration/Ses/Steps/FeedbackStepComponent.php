@@ -51,7 +51,6 @@ class FeedbackStepComponent extends StepComponent
         $this->flash('The settings have been saved.');
     }
 
-
     public function render()
     {
         return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.feedback');
