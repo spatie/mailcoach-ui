@@ -14,7 +14,7 @@ use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesMailConfigurationComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FirstStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SecondStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThirdStepComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
@@ -149,7 +149,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::create-user', CreateUserComponent::class);
         Livewire::component('mailcoach-ui::ses-configuration', SesMailConfigurationComponent::class);
 
-        Livewire::component('mailcoach-ui::step-1', FirstStepComponent::class);
+        Livewire::component('mailcoach-ui::step-1', AuthenticationStepComponent::class);
         Livewire::component('mailcoach-ui::step-2', SecondStepComponent::class);
         Livewire::component('mailcoach-ui::step-3', ThirdStepComponent::class);
 
