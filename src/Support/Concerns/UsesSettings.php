@@ -14,6 +14,15 @@ trait UsesSettings
         return $this;
     }
 
+    public function merge(array $values): self
+    {
+        $allValues = array_merge($this->all(), $values);
+
+        Setting::setValues($this->getKeyName(), $allValues);
+
+        return $this;
+    }
+
     public function all(): array
     {
         return Setting::where('key', $this->getKeyName())->first()?->allValues() ?? [];

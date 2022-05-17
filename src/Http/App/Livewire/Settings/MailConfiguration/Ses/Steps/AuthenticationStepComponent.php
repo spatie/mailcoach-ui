@@ -7,12 +7,13 @@ use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\Exception\InvalidAwsCredentials;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
+use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class AuthenticationStepComponent extends StepComponent
 {
     public string $key = 'my key';
     public string $secret = '';
-    public string $region = '';
+    public string $region = 'us-east-1';
 
     use LivewireFlash;
 
@@ -20,6 +21,15 @@ class AuthenticationStepComponent extends StepComponent
         'key' => ['required'],
         'secret' => ['required'],
     ];
+
+    public function mount()
+    {
+        $configuration = app(MailConfiguration::class);
+
+        $this->key = $configuration->get('ses_key', '');
+        $this->secret = $configuration->get('ses_secret', '');
+        $this->region = $configuration->get('ses_region', '');
+    }
 
     public function submit()
     {
@@ -36,6 +46,13 @@ class AuthenticationStepComponent extends StepComponent
         }
 
         $this->flash('Your credentials were correct.');
+
+        app(MailConfiguration::class)->merge([
+            'driver' => 'ses',
+            'ses_key' => $this->key,
+            'ses_secret' => $this->secret,
+            'ses_region' => $this->region,
+        ]);
 
         $this->nextStep();
     }

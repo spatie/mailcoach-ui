@@ -3,16 +3,25 @@
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
 use Spatie\LivewireWizard\Components\StepComponent;
+use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
+use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class SetupFromAddressStepComponent extends StepComponent
 {
+    use LivewireFlash;
+
     public array $rules = [
         'email' => 'required|email',
     ];
 
     public ?string $email = '';
+
+    public function mount()
+    {
+        $this->email = app(MailConfiguration::class)->get('default_from_mail');
+    }
 
     public function submit()
     {
@@ -20,7 +29,13 @@ class SetupFromAddressStepComponent extends StepComponent
 
         $mailcoachSes = $this->getMailcoachSes();
 
-        $mailcoachSes->createSesIdentity($this->email);
+        $mailcoachSes->createSesIdentity();
+
+        app(MailConfiguration::class)->merge([
+            'default_from_mail' => $this->email,
+        ]);
+
+        $this->flash('The from address was saved.');
 
         $this->nextStep();
     }
@@ -33,14 +48,12 @@ class SetupFromAddressStepComponent extends StepComponent
     public function stepInfo(): array
     {
         return [
-            'label' => 'Setup From Address',
+            'label' => 'From Address',
         ];
     }
 
     protected function getMailcoachSes(): MailcoachSes
     {
-        ray($this->allStepsState());
-
         $credentials = $this->allStepsState('mailcoach-ui::ses-authentication-step');
 
         $sesConfig =  new MailcoachSesConfig(

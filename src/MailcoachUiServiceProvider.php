@@ -18,6 +18,8 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\Au
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SecondStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SummaryStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThrottlingStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FeedbackStepComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
@@ -150,8 +152,10 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::ses-configuration', SesMailConfigurationComponent::class);
 
         Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
-        Livewire::component('mailcoach-ui::set-setup-from-address-step', SetupFromAddressStepComponent::class);
-        Livewire::component('mailcoach-ui::summary-step', SummaryStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-throttling-step', ThrottlingStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
 
         return $this;
     }
