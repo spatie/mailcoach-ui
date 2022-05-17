@@ -12,11 +12,6 @@ return new class extends Migration
             $table->timestamp('welcome_valid_until')->nullable();
         });
 
-        Schema::create('mailcoach_uploads', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
-
         Schema::create('mailcoach_settings', function (Blueprint $table) {
             $table->string('key')->index();
             $table->text('value')->nullable();

@@ -69,7 +69,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         if (! class_exists('CreateMailcoachUiTables')) {
             $this->publishes([
-                __DIR__ . '/../database/migrations/create_mailcoach_ui_tables.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_mailcoach_ui_tables.php'),
+                __DIR__ . '/../database/migrations/create_mailcoach_ui_tables.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_mailcoach_ui_tables.php'),
             ], 'mailcoach-ui-migrations');
         }
 
@@ -119,7 +119,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         Route::macro('mailcoachUi', function (string $url = '') {
             Route::mailcoach($url);
-            Route::mailcoachUnlayer('mailcoachUnlayer');
             Route::mailcoachEditor('mailcoachEditor');
 
             Route::redirect($url, $url.'/'.config('mailcoach-ui.url_after_login') ?? 'campaigns');
