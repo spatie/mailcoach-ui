@@ -20,6 +20,7 @@ return [
      */
     'middleware' => [
         'web',
+        \Spatie\Mailcoach\Http\App\Middleware\BootstrapNavigation::class,
     ],
 
     /*
