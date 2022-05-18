@@ -34,6 +34,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
+        View::composer('mailcoach-ui::app.layouts.partials.health-tiles', HealthViewComposer::class);
 
         $this
             ->bootConfig()
