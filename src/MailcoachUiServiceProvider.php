@@ -124,8 +124,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             Route::mailcoach($url);
             Route::mailcoachEditor('mailcoachEditor');
 
-            Route::redirect($url, $url.'/'.config('mailcoach-ui.url_after_login') ?? 'campaigns');
-
             Route::prefix($url)
                 ->middleware(config('mailcoach-ui.middleware'))
                 ->group(function () {
