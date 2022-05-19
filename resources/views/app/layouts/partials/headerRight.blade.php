@@ -1,5 +1,5 @@
 <div
-    class="navigation-item group relative py-4 mr-2 md:py-8 px-4 cursor-pointer ml-auto"
+    class="navigation-item group relative py-4 mr-2 px-4 cursor-pointer ml-auto"
     x-on:mouseenter="open"
     x-on:mouseleave="close"
     x-on:touchstart="open"
