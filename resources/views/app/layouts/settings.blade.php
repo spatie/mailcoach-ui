@@ -1,4 +1,4 @@
-<x-mailcoach::layout 
+<x-mailcoach::layout
     :originTitle="$originTitle ?? __('Settings')"
     :originHref="$originHref ?? null"
     :title="$title ?? null"
@@ -15,14 +15,6 @@
                 <x-mailcoach::navigation-item :href="route('tokens')">
                     {{ __('API Tokens') }}
                 </x-mailcoach::navigation-item>
-                <li class="flex justify-end">
-                    <form method="post" action="{{ route('logout') }}">
-                        {{ csrf_field() }}
-                        <button type="submit" class="font-semibold">
-                            <x-mailcoach::icon-label icon="fas fa-fw fa-power-off text-red-500" :text="__('Log out')" />
-                        </button>
-                    </form>
-                </li>
             </x-mailcoach::navigation-group>
 
             <x-mailcoach::navigation-group icon="fas fa-cogs" :title="__('Configuration')">
@@ -44,13 +36,13 @@
                 <x-mailcoach::navigation-item :href="route('mailConfiguration')">
                     {{ __('Campaigns') }}
                 </x-mailcoach::navigation-item>
-            
+
                 <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
                     {{ __('Transactional Mail') }}
                 </x-mailcoach::navigation-item>
 
             </x-mailcoach::navigation-group>
-        </x-mailcoach::navigation>    
+        </x-mailcoach::navigation>
     </x-slot>
 
     {{ $slot }}
