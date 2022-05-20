@@ -24,12 +24,12 @@ abstract class EditorConfigurationDriver
 
     public static function supportsContent(): bool
     {
-        return (new static)->getClass()::$supportsContent;
+        return (new static())->getClass()::$supportsContent;
     }
 
     public static function supportsTemplates(): bool
     {
-        return (new static)->getClass()::$supportsTemplates;
+        return (new static())->getClass()::$supportsTemplates;
     }
 
     public static function settingsPartial(): ?string

@@ -22,7 +22,7 @@ class EditorConfiguration
         $contentEditorName = $this->get('contentEditor');
         $templateEditorName = $this->get('templateEditor');
 
-        if (! $contentEditorName && !$templateEditorName) {
+        if (! $contentEditorName && ! $templateEditorName) {
             return;
         }
 

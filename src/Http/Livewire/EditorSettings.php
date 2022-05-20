@@ -7,11 +7,9 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\Mailcoach\Http\Livewire\TextAreaEditorComponent;
 use Spatie\MailcoachUi\Support\ConfigCache;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfigurationDriverRepository;
-use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\EditorConfigurationDriver;
 use Spatie\MailcoachUi\Support\EditorConfiguration\Editors\TextareaEditorConfigurationDriver;
 
 class EditorSettings extends Component
@@ -28,8 +26,8 @@ class EditorSettings extends Component
 
     public function mount(EditorConfiguration $editorConfiguration)
     {
-        $this->contentEditor = $editorConfiguration->get('contentEditor', (new TextareaEditorConfigurationDriver)->label());
-        $this->templateEditor = $editorConfiguration->get('templateEditor', (new TextareaEditorConfigurationDriver)->label());
+        $this->contentEditor = $editorConfiguration->get('contentEditor', (new TextareaEditorConfigurationDriver())->label());
+        $this->templateEditor = $editorConfiguration->get('templateEditor', (new TextareaEditorConfigurationDriver())->label());
 
         $this->contentEditorOptions = $editorConfiguration->getContentEditorOptions();
         $this->templateEditorOptions = $editorConfiguration->getTemplateEditorOptions();
@@ -39,14 +37,14 @@ class EditorSettings extends Component
     {
         $editorConfigurationDriverRepository = new EditorConfigurationDriverRepository();
 
-        return array_merge([
+        return array_merge(
+            [
             'contentEditor' => ['required','bail',  Rule::in($editorConfigurationDriverRepository->getSupportedEditors()->map->label())],
             'templateEditor' => ['required','bail',  Rule::in($editorConfigurationDriverRepository->getSupportedEditors()->map->label())],
         ],
             $this->getEditorSpecificValidationRules('contentEditor', $editorConfigurationDriverRepository),
             $this->getEditorSpecificValidationRules('templateEditor', $editorConfigurationDriverRepository),
         );
-
     }
 
     private function getEditorSpecificValidationRules(string $property, EditorConfigurationDriverRepository $editorConfigurationDriverRepository): array
