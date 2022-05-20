@@ -8,7 +8,7 @@ use Spatie\MailcoachMarkdownEditor\Editor;
 
 class MarkdownEditorConfigurationDriver extends EditorConfigurationDriver
 {
-    public function label(): string
+    public static function label(): string
     {
         return 'Markdown';
     }
@@ -21,10 +21,20 @@ class MarkdownEditorConfigurationDriver extends EditorConfigurationDriver
     public function validationRules(): array
     {
         return [
-            'initialEditType' => ['required', Rule::in(['markdown', 'wysiwyg'])],
-            'previewStyle' => ['required', Rule::in(['vertical', 'tab'])],
-            'height' => ['nullable'],
-            'placeholder' => ['nullable'],
+            'markdown_initialEditType' => ['required', Rule::in(['markdown', 'wysiwyg'])],
+            'markdown_previewStyle' => ['required', Rule::in(['vertical', 'tab'])],
+            'markdown_height' => ['nullable'],
+            'markdown_placeholder' => ['nullable'],
+        ];
+    }
+
+    public function defaults()
+    {
+        return [
+            'markdown_initialEditType' => 'markdown',
+            'markdown_previewStyle' => 'vertical',
+            'markdown_height' => '600px',
+            'markdown_placeholder' => 'Start writing...',
         ];
     }
 
@@ -32,10 +42,10 @@ class MarkdownEditorConfigurationDriver extends EditorConfigurationDriver
     {
         parent::registerConfigValues($config, $values);
 
-        config()->set('mailcoach-markdown-editor.options.initialEditType', $values['initialEditType'] ?? 'markdown');
-        config()->set('mailcoach-markdown-editor.options.previewStyle', $values['previewStyle'] ?? 'vertical');
-        config()->set('mailcoach-markdown-editor.options.height', $values['height'] ?? '600px');
-        config()->set('mailcoach-markdown-editor.options.placeholder', $values['placeholder'] ?? 'Start writing...');
+        config()->set('mailcoach-markdown-editor.options.initialEditType', $values['markdown_initialEditType'] ?? 'markdown');
+        config()->set('mailcoach-markdown-editor.options.previewStyle', $values['markdown_previewStyle'] ?? 'vertical');
+        config()->set('mailcoach-markdown-editor.options.height', $values['markdown_height'] ?? '600px');
+        config()->set('mailcoach-markdown-editor.options.placeholder', $values['markdown_placeholder'] ?? 'Start writing...');
     }
 
     public static function settingsPartial(): ?string

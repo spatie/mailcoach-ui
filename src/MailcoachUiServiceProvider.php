@@ -21,6 +21,7 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\Su
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
+use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
@@ -154,6 +155,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
         Livewire::component('mailcoach-ui::ses-throttling-step', ThrottlingStepComponent::class);
         Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
+
+        Livewire::component('mailcoach-ui::editor-settings', EditorSettings::class);
 
         return $this;
     }

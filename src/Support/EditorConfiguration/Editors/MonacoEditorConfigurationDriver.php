@@ -7,7 +7,7 @@ use Spatie\MailcoachMonaco\MonacoEditor;
 
 class MonacoEditorConfigurationDriver extends EditorConfigurationDriver
 {
-    public function label(): string
+    public static function label(): string
     {
         return 'Monaco';
     }
@@ -22,9 +22,20 @@ class MonacoEditorConfigurationDriver extends EditorConfigurationDriver
         return [
             'monaco_theme' => 'required',
             'monaco_font_family' => '',
-            'monaco_font_size' => 'required|numeric',
-            'monaco_font_weight' => 'required|numeric',
-            'monaco_line_height' => 'required|numeric',
+            'monaco_font_size' => ['required', 'numeric'],
+            'monaco_font_weight' => ['required', 'numeric'],
+            'monaco_line_height' => ['required', 'numeric'],
+        ];
+    }
+
+    public function defaults(): array
+    {
+        return [
+            'monaco_theme' => 'vs-light',
+            'monaco_font_family' => 'Menlo, Monaco, "Courier New", monospace',
+            'monaco_font_size' => '12',
+            'monaco_font_weight' => '400',
+            'monaco_line_height' => '18',
         ];
     }
 

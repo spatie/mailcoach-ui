@@ -6,7 +6,7 @@ use Spatie\MailcoachUnlayer\UnlayerEditor;
 
 class UnlayerEditorConfigurationDriver extends EditorConfigurationDriver
 {
-    public function label(): string
+    public static function label(): string
     {
         return 'Unlayer';
     }

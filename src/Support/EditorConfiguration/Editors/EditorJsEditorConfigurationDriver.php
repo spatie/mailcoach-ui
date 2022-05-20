@@ -6,7 +6,7 @@ use Spatie\MailcoachEditor\Editor;
 
 class EditorJsEditorConfigurationDriver extends EditorConfigurationDriver
 {
-    public function label(): string
+    public static function label(): string
     {
         return 'Editor.js';
     }

@@ -23,15 +23,15 @@
         "livewire/livewire": "^2.10",
         "spatie/laravel-collection-macros": "^7.11",
         "spatie/laravel-mailcoach": "v6.x-dev as 5.5.8",
-        "spatie/laravel-mailcoach-editor": "^1.1",
-        "spatie/laravel-mailcoach-mailgun-feedback": "^4.0",
-        "spatie/laravel-mailcoach-markdown-editor": "^1.0",
-        "spatie/laravel-mailcoach-monaco": "^2.1",
-        "spatie/laravel-mailcoach-postmark-feedback": "^4.0",
-        "spatie/laravel-mailcoach-sendgrid-feedback": "^4.0",
-        "spatie/laravel-mailcoach-ses-feedback": "^4.0",
+        "spatie/laravel-mailcoach-editor": "6.x-dev as 1.3.2",
+        "spatie/laravel-mailcoach-mailgun-feedback": "6.x-dev as 4.0.1",
+        "spatie/laravel-mailcoach-markdown-editor": "6.x-dev as 1.0",
+        "spatie/laravel-mailcoach-monaco": "6.x-dev as 2.2",
+        "spatie/laravel-mailcoach-postmark-feedback": "6.x-dev as 4.0.1",
+        "spatie/laravel-mailcoach-sendgrid-feedback": "6.x-dev as 4.0.1",
+        "spatie/laravel-mailcoach-ses-feedback": "6.x-dev as 4.0.1",
         "spatie/laravel-mailcoach-ses-setup": "dev-main",
-        "spatie/laravel-mailcoach-unlayer": "^2.2",
+        "spatie/laravel-mailcoach-unlayer": "6.x-dev as 2.4",
         "spatie/laravel-welcome-notification": "^2.3",
         "spatie/laravel-livewire-wizard": "dev-main"
     },
@@ -44,16 +44,24 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://satis.spatie.be"
-        },
-        {
             "type": "path",
             "url": "../laravel-mailcoach-ses-setup"
         },
         {
             "type": "path",
             "url": "../laravel-livewire-wizard"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-mailcoach"
+        },
+        {
+            "type": "path",
+            "url": "../mailcoach-packages/packages/*"
+        },
+        {
+            "type": "composer",
+            "url": "https://satis.spatie.be"
         }
     ],
     "autoload": {
