@@ -64,7 +64,7 @@ class EditorSettings extends Component
 
         $data = array_merge(
             Arr::except($data, 'editorSettings'),
-            $data['editorSettings'],
+            $data['editorSettings'] ?? [],
         );
 
         resolve(EditorConfiguration::class)->put($data);

@@ -4,18 +4,16 @@
     :title="$title ?? null"
 >
     <x-slot name="nav">
-        <x-mailcoach::navigation :title="__('Mailcoach Settings')" :backHref="route('mailcoach.home')" :backLabel="__('Back')">
-            <x-mailcoach::navigation-group icon="fas fa-user" :title="__('Account')">
-                <x-mailcoach::navigation-item :href="route('account')">
-                    {{ __('Profile') }}
-                </x-mailcoach::navigation-item>
-                <x-mailcoach::navigation-item :href="route('password')">
-                    {{ __('Password') }}
-                </x-mailcoach::navigation-item>
-                <x-mailcoach::navigation-item :href="route('tokens')">
-                    {{ __('API Tokens') }}
-                </x-mailcoach::navigation-item>
-            </x-mailcoach::navigation-group>
+        <x-mailcoach::navigation>
+            <x-mailcoach::navigation-item :href="route('account')">
+                {{ __('Profile') }}
+            </x-mailcoach::navigation-item>
+            <x-mailcoach::navigation-item :href="route('password')">
+                {{ __('Password') }}
+            </x-mailcoach::navigation-item>
+            <x-mailcoach::navigation-item :href="route('users')">
+                {{ __('Users') }}
+            </x-mailcoach::navigation-item>
 
             <x-mailcoach::navigation-group icon="fas fa-cogs" :title="__('Configuration')">
                 <x-mailcoach::navigation-item :href="route('appConfiguration')">
@@ -26,8 +24,8 @@
                     {{ __('Editor') }}
                 </x-mailcoach::navigation-item>
 
-                <x-mailcoach::navigation-item :href="route('users')">
-                    {{ __('Users') }}
+                <x-mailcoach::navigation-item :href="route('tokens')">
+                    {{ __('API Tokens') }}
                 </x-mailcoach::navigation-item>
 
             </x-mailcoach::navigation-group>
@@ -40,7 +38,6 @@
                 <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
                     {{ __('Transactional Mail') }}
                 </x-mailcoach::navigation-item>
-
             </x-mailcoach::navigation-group>
         </x-mailcoach::navigation>
     </x-slot>
