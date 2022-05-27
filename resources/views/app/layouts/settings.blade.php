@@ -2,6 +2,7 @@
     :originTitle="$originTitle ?? __('Settings')"
     :originHref="$originHref ?? null"
     :title="$title ?? null"
+    breadcrumbsNavigationClass="{{ \Spatie\MailcoachUi\SettingsNavigation::class }}"
 >
     <x-slot name="nav">
         <x-mailcoach::navigation>
