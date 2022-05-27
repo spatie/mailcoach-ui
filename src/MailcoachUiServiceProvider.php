@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Livewire\Livewire;
 use Spatie\Flash\Flash;
+use Spatie\Mailcoach\MainNavigation;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
@@ -29,6 +30,7 @@ use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
+use Spatie\Navigation\Helpers\ActiveUrlChecker;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
@@ -171,6 +173,10 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->app->scoped(SettingsNavigation::class, function () {
+            return new SettingsNavigation(app(ActiveUrlChecker::class));
+        });
+
         $this->mergeConfigFrom(__DIR__ . '/../config/mailcoach-ui.php', 'mailcoach-ui');
     }
 }

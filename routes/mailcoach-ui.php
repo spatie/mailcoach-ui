@@ -15,11 +15,14 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\CreateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\DestroyUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UpdateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
+use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 
-Route::prefix('settings')->group(function () {
+Route::prefix('settings')
+    ->middleware(BootstrapSettingsNavigation::class)
+    ->group(function () {
     Route::get('app-configuration', [EditAppConfigurationController::class, 'edit'])->name('appConfiguration');
     Route::put('app-configuration', [EditAppConfigurationController::class, 'update']);
 

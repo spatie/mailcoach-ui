@@ -5,40 +5,22 @@
 >
     <x-slot name="nav">
         <x-mailcoach::navigation>
-            <x-mailcoach::navigation-item :href="route('account')">
-                {{ __('Profile') }}
-            </x-mailcoach::navigation-item>
-            <x-mailcoach::navigation-item :href="route('password')">
-                {{ __('Password') }}
-            </x-mailcoach::navigation-item>
-            <x-mailcoach::navigation-item :href="route('users')">
-                {{ __('Users') }}
-            </x-mailcoach::navigation-item>
+            @foreach (app(\Spatie\MailcoachUi\SettingsNavigation::class)->tree() as $item)
+                @if(count($item['children']))
+                    <x-mailcoach::navigation-group :title="__($item['title'])">
 
-            <x-mailcoach::navigation-group icon="fas fa-cogs" :title="__('Configuration')">
-                <x-mailcoach::navigation-item :href="route('appConfiguration')">
-                    {{__('App') }}
-                </x-mailcoach::navigation-item>
-
-                <x-mailcoach::navigation-item :href="route('editor')">
-                    {{ __('Editor') }}
-                </x-mailcoach::navigation-item>
-
-                <x-mailcoach::navigation-item :href="route('tokens')">
-                    {{ __('API Tokens') }}
-                </x-mailcoach::navigation-item>
-
-            </x-mailcoach::navigation-group>
-
-            <x-mailcoach::navigation-group icon="fas fa-server" :title="__('Drivers')">
-                <x-mailcoach::navigation-item :href="route('mailConfiguration')">
-                    {{ __('Campaigns') }}
-                </x-mailcoach::navigation-item>
-
-                <x-mailcoach::navigation-item :href="route('transactionalMailConfiguration')">
-                    {{ __('Transactional Mail') }}
-                </x-mailcoach::navigation-item>
-            </x-mailcoach::navigation-group>
+                        @foreach($item['children'] as $child)
+                            <x-mailcoach::navigation-item :href="$child['url']">
+                                {{ __($child['title']) }}
+                            </x-mailcoach::navigation-item>
+                        @endforeach
+                    </x-mailcoach::navigation-group>
+                @else
+                    <x-mailcoach::navigation-item :href="$item['url']">
+                        {{ __($item['title']) }}
+                    </x-mailcoach::navigation-item>
+                @endif
+            @endforeach
         </x-mailcoach::navigation>
     </x-slot>
 
