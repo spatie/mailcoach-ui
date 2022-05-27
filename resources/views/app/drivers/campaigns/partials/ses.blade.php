@@ -1,10 +1,14 @@
 <x-mailcoach::help>
-    {!! __('Learn how to configure :provider by reading <a target="_blank" href=":docsLink">this section of the Mailcoach docs</a>.', ['provider' => 'SES', 'docsLink' => 'https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/amazon-ses']) !!}
-    <br>
-    Alternatively, you can run <a href="{{ route('wizard.campaign.ses') }}">our setup wizard</a> which can automatically configure your SES account.
-    <br>
-
-    {!! __('You must set a webhook to: <code class="markup-code">:webhookUrl</code>', ['webhookUrl' => url(action(\Spatie\MailcoachSesFeedback\SesWebhookController::class))]) !!}
+    <p>
+        {!! __('Learn how to configure :provider by reading <a target="_blank" href=":docsLink">this section of the Mailcoach docs</a>.', ['provider' => 'SES', 'docsLink' => 'https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/amazon-ses']) !!}
+    </p>
+    <p>
+        Alternatively, you can run <a href="{{ route('wizard.campaign.ses') }}">our setup wizard</a> which can
+        automatically configure your SES account.
+    </p>
+    <p>
+        {!! __('You must set a webhook to: <code class="markup-code">:webhookUrl</code>', ['webhookUrl' => url(action(\Spatie\MailcoachSesFeedback\SesWebhookController::class))]) !!}
+    </p>
 </x-mailcoach::help>
 
 <x-mailcoach::text-field

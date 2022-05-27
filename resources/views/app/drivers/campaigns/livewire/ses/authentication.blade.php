@@ -6,10 +6,10 @@
         To be able to send mails through Amazon SES, we should first authenticate at Amazon.
         </p>
             <p>
-            You should first <a href="https://aws.amazon.com">create an account</a> at AWS.
+            You should first <a href="https://aws.amazon.com" target="_blank">create an account</a> at AWS.
             </p>
                 <p>
-            Next, <a href="https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/amazon-ses#content-key-and-secret-sending-emails">create an Access Key ID and Secret Access Key</a>, and fill them in the form below.
+            Next, <a target="_blank" href="https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/amazon-ses#content-key-and-secret-sending-emails">create an Access Key ID and Secret Access Key</a>, and fill them in the form below.
             </p>
     </x-mailcoach::help>
 

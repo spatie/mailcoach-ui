@@ -1,13 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\AccountController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\PasswordController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\TokensController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\App\EditAppConfigurationController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\EditorController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\EditMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SendTestMailController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SesMailConfigurationController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\Wizards\SesMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\DeleteTransactionalMailConfiguration;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\EditTransactionalMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\SendTestTransactionalMailController;
@@ -17,7 +17,6 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UpdateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
-use Illuminate\Support\Facades\Route;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 
 Route::prefix('settings')
