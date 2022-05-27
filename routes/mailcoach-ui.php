@@ -17,6 +17,7 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UpdateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
+use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 
 Route::prefix('settings')->group(function () {
     Route::get('app-configuration', [EditAppConfigurationController::class, 'edit'])->name('appConfiguration');
@@ -54,15 +55,18 @@ Route::prefix('settings')->group(function () {
     Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail'])->name('sendTestMail');
 
     Route::prefix('mail-configuration')->group(function() {
-        Route::get('ses', SesMailConfigurationController::class);
+        Route::get('ses', SesMailConfigurationController::class)->name('wizard.campaign.ses');
     });
 
     Route::get('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'edit'])->name('transactionalMailConfiguration');
     Route::put('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'update']);
+
+
+
     Route::delete('transactional-mail-configuration', DeleteTransactionalMailConfiguration::class)->name('deleteTransactionalMailConfiguration');
     Route::post('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'sendTransactionalTestEmail'])->name('sendTransactionalTestEmail');
 
-    Route::get('editor', \Spatie\MailcoachUi\Http\Livewire\EditorSettings::class)->name('editor');
+    Route::get('editor', EditorSettings::class)->name('editor');
 });
 
 Route::post('logout', LogoutController::class)->name('logout');

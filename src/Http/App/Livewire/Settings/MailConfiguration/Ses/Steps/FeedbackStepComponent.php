@@ -58,7 +58,7 @@ class FeedbackStepComponent extends StepComponent
 
     protected function getMailcoachSes(): MailcoachSes
     {
-        $credentials = $this->allStepsState('mailcoach-ui::ses-authentication-step');
+        $credentials = $this->state()->forStep('mailcoach-ui::ses-authentication-step');
 
         $endpoint = action(SesWebhookController::class);
 
