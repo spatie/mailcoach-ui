@@ -12,8 +12,8 @@
     <div class="my-4">
         <x-mailcoach::select-field
             :label="__('Initial Edit type')"
-            name="initialEditType"
-            :value="$editorConfiguration->initialEditType"
+            name="editorSettings.markdown_initialEditType"
+            wire:model.lazy="editorSettings.markdown_initialEditType"
             :options="['markdown' => 'Markdown', 'wysiwyg' => 'Wysiwyg']"
         />
     </div>
@@ -21,8 +21,8 @@
     <div class="my-4">
         <x-mailcoach::select-field
             :label="__('Preview style')"
-            name="previewStyle"
-            :value="$editorConfiguration->previewStyle"
+            name="editorSettings.markdown_previewStyle"
+            wire:model.lazy="editorSettings.markdown_previewStyle"
             :options="['vertical' => 'Vertical', 'tab' => 'Tab']"
         />
     </div>
@@ -30,16 +30,16 @@
     <div class="my-4">
         <x-mailcoach::text-field
             :label="__('Height')"
-            name="height"
-            :value="$editorConfiguration->height ?? '600px'"
+            name="editorSettings.markdown_height"
+            wire:model.lazy="editorSettings.markdown_height"
         />
     </div>
 
     <div class="my-4">
         <x-mailcoach::text-field
             :label="__('Placeholder')"
-            name="placeholder"
-            :value="$editorConfiguration->placeholder ?? 'Start writing...'"
+            name="editorSettings.markdown_placeholder"
+            wire:model.lazy="editorSettings.markdown_placeholder"
         />
     </div>
 </div>

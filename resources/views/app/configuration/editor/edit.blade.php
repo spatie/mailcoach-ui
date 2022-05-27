@@ -1,29 +1,44 @@
-<x-mailcoach-ui::layout-settings :title="__('Editor')">
-    <form
-        class="form-grid"
-        action="{{ route('editor') }}"
-        method="POST"
-        x-cloak
-        x-data="{ editor: '{{ old('editor', $editorConfiguration->editor) }}' }"
-    >
-        @csrf
+<form
+    class="form-grid"
+    wire:submit.prevent="save"
+    method="POST"
+    x-cloak
+    x-data="{
+        contentEditor: @entangle('contentEditor'),
+        templateEditor: @entangle('templateEditor'),
+    }"
+>
+    @csrf
 
+    <x-mailcoach::fieldset :legend="__('Content editor')">
         <x-mailcoach::select-field
             :label="__('Editor')"
-            name="editor"
-            x-model="editor"
-            :options="$editorConfiguration->getEditorOptions()"
-            data-conditional="editor"
+            name="contentEditor"
+            x-model="contentEditor"
+            :options="$contentEditorOptions"
         />
+    </x-mailcoach::fieldset>
 
-        @foreach(config('mailcoach-ui.editors') as $editor)
-            <div class="form-grid" x-show="editor === '{{ (new $editor)->label() }}'">
+    <x-mailcoach::fieldset :legend="__('Template editor')">
+        <x-mailcoach::select-field
+            :label="__('Editor')"
+            name="templateEditor"
+            x-model="templateEditor"
+            :options="$templateEditorOptions"
+        />
+    </x-mailcoach::fieldset>
+
+    @foreach(config('mailcoach-ui.editors') as $editor)
+        @continue($contentEditor !== $editor::label() && $templateEditor !== $editor::label())
+
+        <x-mailcoach::fieldset :legend="$editor::label()">
+            <div class="form-grid">
                 @includeIf($editor::settingsPartial())
             </div>
-        @endforeach
+        </x-mailcoach::fieldset>
+    @endforeach
 
-        <div class="form-buttons">
-            <x-mailcoach::button :label="__('Save')"/>
-        </div>
-    </form>
-</x-mailcoach-ui::layout-settings>
+    <div class="form-buttons">
+        <x-mailcoach::button :label="__('Save')"/>
+    </div>
+</form>

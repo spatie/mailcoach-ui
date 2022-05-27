@@ -62,8 +62,7 @@ Route::prefix('settings')->group(function () {
     Route::delete('transactional-mail-configuration', DeleteTransactionalMailConfiguration::class)->name('deleteTransactionalMailConfiguration');
     Route::post('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'sendTransactionalTestEmail'])->name('sendTransactionalTestEmail');
 
-    Route::get('editor', [EditorController::class, 'edit'])->name('editor');
-    Route::post('editor', [EditorController::class, 'update']);
+    Route::get('editor', \Spatie\MailcoachUi\Http\Livewire\EditorSettings::class)->name('editor');
 });
 
 Route::post('logout', LogoutController::class)->name('logout');

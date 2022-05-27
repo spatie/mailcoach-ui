@@ -19,17 +19,25 @@ class EditorConfiguration
 
     public function registerConfigValues(): void
     {
-        $editorName = $this->get('editor');
+        $contentEditorName = $this->get('contentEditor');
+        $templateEditorName = $this->get('templateEditor');
 
-        if (! $editorName) {
+        if (! $contentEditorName && ! $templateEditorName) {
             return;
         }
 
-        if (! $this->getAvailableEditors()->map->label()->contains($editorName)) {
-            return;
-        }
+        $contentEditor = $this->getEditor($contentEditorName);
+        $templateEditor = $this->getEditor($templateEditorName);
 
-        $this->getEditor()->registerConfigValues(
+        $this->config->set('mailcoach.content_editor', $contentEditor->getClass());
+        $this->config->set('mailcoach.template_editor', $templateEditor->getClass());
+
+        $contentEditor->registerConfigValues(
+            $this->config,
+            $this->all()
+        );
+
+        $templateEditor->registerConfigValues(
             $this->config,
             $this->all()
         );
@@ -41,18 +49,31 @@ class EditorConfiguration
         return $this->editorConfigurationRepository->getSupportedEditors();
     }
 
-    public function getEditorOptions(): array
+    public function getContentEditorOptions(): array
     {
-        return $this->getAvailableEditors()->mapWithKeys(function (EditorConfigurationDriver $driver) {
-            return [
-                $driver->label() => $driver->label(),
-            ];
-        })->toArray();
+        return $this->getAvailableEditors()
+            ->filter(fn (EditorConfigurationDriver $driver) => $driver::supportsContent())
+            ->mapWithKeys(function (EditorConfigurationDriver $driver) {
+                return [
+                    $driver->label() => $driver->label(),
+                ];
+            })->toArray();
     }
 
-    protected function getEditor(): EditorConfigurationDriver
+    public function getTemplateEditorOptions(): array
     {
-        return $this->editorConfigurationRepository->getForEditor($this->get('editor', ''));
+        return $this->getAvailableEditors()
+            ->filter(fn (EditorConfigurationDriver $driver) => $driver::supportsTemplates())
+            ->mapWithKeys(function (EditorConfigurationDriver $driver) {
+                return [
+                    $driver->label() => $driver->label(),
+                ];
+            })->toArray();
+    }
+
+    protected function getEditor(string $editorName): EditorConfigurationDriver
+    {
+        return $this->editorConfigurationRepository->getForEditor($editorName);
     }
 
     public function getKeyName(): string

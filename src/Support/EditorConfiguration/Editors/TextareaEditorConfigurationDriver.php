@@ -2,18 +2,18 @@
 
 namespace Spatie\MailcoachUi\Support\EditorConfiguration\Editors;
 
-use Spatie\Mailcoach\Domain\Shared\Support\Editor\TextEditor;
+use Spatie\Mailcoach\Http\App\Livewire\TextAreaEditorComponent;
 
 class TextareaEditorConfigurationDriver extends EditorConfigurationDriver
 {
-    public function label(): string
+    public static function label(): string
     {
         return 'Textarea';
     }
 
     public function getClass(): string
     {
-        return TextEditor::class;
+        return TextAreaEditorComponent::class;
     }
 
     public function validationRules(): array
