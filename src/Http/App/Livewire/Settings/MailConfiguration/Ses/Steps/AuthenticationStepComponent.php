@@ -27,7 +27,7 @@ class AuthenticationStepComponent extends StepComponent
 
         $this->key = $configuration->get('ses_key', '');
         $this->secret = $configuration->get('ses_secret', '');
-        $this->region = $configuration->get('ses_region', '');
+        $this->region = $configuration->get('ses_region', 'eu-central-1');
     }
 
     public function submit()
@@ -40,6 +40,8 @@ class AuthenticationStepComponent extends StepComponent
             (new MailcoachSes($config))->ensureValidAwsCredentials();
         } catch (InvalidAwsCredentials) {
             $this->flash('These credentials are not valid.', 'error');
+            $this->addError('key', 'These credentials are not valid.');
+            $this->addError('secret', 'These credentials are not valid.');
 
             return;
         }
