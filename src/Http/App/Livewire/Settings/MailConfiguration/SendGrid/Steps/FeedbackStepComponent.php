@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps;
 
+use Illuminate\Support\Str;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSendgridFeedback\SendgridEvents\SendgridEvent;
@@ -37,7 +38,7 @@ class FeedbackStepComponent extends StepComponent
         $endpoint = 'https://spatie.be/sendgrid-feedback';
 
 
-$events = [EventType::Bounce, EventType::Bounce];
+        $events = [EventType::Bounce, EventType::Bounce];
 
         if ($this->trackOpens) {
             $events[] = EventType::Open;
@@ -47,11 +48,16 @@ $events = [EventType::Bounce, EventType::Bounce];
             $events[] = EventType::Click;
         }
 
+        $secret = Str::random(20);
+
+        $endpoint .= "?secret={$secret}";
+
         $this->getSendGrid()->setupWebhook($endpoint, $events);
 
         $this->mailer()->merge([
             'open_tracking_enabled' => $this->trackOpens,
             'click_tracking_enabled' => $this->trackClicks,
+            'signing_secret' => $secret,
         ]);
 
         $this->mailer()->markAsReadyForUse();

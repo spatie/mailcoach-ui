@@ -3,10 +3,10 @@
 
     <x-mailcoach::help>
         <p>
-        To be able to send mails through Amazon SendGrid, we should first authenticate at Sendgrid.
+        To be able to send mails through SendGrid, we should authenticate at Sendgrid.
         </p>
             <p>
-            You should first <a href="https://sendgrid.com" target="_blank">create an account</a> at AWS.
+            You should first <a href="https://sendgrid.com" target="_blank">create an account</a> at SendGrid.
             </p>
                 <p>
             Next, <a target="_blank" href="https://spatie.be/docs/laravel-mailcoach/v5/configuring-mail-providers/sendgrid#content-email-configuration">create and API key at SendGrid</a>. Make sure it has the "Mail Send" and "Tracking" permissions.

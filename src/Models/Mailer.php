@@ -40,15 +40,38 @@ class Mailer extends Model
         }
 
         if ($this->transport === MailerTransport::Ses) {
-            config()->set('mail.mailers.transport', $this->name());
+            config()->set("mail.mailers.{$this->configName()}", [
+                'transport' => 'ses',
+                'key' => $this->get('ses_key'),
+                'secret' => $this->get('ses_secret'),
+                'region' => $this->get('ses_region')
+            ]);
+
+            /*
             config()->set("services.{$this->configName()}", [
                 'key' => $this->get('ses_key'),
                 'secret' => $this->get('ses_secret'),
                 'region' => $this->get('ses_region'),
             ]);
+            */
 
             config()->set("mailcoach.{$this->configName()}.ses_feedback", [
                 'configuration_set' => $this->get('ses_configuration_set') ?? '',
+            ]);
+        }
+
+        if ($this->transport === MailerTransport::SendGrid) {
+            config()->set("mail.mailers.{$this->configName()}", [
+                'transport' => 'smtp',
+                'host' => 'smtp.sendgrid.net',
+                'username' => 'apikey',
+                'password' => $this->get('api_key'),
+                'encryption' => null,
+                'port' => 587
+            ]);
+
+            config()->set('mailcoach.{$this->configName()}.signing_secret', [
+                'signing_secret' => $this->get('signing_secret'),
             ]);
         }
     }

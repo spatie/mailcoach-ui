@@ -6,6 +6,7 @@ use Livewire\Livewire;
 use Spatie\LivewireWizard\Components\WizardComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\FeedbackStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent;
 use Spatie\MailcoachUi\Models\Mailer;
 
@@ -33,6 +34,7 @@ class SendGridSetupWizardComponent extends WizardComponent
     {
         return [
             AuthenticationStepComponent::class,
+            SetupFromAddressStepComponent::class,
             FeedbackStepComponent::class,
             SummaryStepComponent::class,
         ];
@@ -43,6 +45,7 @@ class SendGridSetupWizardComponent extends WizardComponent
         Livewire::component('mailcoach-ui::sendgrid-configuration', SendGridSetupWizardComponent::class);
 
         Livewire::component('mailcoach-ui::sendgrid-authentication-step', AuthenticationStepComponent::class);
+        Livewire::component('mailcoach-ui::sendgrid-from-address-step', SetupFromAddressStepComponent::class);
         Livewire::component('mailcoach-ui::sendgrid-feedback-step', FeedbackStepComponent::class);
         Livewire::component('mailcoach-ui::sendgrid-summary-step', SummaryStepComponent::class);
     }

@@ -29,7 +29,7 @@
                         {{ $mailer->name }}
                     </a>
                 </td>
-                <td>{{ $mailer->transport->value }}</td>
+                <td>{{ $mailer->transport->label() }}</td>
                 <td>{{ $mailer->ready_for_use ? '✅' : '❌' }} </td>
                 <td class="td-action">
                         <x-mailcoach::dropdown direction="left">
