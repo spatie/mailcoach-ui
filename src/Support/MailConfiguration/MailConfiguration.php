@@ -38,7 +38,7 @@ class MailConfiguration
 
     protected function getDriver(): ?MailConfigurationDriver
     {
-        return $this->mailConfigurationDriverRepository->getForDriver($this->get('driver', ''));
+        return $this->mailConfigurationDriverRepository->getForDriver($this, $this->get('driver', ''));
     }
 
     public function getKeyName(): string

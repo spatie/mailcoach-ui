@@ -3,19 +3,19 @@
 namespace Spatie\MailcoachUi\Support\MailConfiguration\Drivers;
 
 use Illuminate\Contracts\Config\Repository;
+use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 abstract class MailConfigurationDriver
 {
+    public function __construct(protected MailConfiguration $mailConfiguration)
+    {
+    }
+
     abstract public function name(): string;
 
-    abstract public function validationRules(): array;
+    abstract public function isConfigured(): array;
 
     abstract public function registerConfigValues(Repository $config, array $values);
-
-    public function fields()
-    {
-        return array_keys($this->validationRules());
-    }
 
     protected function throttleNumberOfMailsPerSecond(Repository $config, int $mailsPerSecond, int $timespanInSeconds): self
     {

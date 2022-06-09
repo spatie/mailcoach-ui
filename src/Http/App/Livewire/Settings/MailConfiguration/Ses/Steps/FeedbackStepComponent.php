@@ -7,10 +7,12 @@ use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesFeedback\SesWebhookController;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
 
 class FeedbackStepComponent extends StepComponent
 {
     use LivewireFlash;
+    use UsesMailer;
 
     public string $configurationType = 'automatic';
     public string $configurationName = 'mailcoach';
@@ -37,6 +39,14 @@ class FeedbackStepComponent extends StepComponent
             ->createSnsSubscription()
             ->addSnsSubscriptionToSesTopic();
 
+        $this->mailer()->merge([
+            'ses_configuration_set' => $this->configurationName,
+            'open_tracking_enabled' => $this->trackOpens,
+            'click_tracking_enabled' => $this->trackClicks,
+        ]);
+
+        $this->mailer()->markAsReadyForUse();
+
         $this->flash('Your account has been configured to handle feedback.');
 
         $this->nextStep();
@@ -53,7 +63,7 @@ class FeedbackStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.feedback');
+        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.feedback');
     }
 
     protected function getMailcoachSes(): MailcoachSes

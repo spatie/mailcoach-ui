@@ -26,4 +26,6 @@ return [
      * The relative url to redirect to after the user is authenticated.
      */
     'url_after_login' => 'campaigns',
+
+    'mailer_encryption_key' => '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm',
 ];

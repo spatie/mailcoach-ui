@@ -7,17 +7,34 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\Au
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FeedbackStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SummaryStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThrottlingStepComponent;
+use Spatie\MailcoachUi\Models\Mailer;
 
-class SesMailConfigurationComponent extends WizardComponent
+class SesSetupWizardComponent extends WizardComponent
 {
+    public Mailer $mailer;
+
+    public function mount()
+    {
+        if ($this->mailer->isReadyForUse()) {
+            $this->currentStepName = 'mailcoach-ui::ses-summary-step';
+        }
+    }
+
+    public function initialState(): ?array
+    {
+        return [
+            'mailcoach-ui::ses-summary-step' => [
+                'mailerId' => $this->mailer->id,
+            ],
+        ];
+    }
+
     public function steps(): array
     {
         return [
             AuthenticationStepComponent::class,
             SetupFromAddressStepComponent::class,
             FeedbackStepComponent::class,
-            ThrottlingStepComponent::class,
             SummaryStepComponent::class,
         ];
     }

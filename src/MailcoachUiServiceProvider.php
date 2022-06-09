@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi;
 
 use Carbon\Laravel\ServiceProvider;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -13,15 +14,18 @@ use Spatie\Flash\Flash;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesMailConfigurationComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent as SendGridAuthenticationStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesSetupWizardComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FeedbackStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\SummaryStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
+use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
 use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
+use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
@@ -30,6 +34,7 @@ use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent as SendGridSummaryComponent;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
@@ -39,6 +44,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         View::composer('mailcoach-ui::app.layouts.partials.health-tiles', HealthViewComposer::class);
 
         $this
+            ->configureModels()
             ->bootConfig()
             ->bootPublishables()
             ->bootAuthorization()
@@ -48,8 +54,21 @@ class MailcoachUiServiceProvider extends ServiceProvider
             ->bootViews();
     }
 
+    protected function configureModels(): self
+    {
+        $key = config('mailcoach-ui.mailer_encryption_key');
+
+        $cipher = config('app.cipher');
+
+        Mailer::encryptUsing(new Encrypter($key, $cipher));
+
+        return $this;
+    }
+
     protected function bootConfig(): self
     {
+        Mailer::registerAllConfigValues();
+
         app(AppConfiguration::class)->registerConfigValues();
         app(TransactionalMailConfiguration::class)->registerConfigValues();
         app(MailConfiguration::class)->registerConfigValues();
@@ -148,14 +167,12 @@ class MailcoachUiServiceProvider extends ServiceProvider
             $this->bootBladeComponents();
         }
 
+        Livewire::component('mailcoach-ui::create-mailer', CreateMailerComponent::class);
         Livewire::component('mailcoach-ui::create-user', CreateUserComponent::class);
-        Livewire::component('mailcoach-ui::ses-configuration', SesMailConfigurationComponent::class);
 
-        Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-throttling-step', ThrottlingStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
+        $this
+            ->registerSesWizardComponents()
+            ->registerSendGridWizardComponents();
 
         Livewire::component('mailcoach-ui::editor-settings', EditorSettings::class);
 
@@ -177,5 +194,25 @@ class MailcoachUiServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../config/mailcoach-ui.php', 'mailcoach-ui');
+    }
+
+    protected function registerSesWizardComponents(): self
+    {
+        Livewire::component('mailcoach-ui::ses-configuration', SesSetupWizardComponent::class);
+        Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
+
+        return $this;
+    }
+
+    protected function registerSendGridWizardComponents(): self
+    {
+        Livewire::component('mailcoach-ui::sendgrid-configuration', SendGridSetupWizardComponent::class);
+        Livewire::component('mailcoach-ui::ses-authentication-step', SendGridAuthenticationStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-summary-step', SendGridSummaryComponent::class);
+
+        return $this;
     }
 }

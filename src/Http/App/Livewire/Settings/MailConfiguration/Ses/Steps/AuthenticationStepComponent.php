@@ -2,19 +2,22 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
 
+use Exception;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\Exception\InvalidAwsCredentials;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
 
 class AuthenticationStepComponent extends StepComponent
 {
     use LivewireFlash;
+    use UsesMailer;
+
     public string $key = '';
     public string $secret = '';
-    public string $region = 'us-east-1';
+    public string $region = '';
 
     public $rules = [
         'key' => ['required'],
@@ -23,11 +26,11 @@ class AuthenticationStepComponent extends StepComponent
 
     public function mount()
     {
-        $configuration = app(MailConfiguration::class);
+        $this->key = $this->mailer()->get('ses_key', '');
+        $this->secret = $this->mailer()->get('ses_secret', '');
 
-        $this->key = $configuration->get('ses_key', '');
-        $this->secret = $configuration->get('ses_secret', '');
-        $this->region = $configuration->get('ses_region', '');
+        $firstRegion = collect($this->availableRegions())->first();
+        $this->region = $this->mailer()->get('ses_region', $firstRegion);
     }
 
     public function submit()
@@ -42,11 +45,13 @@ class AuthenticationStepComponent extends StepComponent
             $this->flash('These credentials are not valid.', 'error');
 
             return;
+        } catch (Exception) {
+            $this->flash('Something went wrong communicating with AWS.');
         }
 
         $this->flash('Your credentials were correct.');
 
-        app(MailConfiguration::class)->merge([
+        $this->mailer()->merge([
             'driver' => 'ses',
             'ses_key' => $this->key,
             'ses_secret' => $this->secret,
@@ -96,7 +101,7 @@ class AuthenticationStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.authentication', [
+        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.authentication', [
             'regions' => $this->availableRegions(),
         ]);
     }

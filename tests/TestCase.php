@@ -28,7 +28,7 @@ use Spatie\QueryBuilder\QueryBuilderServiceProvider;
 
 class TestCase extends Orchestra
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -50,6 +50,8 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
+            LivewireServiceProvider::class,
+
             SanctumServiceProvider::class,
             FeedServiceProvider::class,
             MediaLibraryServiceProvider::class,
@@ -65,7 +67,6 @@ class TestCase extends Orchestra
             MailcoachEditorServiceProvider::class,
             MailcoachMarkdownEditorServiceProvider::class,
 
-            LivewireServiceProvider::class,
         ];
     }
 
@@ -84,14 +85,14 @@ class TestCase extends Orchestra
         include_once __DIR__.'/../vendor/spatie/laravel-mailcoach/database/migrations/create_mailcoach_tables.php.stub';
         (new CreateMailcoachTables())->up();
 
-        include_once __DIR__.'/../vendor/spatie/laravel-medialibrary/database/migrations/create_media_table.php.stub';
-        (new CreateMediaTable())->up();
+        $migration = include_once __DIR__.'/../vendor/spatie/laravel-medialibrary/database/migrations/create_media_table.php.stub';
+        $migration->up();
 
         include_once __DIR__.'/../vendor/laravel/sanctum/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php';
         (new CreatePersonalAccessTokensTable())->up();
 
-        include_once __DIR__.'/../database/migrations/create_mailcoach_ui_tables.php.stub';
-        (new CreateMailcoachUiTables())->up();
+        $migration = include_once __DIR__.'/../database/migrations/create_mailcoach_ui_tables.php';
+        $migration->up();
     }
 
     public function authenticate()

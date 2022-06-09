@@ -21,7 +21,8 @@ class BootstrapSettingsNavigation
                 $section
                     ->add(__('App'), route('appConfiguration'))
                     ->add(__('Editor'), route('editor'))
-                    ->add(__('API Tokens'), route('tokens'));
+                    ->add(__('API Tokens'), route('tokens'))
+                    ->add(__('Mailers'), route('mailers'));
             })
             ->add(__('Drivers'), route('mailConfiguration'), function (Section $section) {
                 $section

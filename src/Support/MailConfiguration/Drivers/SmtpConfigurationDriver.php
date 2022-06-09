@@ -11,7 +11,7 @@ class SmtpConfigurationDriver extends MailConfigurationDriver
         return 'smtp';
     }
 
-    public function validationRules(): array
+    public function isConfigured(): array
     {
         return [
             'default_from_mail' => 'required|email',

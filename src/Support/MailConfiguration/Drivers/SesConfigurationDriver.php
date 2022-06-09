@@ -11,7 +11,7 @@ class SesConfigurationDriver extends MailConfigurationDriver
         return 'ses';
     }
 
-    public function validationRules(): array
+    public function isConfigured(): array
     {
         return [
             'default_from_mail' => 'required|email',
@@ -34,7 +34,7 @@ class SesConfigurationDriver extends MailConfigurationDriver
                 $values['timespan_in_seconds'] ?? 1,
             );
 
-        $config->set('mail.mailers.mailcoach.transport', $this->name());
+        $config->set('mail.mailers.transport', $this->name());
         $config->set('services.ses', [
             'key' => $values['ses_key'],
             'secret' => $values['ses_secret'],

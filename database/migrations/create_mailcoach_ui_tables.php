@@ -16,5 +16,16 @@ return new class extends Migration
             $table->string('key')->index();
             $table->text('value')->nullable();
         });
+
+        Schema::create('mailcoach_mailers', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name');
+            $table->string('transport');
+            $table->longText('configuration')->nullable();
+            $table->boolean('default')->default(false);
+            $table->boolean('ready_for_use')->default(false);
+            $table->timestamps();
+        });
     }
 };

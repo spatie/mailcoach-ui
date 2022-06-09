@@ -11,7 +11,7 @@ class MailgunConfigurationDriver extends MailConfigurationDriver
         return 'mailgun';
     }
 
-    public function validationRules(): array
+    public function isConfigured(): array
     {
         return [
             'default_from_mail' => 'required',

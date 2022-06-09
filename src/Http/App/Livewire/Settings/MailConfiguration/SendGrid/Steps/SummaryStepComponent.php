@@ -1,10 +1,9 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
+namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps;
 
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class SummaryStepComponent extends StepComponent
 {
@@ -36,3 +35,4 @@ class SummaryStepComponent extends StepComponent
         ];
     }
 }
+

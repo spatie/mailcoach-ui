@@ -6,11 +6,13 @@ use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class SetupFromAddressStepComponent extends StepComponent
 {
     use LivewireFlash;
+    use UsesMailer;
 
     public array $rules = [
         'email' => 'required|email',
@@ -20,7 +22,7 @@ class SetupFromAddressStepComponent extends StepComponent
 
     public function mount()
     {
-        $this->email = app(MailConfiguration::class)->get('default_from_mail');
+        $this->email =  $this->mailer()->get('default_from_mail');
     }
 
     public function submit()
@@ -31,7 +33,7 @@ class SetupFromAddressStepComponent extends StepComponent
 
         $mailcoachSes->createSesIdentity();
 
-        app(MailConfiguration::class)->merge([
+        $this->mailer()->merge([
             'default_from_mail' => $this->email,
         ]);
 
@@ -42,7 +44,7 @@ class SetupFromAddressStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.drivers.campaigns.livewire.ses.setupFromAddress');
+        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.setupFromAddress');
     }
 
     public function stepInfo(): array

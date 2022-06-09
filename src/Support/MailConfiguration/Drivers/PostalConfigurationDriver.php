@@ -11,7 +11,7 @@ class PostalConfigurationDriver extends MailConfigurationDriver
         return 'postal';
     }
 
-    public function validationRules(): array
+    public function isConfigured(): array
     {
         return [
             'default_from_mail' => 'required',

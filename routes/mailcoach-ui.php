@@ -8,6 +8,8 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\App\EditAppConfigurationCon
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\EditMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SendTestMailController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\Wizards\SesMailConfigurationController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\DestroyMailerController;
+use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\DeleteTransactionalMailConfiguration;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\EditTransactionalMailConfigurationController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\SendTestTransactionalMailController;
@@ -18,6 +20,7 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
+use \Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\MailersIndexController;
 
 Route::prefix('settings')
     ->middleware(BootstrapSettingsNavigation::class)
@@ -39,6 +42,12 @@ Route::prefix('settings')
                 ->name('tokens.delete')
                 ->middleware('can:administer,personalAccessToken');
         });
+    });
+
+    Route::prefix('mailers')->group(function() {
+        Route::get('/', MailersIndexController::class)->name('mailers');
+        Route::get('{mailer}', EditMailerController::class)->name('mailers.edit');
+        Route::delete('{mailer}', DestroyMailerController::class)->name('mailers.delete');
     });
 
     Route::prefix('users')->group(function () {

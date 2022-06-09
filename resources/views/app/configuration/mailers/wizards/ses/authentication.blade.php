@@ -16,7 +16,7 @@
     <div class="form-grid mt-4">
         <form class="form-grid" wire:submit.prevent="submit">
             <x-mailcoach::text-field
-                wire:model="key"
+                wire:model.defer="key"
                 :label="__('Key')"
                 name="key"
                 type="text"
@@ -24,7 +24,7 @@
             />
 
             <x-mailcoach::text-field
-                wire:model="secret"
+                wire:model.defer="secret"
                 :label="__('Secret')"
                 name="secret"
                 type="password"
@@ -32,7 +32,7 @@
             />
 
             <x-mailcoach::select-field
-                wire:model="region"
+                wire:model.defer="region"
                 :label="__('Region')"
                 name="region"
                 :options="$regions"

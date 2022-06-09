@@ -26,10 +26,12 @@ class MailConfigurationDriverRepository
         return array_keys($this->drivers);
     }
 
-    public function getForDriver(string $driverName): ?MailConfigurationDriver
-    {
+    public function getForDriver(
+        MailConfiguration $configuration,
+        string $driverName
+    ): ?MailConfigurationDriver {
         return collect($this->drivers)
-            ->map(fn (string $driverClass) => app($driverClass))
+            ->map(fn (string $driverClass) => app($driverClass, ['configuration' => $configuration]))
             ->first(fn (MailConfigurationDriver $driver) => $driver->name() === $driverName);
     }
 }
