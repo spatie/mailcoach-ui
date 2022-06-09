@@ -3,8 +3,6 @@
 namespace Spatie\MailcoachUi\Tests;
 
 use CreateMailcoachTables;
-use CreateMailcoachUiTables;
-use CreateMediaTable;
 use CreatePersonalAccessTokensTable;
 use CreateUsersTable;
 use Illuminate\Database\Eloquent\Factories\Factory;

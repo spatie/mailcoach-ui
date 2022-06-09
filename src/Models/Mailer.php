@@ -28,8 +28,7 @@ class Mailer extends Model
     {
         Mailer::all()
             ->where('ready_for_use', true)
-            ->each(function(Mailer $mailer) {
-
+            ->each(function (Mailer $mailer) {
             });
     }
 
@@ -70,7 +69,6 @@ class Mailer extends Model
 
     public function merge(array $values): self
     {
-
         $newValues = array_merge($this->configuration?->toArray() ?? [], $values);
 
         $this->update(['configuration' => $newValues]);

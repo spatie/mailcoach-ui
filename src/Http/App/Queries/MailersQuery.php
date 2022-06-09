@@ -4,7 +4,6 @@ namespace Spatie\MailcoachUi\Http\App\Queries;
 
 use Spatie\Mailcoach\Http\App\Queries\Filters\FuzzyFilter;
 use Spatie\MailcoachUi\Models\Mailer;
-use Spatie\MailcoachUi\Models\User;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 

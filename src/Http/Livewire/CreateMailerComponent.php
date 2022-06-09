@@ -2,15 +2,10 @@
 
 namespace Spatie\MailcoachUi\Http\Livewire;
 
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\MailersIndexController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Models\Mailer;
-use Spatie\MailcoachUi\Models\User;
 
 class CreateMailerComponent extends Component
 {
@@ -49,7 +44,7 @@ class CreateMailerComponent extends Component
     public function getTransportOptions(): array
     {
         return collect(MailerTransport::cases())
-            ->mapWithKeys(fn(MailerTransport $transport) => [$transport->value => $transport->label()])
+            ->mapWithKeys(fn (MailerTransport $transport) => [$transport->value => $transport->label()])
             ->toArray();
     }
 }

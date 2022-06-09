@@ -2,7 +2,7 @@
 
 use Spatie\MailcoachUi\Models\Mailer;
 
-it('can get and set configuration values', function() {
+it('can get and set configuration values', function () {
     /** @var Mailer $mailer */
     $mailer = Mailer::factory()->create();
 
@@ -16,6 +16,4 @@ it('can get and set configuration values', function() {
     expect($mailer->get('a'))->toBe('first value');
     expect($mailer->get('b'))->toBe('second value');
     expect($mailer->get('c'))->toBe('third value');
-
-
 });

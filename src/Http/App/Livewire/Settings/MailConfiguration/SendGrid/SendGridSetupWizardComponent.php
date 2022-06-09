@@ -8,7 +8,6 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Ste
 
 class SendGridSetupWizardComponent extends WizardComponent
 {
-
     public function steps(): array
     {
         return [
