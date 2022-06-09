@@ -13,7 +13,7 @@ class SummaryStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.summary', [
+        return view('mailcoach-ui::app.configuration.mailers.wizards.sendGrid.summary', [
             'mailer' => $this->mailer(),
         ]);
     }

@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses;
 
+use Livewire\Livewire;
 use Spatie\LivewireWizard\Components\WizardComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FeedbackStepComponent;
@@ -37,5 +38,15 @@ class SesSetupWizardComponent extends WizardComponent
             FeedbackStepComponent::class,
             SummaryStepComponent::class,
         ];
+    }
+
+    public static function registerLivewireComponents(): void
+    {
+
+        Livewire::component('mailcoach-ui::ses-configuration', SesSetupWizardComponent::class);
+        Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
+        Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
     }
 }

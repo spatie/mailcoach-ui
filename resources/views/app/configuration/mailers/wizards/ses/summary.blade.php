@@ -6,9 +6,6 @@
             Your SES account has been set up. We highly recommend sending a small test campaign to your self to check if
             everything is working as expected.
         </p>
-        <p>
-            Go back to <a href="{{ route('mailConfiguration') }}">Campaign Settings</a>
-        </p>
     </div>
 
     <div class="mt-6 space-y-4">

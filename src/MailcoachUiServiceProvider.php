@@ -170,9 +170,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::create-mailer', CreateMailerComponent::class);
         Livewire::component('mailcoach-ui::create-user', CreateUserComponent::class);
 
-        $this
-            ->registerSesWizardComponents()
-            ->registerSendGridWizardComponents();
+        SesSetupWizardComponent::registerLivewireComponents();
+        SendGridSetupWizardComponent::registerLivewireComponents();
 
         Livewire::component('mailcoach-ui::editor-settings', EditorSettings::class);
 
@@ -194,25 +193,5 @@ class MailcoachUiServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../config/mailcoach-ui.php', 'mailcoach-ui');
-    }
-
-    protected function registerSesWizardComponents(): self
-    {
-        Livewire::component('mailcoach-ui::ses-configuration', SesSetupWizardComponent::class);
-        Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-feedback-step', FeedbackStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-summary-step', SummaryStepComponent::class);
-
-        return $this;
-    }
-
-    protected function registerSendGridWizardComponents(): self
-    {
-        Livewire::component('mailcoach-ui::sendgrid-configuration', SendGridSetupWizardComponent::class);
-        Livewire::component('mailcoach-ui::ses-authentication-step', SendGridAuthenticationStepComponent::class);
-        Livewire::component('mailcoach-ui::ses-summary-step', SendGridSummaryComponent::class);
-
-        return $this;
     }
 }

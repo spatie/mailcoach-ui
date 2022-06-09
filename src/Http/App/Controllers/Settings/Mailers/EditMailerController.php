@@ -11,7 +11,7 @@ class EditMailerController
     {
         app(MainNavigation::class)->add('Edit Mailer');
 
-        return view("mailcoach-ui::app.drivers.campaigns.{$mailer->transport->value}", [
+        return view("mailcoach-ui::app.configuration.mailers.wizards.{$mailer->transport->value}.index", [
             'mailer' => $mailer,
         ]);
     }

@@ -1,5 +1,5 @@
 <div>
-    @include('mailcoach-ui::app.drivers.campaigns.livewire.wizardNavigation')
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
     <x-mailcoach::help>
         <p>

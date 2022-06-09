@@ -1,5 +1,5 @@
 <div>
-    @include('mailcoach-ui::app.drivers.campaigns.livewire.wizardNavigation')
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
     <x-mailcoach::help>
         AWS can be configured track bounces and complaints. It will send webhooks to Mailcoach, that will be used to
@@ -29,7 +29,7 @@
 
         <form class="form-grid mt-4" wire:submit.prevent="setupFeedbackManually">
             <x-mailcoach::text-field
-                wire:model="configurationName"
+                wire:model.defer="configurationName"
                 :label="__('Configuration name')"
                 name="configurationName"
                 type="text"
@@ -46,7 +46,7 @@
 
         <form class="form-grid mt-4" wire:submit.prevent="setupFeedbackAutomatically">
             <x-mailcoach::text-field
-                wire:model="configurationName"
+                wire:model.defer="configurationName"
                 :label="__('Configuration name')"
                 name="configurationName"
                 type="text"
@@ -55,13 +55,13 @@
             <x-mailcoach::checkbox-field
                 :label="__('Enable open tracking')"
                 name="trackOpens"
-                wire:model="trackOpens"
+                wire:model.defer="trackOpens"
             />
 
             <x-mailcoach::checkbox-field
                 :label="__('Enable click tracking')"
                 name="trackClicks"
-                wire:model="trackClicks"
+                wire:model.defer="trackClicks"
             />
 
             <div class="form-buttons">

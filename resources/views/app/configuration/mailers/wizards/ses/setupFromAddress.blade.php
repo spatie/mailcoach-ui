@@ -1,5 +1,5 @@
 <div>
-    @include('mailcoach-ui::app.drivers.campaigns.livewire.wizardNavigation')
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
     <x-mailcoach::help>
         In order to send mail, you need specify a from mail address. AWS will validate the mail address by sending an email to it that contains a confirmation link.
@@ -9,7 +9,7 @@
         <form class="form-grid" wire:submit.prevent="submit">
 
             <x-mailcoach::text-field
-                wire:model="email"
+                wire:model.defer="email"
                 :label="__('From address')"
                 name="email"
                 type="email"

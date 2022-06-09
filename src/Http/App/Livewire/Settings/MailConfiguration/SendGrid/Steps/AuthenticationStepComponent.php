@@ -25,7 +25,7 @@ class AuthenticationStepComponent extends StepComponent
 
     public function mount()
     {
-        $this->key = $this->mailer()->get('apiKey', '');
+        $this->apiKey = $this->mailer()->get('apiKey', '');
     }
 
     public function submit()
@@ -38,7 +38,6 @@ class AuthenticationStepComponent extends StepComponent
             $validApiKey = (new Sendgrid($this->apiKey))->isValidApiKey();
         } catch (Exception) {
             $this->flash('Something went wrong communicating with SendGrid.', 'error');
-
 
             return;
         }

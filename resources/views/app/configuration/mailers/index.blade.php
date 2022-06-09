@@ -15,7 +15,9 @@
         <thead>
         <tr>
             <x-mailcoach::th sort-by="name" sort-default>{{ __('Name') }}</x-mailcoach::th>
-            <x-mailcoach::th sort-by="-transport">{{ __('Transport') }}</x-mailcoach::th>
+            <x-mailcoach::th sort-by="transport">{{ __('Transport') }}</x-mailcoach::th>
+            <x-mailcoach::th sort-by="ready_for_use">{{ __('Ready for use') }}</x-mailcoach::th>
+
             <th></th>
         </tr>
         </thead>
@@ -28,6 +30,7 @@
                     </a>
                 </td>
                 <td>{{ $mailer->transport->value }}</td>
+                <td>{{ $mailer->ready_for_use ? '✅' : '❌' }} </td>
                 <td class="td-action">
                         <x-mailcoach::dropdown direction="left">
                             <ul>
