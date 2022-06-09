@@ -7,7 +7,7 @@
                         <div class="flex items-baseline">
                             <span class="w-6"><i class="fas fa-server opacity-50"></i></span>
                             <span class="ml-2 text-sm">
-                                {!! __('Your <strong>mail configuration</strong> is invalid. Head over to the <a href=":mailConfigurationLink">mail configuration</a> screen.', ['mailConfigurationLink' => route('mailConfiguration')]) !!}
+                                {!! __('Your <strong>mail configuration</strong> is invalid. Head over to the <a href=":mailConfigurationLink">mail configuration</a> screen.', ['mailConfigurationLink' => route('mailers')]) !!}
                             </span>
                         </div>
                     @endif

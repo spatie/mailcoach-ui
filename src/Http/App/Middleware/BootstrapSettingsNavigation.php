@@ -23,13 +23,7 @@ class BootstrapSettingsNavigation
                     ->add(__('Editor'), route('editor'))
                     ->add(__('API Tokens'), route('tokens'))
                     ->add(__('Mailers'), route('mailers'));
-            })
-            ->add(__('Drivers'), route('mailConfiguration'), function (Section $section) {
-                $section
-                    ->add(__('Campaigns'), route('mailConfiguration'))
-                    ->add(__('Transactional Mail'), route('transactionalMailConfiguration'));
             });
-
 
         return $next($request);
     }

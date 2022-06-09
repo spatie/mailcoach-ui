@@ -56,26 +56,11 @@ Route::prefix('settings')
         Route::prefix('{user}')->group(function () {
             Route::get('edit', [UpdateUserController::class, 'edit'])->name('users.edit');
             Route::put('edit', [UpdateUserController::class, 'update']);
-
             Route::delete('/', DestroyUserController::class)->name('users.delete');
         });
     });
 
-    Route::get('mail-configuration', [EditMailConfigurationController::class, 'edit'])->name('mailConfiguration');
-    Route::put('mail-configuration', [EditMailConfigurationController::class, 'update']);
     Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail'])->name('sendTestMail');
-
-    Route::prefix('mail-configuration')->group(function() {
-        Route::get('ses', SesMailConfigurationController::class)->name('wizard.campaign.ses');
-    });
-
-    Route::get('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'edit'])->name('transactionalMailConfiguration');
-    Route::put('transactional-mail-configuration', [EditTransactionalMailConfigurationController::class, 'update']);
-
-
-
-    Route::delete('transactional-mail-configuration', DeleteTransactionalMailConfiguration::class)->name('deleteTransactionalMailConfiguration');
-    Route::post('send-transactional-test-mail', [SendTestTransactionalMailController::class, 'sendTransactionalTestEmail'])->name('sendTransactionalTestEmail');
 
     Route::get('editor', EditorSettings::class)->name('editor');
 });

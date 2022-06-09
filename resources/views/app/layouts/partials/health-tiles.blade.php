@@ -2,7 +2,7 @@
     @if (! request()->routeIs('mailConfiguration'))
         @if(! $mailConfigurationValid)
             <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="server">
-                <x-slot:link><a class="underline" href="{{ route('mailConfiguration') }}" data-turbo="false">Mail configuration</a></x-slot:link>
+                <x-slot:link><a class="underline" href="{{ route('mailers') }}" data-turbo="false">Mail configuration</a></x-slot:link>
                 {!! __('Your <strong>mail configuration</strong> is invalid.') !!}
             </x-mailcoach::tile>
         @endif
