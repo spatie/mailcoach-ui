@@ -2,8 +2,6 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Spatie\MailcoachUi\Models\Mailer;
 
 trait UsesMailer
