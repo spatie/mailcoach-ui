@@ -2,7 +2,7 @@
     @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
     <x-mailcoach::help>
-        In order not to overwhelm SES with send requests, Mailcoach can throttle the amount of mails sent.
+        In order not to overwhelm SendGrid with send requests, Mailcoach can throttle the amount of mails sent.
     </x-mailcoach::help>
 
     <div class="form-grid mt-4">

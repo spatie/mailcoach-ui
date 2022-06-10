@@ -17,4 +17,14 @@
             Click tracking enabled: {{ $mailer->get('click_tracking_enabled') ? '✅' : '❌' }}
         </div>
     </div>
+
+    <div class="mt-6 space-y-4">
+        <div>
+            Timespan in seconds: {{ $mailer->get('timespan_in_seconds') }}
+        </div>
+
+        <div>
+            Mails per timespan: {{ $mailer->get('mails_per_timespan') }}
+        </div>
+    </div>
 </div>

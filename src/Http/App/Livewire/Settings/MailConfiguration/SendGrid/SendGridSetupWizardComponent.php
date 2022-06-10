@@ -8,6 +8,7 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Ste
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\FeedbackStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Models\Mailer;
 
 class SendGridSetupWizardComponent extends WizardComponent
@@ -34,6 +35,7 @@ class SendGridSetupWizardComponent extends WizardComponent
     {
         return [
             AuthenticationStepComponent::class,
+            ThrottlingStepComponent::class,
             SetupFromAddressStepComponent::class,
             FeedbackStepComponent::class,
             SummaryStepComponent::class,
@@ -45,6 +47,7 @@ class SendGridSetupWizardComponent extends WizardComponent
         Livewire::component('mailcoach-ui::sendgrid-configuration', SendGridSetupWizardComponent::class);
 
         Livewire::component('mailcoach-ui::sendgrid-authentication-step', AuthenticationStepComponent::class);
+        Livewire::component('mailcoach-ui::sendgrid-throttling-step', ThrottlingStepComponent::class);
         Livewire::component('mailcoach-ui::sendgrid-from-address-step', SetupFromAddressStepComponent::class);
         Livewire::component('mailcoach-ui::sendgrid-feedback-step', FeedbackStepComponent::class);
         Livewire::component('mailcoach-ui::sendgrid-summary-step', SummaryStepComponent::class);

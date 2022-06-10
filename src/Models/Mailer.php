@@ -28,13 +28,12 @@ class Mailer extends Model
     {
         Mailer::all()
             ->where('ready_for_use', true)
-            ->each(function (Mailer $mailer) {
-            });
+            ->each(fn(Mailer $mailer) => $mailer->registerConfigValues());
     }
 
     public function registerConfigValues()
     {
-        if (! $this->readyForUse()) {
+        if (! $this->ready_for_use) {
             return;
         }
 
@@ -43,7 +42,9 @@ class Mailer extends Model
                 'transport' => 'ses',
                 'key' => $this->get('ses_key'),
                 'secret' => $this->get('ses_secret'),
-                'region' => $this->get('ses_region')
+                'region' => $this->get('ses_region'),
+                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                'mails_per_timespan' => $this->get('mails_per_timespan'),
             ]);
 
             /*
@@ -66,7 +67,9 @@ class Mailer extends Model
                 'username' => 'apikey',
                 'password' => $this->get('api_key'),
                 'encryption' => null,
-                'port' => 587
+                'port' => 587,
+                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                'mails_per_timespan' => $this->get('mails_per_timespan'),
             ]);
 
             config()->set('mailcoach.{$this->configName()}.signing_secret', [

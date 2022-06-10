@@ -70,7 +70,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Mailer::registerAllConfigValues();
 
         app(AppConfiguration::class)->registerConfigValues();
-        app(TransactionalMailConfiguration::class)->registerConfigValues();
         app(MailConfiguration::class)->registerConfigValues();
         app(EditorConfiguration::class)->registerConfigValues();
 
