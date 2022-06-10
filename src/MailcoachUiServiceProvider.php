@@ -16,6 +16,7 @@ use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent as SendGridAuthenticationStepComponent;
+use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent as SendGridSummaryComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesSetupWizardComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps\FeedbackStepComponent;
@@ -34,7 +35,6 @@ use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent as SendGridSummaryComponent;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {

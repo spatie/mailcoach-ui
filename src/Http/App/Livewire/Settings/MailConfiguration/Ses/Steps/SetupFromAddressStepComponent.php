@@ -7,7 +7,6 @@ use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class SetupFromAddressStepComponent extends StepComponent
 {
@@ -22,7 +21,7 @@ class SetupFromAddressStepComponent extends StepComponent
 
     public function mount()
     {
-        $this->email =  $this->mailer()->get('default_from_mail');
+        $this->email = $this->mailer()->get('default_from_mail');
     }
 
     public function submit()

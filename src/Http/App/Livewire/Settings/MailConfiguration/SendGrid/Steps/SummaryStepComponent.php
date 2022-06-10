@@ -20,7 +20,6 @@ class SummaryStepComponent extends StepComponent
 
     public function sendTestEmail()
     {
-
     }
 
     public function startOver()
@@ -35,4 +34,3 @@ class SummaryStepComponent extends StepComponent
         ];
     }
 }
-

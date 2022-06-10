@@ -4,7 +4,6 @@ namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\St
 
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class SummaryStepComponent extends StepComponent
 {
@@ -21,7 +20,6 @@ class SummaryStepComponent extends StepComponent
 
     public function sendTestEmail()
     {
-
     }
 
     public function startOver()
