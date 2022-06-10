@@ -21,6 +21,7 @@ class AppConfiguration
         config()->set('app.url', $this->get('url', config('app.url')));
         config()->set('filesystems.disks.public.url', $this->get('url', config('app.url')) . '/storage');
 
+
         ConfigCache::clear();
     }
 

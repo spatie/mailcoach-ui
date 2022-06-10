@@ -20,9 +20,9 @@ class BootstrapSettingsNavigation
             ->add(__('Configuration'), route('appConfiguration'), function (Section $section) {
                 $section
                     ->add(__('App'), route('appConfiguration'))
+                    ->add(__('Mailers'), route('mailers'))
                     ->add(__('Editor'), route('editor'))
-                    ->add(__('API Tokens'), route('tokens'))
-                    ->add(__('Mailers'), route('mailers'));
+                    ->add(__('API Tokens'), route('tokens'));
             });
 
         return $next($request);
