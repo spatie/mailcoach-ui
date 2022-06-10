@@ -27,7 +27,6 @@ use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
-use Spatie\MailcoachUi\Support\TransactionalMailConfiguration\TransactionalMailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
 
 class MailcoachUiServiceProvider extends ServiceProvider

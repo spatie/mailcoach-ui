@@ -28,7 +28,7 @@ class Mailer extends Model
     {
         Mailer::all()
             ->where('ready_for_use', true)
-            ->each(fn(Mailer $mailer) => $mailer->registerConfigValues());
+            ->each(fn (Mailer $mailer) => $mailer->registerConfigValues());
     }
 
     public function registerConfigValues()
