@@ -76,6 +76,19 @@ class Mailer extends Model
                 'signing_secret' => $this->get('signing_secret'),
             ]);
         }
+
+        if ($this->transport === MailerTransport::Smtp) {
+            config()->set("mail.mailers.{$this->configName()}", [
+                'transport' => 'smtp',
+                'host' => $this->get('host'),
+                'username' => $this->get('username'),
+                'password' => $this->get('password'),
+                'encryption' => $this->get('encryption'),
+                'port' => $this->get('port'),
+                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                'mails_per_timespan' => $this->get('mails_per_timespan'),
+            ]);
+        }
     }
 
     public function configName(): string

@@ -6,6 +6,7 @@ enum MailerTransport: string
 {
     case Ses = 'ses';
     case SendGrid = 'sendGrid';
+    case Smtp = 'smtp';
 
     public function label(): string
     {
