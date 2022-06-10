@@ -5,13 +5,9 @@ namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGr
 use Illuminate\Support\Str;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachSendgridFeedback\SendgridEvents\SendgridEvent;
 use Spatie\MailcoachSendgridFeedback\SendgridWebhookController;
 use Spatie\MailcoachSendgridSetup\EventType;
 use Spatie\MailcoachSendgridSetup\Sendgrid;
-use Spatie\MailcoachSesFeedback\SesWebhookController;
-use Spatie\MailcoachSesSetup\MailcoachSes;
-use Spatie\MailcoachSesSetup\MailcoachSesConfig;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
 
 class FeedbackStepComponent extends StepComponent
