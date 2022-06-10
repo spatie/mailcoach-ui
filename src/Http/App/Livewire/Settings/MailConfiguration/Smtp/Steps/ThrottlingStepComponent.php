@@ -4,10 +4,7 @@ namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\S
 
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachSesSetup\MailcoachSes;
-use Spatie\MailcoachSesSetup\MailcoachSesConfig;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class ThrottlingStepComponent extends StepComponent
 {
@@ -24,8 +21,8 @@ class ThrottlingStepComponent extends StepComponent
 
     public function mount()
     {
-        $this->timespanInSeconds =  $this->mailer()->get('timespan_in_seconds', $this->timespanInSeconds);
-        $this->mailsPerTimeSpan =  $this->mailer()->get('mails_per_timespan', $this->mailsPerTimeSpan);
+        $this->timespanInSeconds = $this->mailer()->get('timespan_in_seconds', $this->timespanInSeconds);
+        $this->mailsPerTimeSpan = $this->mailer()->get('mails_per_timespan', $this->mailsPerTimeSpan);
     }
 
     public function submit()

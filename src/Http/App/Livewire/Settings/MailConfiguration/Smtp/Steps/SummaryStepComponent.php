@@ -22,7 +22,6 @@ class SummaryStepComponent extends StepComponent
     {
     }
 
-
     public function stepInfo(): array
     {
         return [

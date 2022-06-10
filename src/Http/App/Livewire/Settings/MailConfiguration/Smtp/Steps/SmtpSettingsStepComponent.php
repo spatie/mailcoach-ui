@@ -2,16 +2,9 @@
 
 namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\Steps;
 
-use Exception;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachSesSetup\Exception\InvalidAwsCredentials;
-use Spatie\MailcoachSesSetup\MailcoachSes;
-use Spatie\MailcoachSesSetup\MailcoachSesConfig;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
-use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mailer\Transport;
-use Symfony\Component\Mailer\Transport\Smtp\SmtpTransport;
 
 class SmtpSettingsStepComponent extends StepComponent
 {
@@ -72,7 +65,7 @@ class SmtpSettingsStepComponent extends StepComponent
     public function render()
     {
         return view('mailcoach-ui::app.configuration.mailers.wizards.smtp.settings', [
-            'encryptionOptions' => $this->encryptionOptions()
+            'encryptionOptions' => $this->encryptionOptions(),
             ]);
     }
 
