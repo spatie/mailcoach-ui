@@ -42,7 +42,6 @@ class SesSetupWizardComponent extends WizardComponent
 
     public static function registerLivewireComponents(): void
     {
-
         Livewire::component('mailcoach-ui::ses-configuration', SesSetupWizardComponent::class);
         Livewire::component('mailcoach-ui::ses-authentication-step', AuthenticationStepComponent::class);
         Livewire::component('mailcoach-ui::ses-setup-from-address-step', SetupFromAddressStepComponent::class);

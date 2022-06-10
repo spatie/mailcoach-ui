@@ -43,7 +43,7 @@ class Mailer extends Model
                 'transport' => 'ses',
                 'key' => $this->get('ses_key'),
                 'secret' => $this->get('ses_secret'),
-                'region' => $this->get('ses_region')
+                'region' => $this->get('ses_region'),
             ]);
 
             /*
@@ -66,7 +66,7 @@ class Mailer extends Model
                 'username' => 'apikey',
                 'password' => $this->get('api_key'),
                 'encryption' => null,
-                'port' => 587
+                'port' => 587,
             ]);
 
             config()->set('mailcoach.{$this->configName()}.signing_secret', [
