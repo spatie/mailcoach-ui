@@ -57,7 +57,7 @@ class Mailer extends Model
                 'transport' => 'smtp',
                 'host' => 'smtp.sendgrid.net',
                 'username' => 'apikey',
-                'password' => $this->get('api_key'),
+                'password' => $this->get('apiKey'),
                 'encryption' => null,
                 'port' => 587,
                 'timespan_in_seconds' => $this->get('timespan_in_seconds'),

@@ -4,23 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\AccountController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\PasswordController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\TokensController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\App\EditAppConfigurationController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\EditMailConfigurationController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\SendTestMailController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\MailConfiguration\Wizards\SesMailConfigurationController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\DestroyMailerController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\DeleteTransactionalMailConfiguration;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\EditTransactionalMailConfigurationController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\TransactionalMailConfiguration\SendTestTransactionalMailController;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\CreateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\DestroyUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UpdateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
-use \Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\MailersIndexController;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 
@@ -59,8 +49,6 @@ Route::prefix('settings')
             Route::delete('/', DestroyUserController::class)->name('users.delete');
         });
     });
-
-    Route::post('send-test-mail', [SendTestMailController::class, 'sendTestEmail'])->name('sendTestMail');
 
     Route::get('editor', EditorSettings::class)->name('editor');
 });
