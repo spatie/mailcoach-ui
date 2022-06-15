@@ -4,7 +4,6 @@ namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp;
 
 use Livewire\Livewire;
 use Spatie\LivewireWizard\Components\WizardComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\Steps\SetupFromAddressStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\Steps\SmtpSettingsStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\Steps\SummaryStepComponent;
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\Steps\ThrottlingStepComponent;
@@ -34,7 +33,6 @@ class SmtpSetupWizardComponent extends WizardComponent
     {
         return [
             SmtpSettingsStepComponent::class,
-            SetupFromAddressStepComponent::class,
             ThrottlingStepComponent::class,
             SummaryStepComponent::class,
         ];
@@ -46,7 +44,6 @@ class SmtpSetupWizardComponent extends WizardComponent
 
         Livewire::component('mailcoach-ui::smtp-settings-step', SmtpSettingsStepComponent::class);
         Livewire::component('mailcoach-ui::smtp-throttling-step', ThrottlingStepComponent::class);
-        Livewire::component('mailcoach-ui::smtp-from-address', SetupFromAddressStepComponent::class);
         Livewire::component('mailcoach-ui::smtp-summary-step', SummaryStepComponent::class);
     }
 }

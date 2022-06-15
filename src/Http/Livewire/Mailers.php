@@ -46,7 +46,7 @@ class Mailers extends DataTable
     public function getData(Request $request): array
     {
         return [
-            'mailers' => resolve(MailersQuery::class)->paginate(),
+            'mailers' => (new MailersQuery($request))->paginate(),
             'totalMailersCount' => Mailer::count(),
         ];
     }

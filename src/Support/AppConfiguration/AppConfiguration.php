@@ -20,6 +20,7 @@ class AppConfiguration
         config()->set('app.timezone', $this->get('timezone', config('app.timezone')));
         config()->set('app.url', $this->get('url', config('app.url')));
         config()->set('filesystems.disks.public.url', $this->get('url', config('app.url')) . '/storage');
+        config()->set('mail.from.address', $this->get('from_address', config('mail.from_address')));
 
         ConfigCache::clear();
     }

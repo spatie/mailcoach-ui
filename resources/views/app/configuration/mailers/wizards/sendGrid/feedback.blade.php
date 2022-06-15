@@ -3,7 +3,7 @@
 
     <x-mailcoach::help>
         Sendgrid can be configured track bounces and complaints. It will send webhooks to Mailcoach, that will be used to
-        automatically unsubscribe people.<br/><br/>Optionally, AWS can also send webhooks to inform Mailcoach of opens and
+        automatically unsubscribe people.<br/><br/>Optionally, SendGrid can also send webhooks to inform Mailcoach of opens and
         clicks.
     </x-mailcoach::help>
 

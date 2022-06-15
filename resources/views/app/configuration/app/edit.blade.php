@@ -17,6 +17,8 @@
         :options="$timeZones"
     />
 
+    <x-mailcoach::text-field name="from_address" id="from_address" wire:model="from_address" :label="__('Default email from address')" />
+
     <div class="form-buttons">
         <x-mailcoach::button :label="__('Save')"/>
     </div>

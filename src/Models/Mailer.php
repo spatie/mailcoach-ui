@@ -49,17 +49,7 @@ class Mailer extends Model
                 'mails_per_timespan' => $this->get('mails_per_timespan'),
             ]);
 
-            /*
-            config()->set("services.{$this->configName()}", [
-                'key' => $this->get('ses_key'),
-                'secret' => $this->get('ses_secret'),
-                'region' => $this->get('ses_region'),
-            ]);
-            */
-
-            config()->set("mailcoach.{$this->configName()}.ses_feedback", [
-                'configuration_set' => $this->get('ses_configuration_set') ?? '',
-            ]);
+            config()->set("mailcoach.ses_feedback.configuration_set", $this->get('ses_configuration_set'));
         }
 
         if ($this->transport === MailerTransport::SendGrid) {

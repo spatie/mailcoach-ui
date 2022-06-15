@@ -28,8 +28,6 @@ class AuthenticationStepComponent extends StepComponent
     {
         $this->validate();
 
-        (new Sendgrid('invalid-key'))->isValidApiKey();
-
         try {
             $validApiKey = (new Sendgrid($this->apiKey))->isValidApiKey();
         } catch (Exception) {
@@ -39,7 +37,7 @@ class AuthenticationStepComponent extends StepComponent
         }
 
         if (! $validApiKey) {
-            $this->flash('This is not a valid API key.', 'error');
+            $this->addError('apiKey', 'This is not a valid API key.');
 
             return;
         }

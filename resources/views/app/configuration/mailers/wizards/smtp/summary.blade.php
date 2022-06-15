@@ -1,14 +1,14 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
-
-    <div class="alert alert-success">
+    <x-mailcoach::success class="mb-4">
         <p>
             Your SMTP mailer has been set up. We highly recommend sending a small test campaign to your self to check if
             everything is working as expected.
         </p>
-    </div>
+    </x-mailcoach::success>
 
-    <x-mailcoach::fieldset class="mt-8" :legend="__('Summary')">
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+
+    <x-mailcoach::fieldset class="mt-4" :legend="__('Summary')">
         <dl class="dl">
             <dt>Host</dt>
             <dd>
@@ -28,11 +28,6 @@
             <dt>Encryption</dt>
             <dd>
                 {{ $mailer->get('encryption') === '' ? 'None' : $mailer->get('encryption') }}
-            </dd>
-
-            <dt>Default from email</dt>
-            <dd>
-                {{ $mailer->get('default_from_mail') }}
             </dd>
         </dl>
     </x-mailcoach::fieldset>

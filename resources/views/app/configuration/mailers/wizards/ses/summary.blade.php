@@ -1,14 +1,14 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
-
-    <div class="alert alert-success">
+    <x-mailcoach::success class="mb-4">
         <p>
             Your SES account has been set up. We highly recommend sending a small test campaign to your self to check if
             everything is working as expected.
         </p>
-    </div>
+    </x-mailcoach::success>
 
-    <x-mailcoach::fieldset class="mt-8" :legend="__('Summary')">
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+
+    <x-mailcoach::fieldset class="mt-4" :legend="__('Summary')">
         <dl class="dl">
             <dt>Access Key:</dt>
             <dd>
@@ -22,22 +22,25 @@
 
             <dt>Open tracking enabled:</dt>
             <dd>
-                {{ $mailer->get('open_tracking_enabled') }}
+                @if ($mailer->get('open_tracking_enabled'))
+                    <x-mailcoach::rounded-icon type="success" icon="fas fa-check" />
+                @else
+                    <x-mailcoach::rounded-icon type="error" icon="fas fa-times" />
+                @endif
             </dd>
 
             <dt>Click tracking enabled:</dt>
             <dd>
-                {{ $mailer->get('click_tracking_enabled') }}
+                @if ($mailer->get('click_tracking_enabled'))
+                    <x-mailcoach::rounded-icon type="success" icon="fas fa-check" />
+                @else
+                    <x-mailcoach::rounded-icon type="error" icon="fas fa-times" />
+                @endif
             </dd>
 
             <dt>Configuration set name:</dt>
             <dd>
                 {{ $mailer->get('ses_configuration_set') }}
-            </dd>
-
-            <dt>Default from mail:</dt>
-            <dd>
-                {{ $mailer->get('default_from_mail') }}
             </dd>
         </dl>
     </x-mailcoach::fieldset>
