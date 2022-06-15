@@ -8,23 +8,31 @@
         </p>
     </div>
 
-    <div class="mt-6 space-y-4">
-        <div>
-            Open tracking enabled: {{ $mailer->get('open_tracking_enabled') ? '✅' : '❌' }}
-        </div>
+    <x-mailcoach::fieldset class="mt-8" :legend="__('Summary')">
+        <dl class="dl">
+            <dt>Open tracking enabled:</dt>
+            <dd>
+                {{ $mailer->get('open_tracking_enabled') ? '✅' : '❌' }}
+            </dd>
 
-        <div>
-            Click tracking enabled: {{ $mailer->get('click_tracking_enabled') ? '✅' : '❌' }}
-        </div>
-    </div>
+            <dt>Click tracking enabled:</dt>
+            <dd>
+                {{ $mailer->get('click_tracking_enabled') ? '✅' : '❌' }}
+            </dd>
+        </dl>
+    </x-mailcoach::fieldset>
 
-    <div class="mt-6 space-y-4">
-        <div>
-            Timespan in seconds: {{ $mailer->get('timespan_in_seconds') }}
-        </div>
+    <x-mailcoach::fieldset class="mt-8" :legend="__('Throttling')">
+         <dl class="dl">
+            <dt>Timespan in seconds</dt>
+            <dd>
+                {{ $mailer->get('timespan_in_seconds') }}
+            </dd>
 
-        <div>
-            Mails per timespan: {{ $mailer->get('mails_per_timespan') }}
-        </div>
-    </div>
+            <dt>Mails per timespan</dt>
+            <dd>
+                {{ $mailer->get('mails_per_timespan') }}
+            </dd>
+        </dl>
+    </x-mailcoach::fieldset>
 </div>

@@ -8,35 +8,46 @@
         </p>
     </div>
 
-    <div class="mt-6 space-y-4">
-        <div>
-            Host: {{ $mailer->get('host') }}
-        </div>
+    <x-mailcoach::fieldset class="mt-8" :legend="__('Summary')">
+        <dl class="dl">
+            <dt>Host</dt>
+            <dd>
+                {{ $mailer->get('host') }}
+            </dd>
 
-        <div>
-            Port: {{ $mailer->get('port') }}
-        </div>
+            <dt>Port</dt>
+            <dd>
+                {{ $mailer->get('port') }}
+            </dd>
 
-        <div>
-            Username: {{ $mailer->get('username') }}
-        </div>
+            <dt>Username</dt>
+            <dd>
+                {{ $mailer->get('username') }}
+            </dd>
 
-        <div>
-            Encryption: {{ $mailer->get('encryption') === '' ? 'None' : $mailer->get('encryption') }}
-        </div>
+            <dt>Encryption</dt>
+            <dd>
+                {{ $mailer->get('encryption') === '' ? 'None' : $mailer->get('encryption') }}
+            </dd>
 
-        <div>
-            Default from mail: {{ $mailer->get('default_from_mail') }}
-        </div>
+            <dt>Default from email</dt>
+            <dd>
+                {{ $mailer->get('default_from_mail') }}
+            </dd>
+        </dl>
+    </x-mailcoach::fieldset>
 
-        <div class="mt-6 space-y-4">
-            <div>
-                Timespan in seconds: {{ $mailer->get('timespan_in_seconds') }}
-            </div>
+    <x-mailcoach::fieldset class="mt-8" :legend="__('Throttling')">
+         <dl class="dl">
+            <dt>Timespan in seconds</dt>
+            <dd>
+                {{ $mailer->get('timespan_in_seconds') }}
+            </dd>
 
-            <div>
-                Mails per timespan: {{ $mailer->get('mails_per_timespan') }}
-            </div>
-        </div>
-    </div>
+            <dt>Mails per timespan</dt>
+            <dd>
+                {{ $mailer->get('mails_per_timespan') }}
+            </dd>
+        </dl>
+    </x-mailcoach::fieldset>
 </div>

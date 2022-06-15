@@ -11,13 +11,13 @@
                     <x-mailcoach::navigation-group :title="__($item['title'])">
 
                         @foreach($item['children'] as $child)
-                            <x-mailcoach::navigation-item :href="$child['url']">
+                            <x-mailcoach::navigation-item :href="$child['url']" :active="$child['active']">
                                 {{ __($child['title']) }}
                             </x-mailcoach::navigation-item>
                         @endforeach
                     </x-mailcoach::navigation-group>
                 @else
-                    <x-mailcoach::navigation-item :href="$item['url']">
+                    <x-mailcoach::navigation-item :href="$item['url']" :active="$item['active']">
                         {{ __($item['title']) }}
                     </x-mailcoach::navigation-item>
                 @endif

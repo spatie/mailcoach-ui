@@ -21,13 +21,13 @@ use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use \Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\MailersIndexController;
+use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 
 Route::prefix('settings')
-    ->middleware(BootstrapSettingsNavigation::class)
+    ->middleware([BootstrapSettingsNavigation::class])
     ->group(function () {
-    Route::get('app-configuration', [EditAppConfigurationController::class, 'edit'])->name('appConfiguration');
-    Route::put('app-configuration', [EditAppConfigurationController::class, 'update']);
+    Route::get('general', GeneralSettings::class)->name('general-settings');
 
     Route::prefix('account')->group(function () {
         Route::get('details', [AccountController::class, 'index'])->name('account');
@@ -47,7 +47,7 @@ Route::prefix('settings')
 
     Route::prefix('mailers')->group(function() {
         Route::get('/', Mailers::class)->name('mailers');
-        Route::get('{mailer}', EditMailerController::class)->name('mailers.edit');
+        Route::get('{mailer:uuid}', EditMailerController::class)->name('mailers.edit');
     });
 
     Route::prefix('users')->group(function () {

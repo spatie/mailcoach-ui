@@ -6,6 +6,7 @@ use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
 use Spatie\MailcoachUi\Models\Mailer;
+use Spatie\MailcoachUi\SettingsNavigation;
 
 class CreateMailerComponent extends Component
 {
@@ -19,7 +20,7 @@ class CreateMailerComponent extends Component
 
     public function saveMailer()
     {
-        $validated = $this->validate([
+        $this->validate([
             'name' => 'required|string',
             'transport' => 'required',
         ]);

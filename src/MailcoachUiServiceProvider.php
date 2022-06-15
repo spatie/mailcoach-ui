@@ -22,6 +22,7 @@ use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
 use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
+use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
@@ -164,7 +165,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
             Route::mailcoachEditor('mailcoachEditor');
 
             Route::prefix($url)
-                ->middleware(config('mailcoach-ui.middleware'))
+                ->middleware(array_merge(config('mailcoach-ui.middleware'), config('mailcoach.middleware.web')))
                 ->group(function () {
                     require(__DIR__ . '/../routes/auth.php');
 
@@ -188,6 +189,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach::mailers', Mailers::class);
         Livewire::component('mailcoach::create-mailer', CreateMailerComponent::class);
         Livewire::component('mailcoach::create-user', CreateUserComponent::class);
+        Livewire::component('mailcoach::general-settings', GeneralSettings::class);
 
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();

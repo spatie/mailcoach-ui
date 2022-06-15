@@ -36,6 +36,7 @@
                 :label="__('Region')"
                 name="region"
                 :options="$regions"
+                placeholder="Choose a region"
             />
 
             <div class="form-buttons">

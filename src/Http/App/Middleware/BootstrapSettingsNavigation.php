@@ -13,13 +13,13 @@ class BootstrapSettingsNavigation
 
     public function handle(Request $request, $next)
     {
-        app(SettingsNavigation::class)
+        resolve(SettingsNavigation::class)
             ->add(__('Profile'), route('account'))
             ->add(__('Password'), route('password'))
             ->add(__('Users'), route('users'))
-            ->add(__('Configuration'), route('appConfiguration'), function (Section $section) {
+            ->add(__('Configuration'), route('general-settings'), function (Section $section) {
                 $section
-                    ->add(__('App'), route('appConfiguration'))
+                    ->add(__('General'), route('general-settings'))
                     ->add(__('Mailers'), route('mailers'))
                     ->add(__('Editor'), route('editor'))
                     ->add(__('API Tokens'), route('tokens'));
