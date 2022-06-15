@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Mailcoach\Http\App\Livewire\DataTable;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachUi\Http\App\Queries\MailersQuery;
 use Spatie\MailcoachUi\Http\App\Queries\UsersQuery;
-use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\User;
 
 class Users extends DataTable
