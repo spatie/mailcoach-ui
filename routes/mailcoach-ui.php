@@ -21,6 +21,7 @@ use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use \Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\MailersIndexController;
+use Spatie\MailcoachUi\Http\Livewire\Mailers;
 
 Route::prefix('settings')
     ->middleware(BootstrapSettingsNavigation::class)
@@ -45,9 +46,8 @@ Route::prefix('settings')
     });
 
     Route::prefix('mailers')->group(function() {
-        Route::get('/', MailersIndexController::class)->name('mailers');
+        Route::get('/', Mailers::class)->name('mailers');
         Route::get('{mailer}', EditMailerController::class)->name('mailers.edit');
-        Route::delete('{mailer}', DestroyMailerController::class)->name('mailers.delete');
     });
 
     Route::prefix('users')->group(function () {

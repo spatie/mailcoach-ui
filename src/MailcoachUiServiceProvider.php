@@ -3,6 +3,7 @@
 namespace Spatie\MailcoachUi;
 
 use Carbon\Laravel\ServiceProvider;
+use Illuminate\Database\QueryException;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -21,6 +22,7 @@ use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
 use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
+use Spatie\MailcoachUi\Http\Livewire\Mailers;
 use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
@@ -29,6 +31,7 @@ use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
+use Throwable;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
@@ -39,6 +42,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         $this
             ->configureModels()
+            ->bootTranslations()
             ->bootConfig()
             ->bootPublishables()
             ->bootAuthorization()
@@ -61,11 +65,32 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
     protected function bootConfig(): self
     {
-        Mailer::registerAllConfigValues();
+        try {
+            Mailer::registerAllConfigValues();
+        } catch (QueryException) {
+            // Do nothing as table probably doesn't exist
+        }
 
         app(AppConfiguration::class)->registerConfigValues();
         app(MailConfiguration::class)->registerConfigValues();
         app(EditorConfiguration::class)->registerConfigValues();
+
+        return $this;
+    }
+
+    protected function bootTranslations(): self
+    {
+        $langPath = 'vendor/spatie/mailcoach-ui';
+
+        $langPath = (function_exists('lang_path'))
+            ? lang_path($langPath)
+            : resource_path('lang/' . $langPath);
+
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang/');
+
+        $this->publishes([
+            __DIR__ . '/../resources/lang' => $langPath,
+        ], "mailcoach-ui-translations");
 
         return $this;
     }
@@ -160,8 +185,9 @@ class MailcoachUiServiceProvider extends ServiceProvider
             $this->bootBladeComponents();
         }
 
-        Livewire::component('mailcoach-ui::create-mailer', CreateMailerComponent::class);
-        Livewire::component('mailcoach-ui::create-user', CreateUserComponent::class);
+        Livewire::component('mailcoach::mailers', Mailers::class);
+        Livewire::component('mailcoach::create-mailer', CreateMailerComponent::class);
+        Livewire::component('mailcoach::create-user', CreateUserComponent::class);
 
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();
