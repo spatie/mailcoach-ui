@@ -6,7 +6,6 @@ use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
 use Spatie\MailcoachUi\Models\Mailer;
-use Spatie\MailcoachUi\SettingsNavigation;
 
 class CreateMailerComponent extends Component
 {

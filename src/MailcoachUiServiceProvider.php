@@ -32,7 +32,6 @@ use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
-use Throwable;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {

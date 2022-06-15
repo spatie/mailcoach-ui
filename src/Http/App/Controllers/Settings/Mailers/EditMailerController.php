@@ -2,9 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers;
 
-use Spatie\Mailcoach\MainNavigation;
 use Spatie\MailcoachUi\Models\Mailer;
-use Spatie\MailcoachUi\SettingsNavigation;
 
 class EditMailerController
 {
