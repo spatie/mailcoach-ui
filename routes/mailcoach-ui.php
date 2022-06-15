@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\AccountController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\PasswordController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Account\TokensController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
@@ -13,6 +12,8 @@ use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
+use Spatie\MailcoachUi\Http\Livewire\Password;
+use Spatie\MailcoachUi\Http\Livewire\Profile;
 
 Route::prefix('settings')
     ->middleware([BootstrapSettingsNavigation::class])
@@ -20,11 +21,9 @@ Route::prefix('settings')
     Route::get('general', GeneralSettings::class)->name('general-settings');
 
     Route::prefix('account')->group(function () {
-        Route::get('details', [AccountController::class, 'index'])->name('account');
-        Route::put('details', [AccountController::class, 'update']);
+        Route::get('details', Profile::class)->name('account');
 
-        Route::get('password', [PasswordController::class, 'index'])->name('password');
-        Route::put('password', [PasswordController::class, 'update']);
+        Route::get('password', Password::class)->name('password');
 
         Route::prefix('tokens')->group(function () {
             Route::get('/', [TokensController::class, 'index'])->name('tokens');

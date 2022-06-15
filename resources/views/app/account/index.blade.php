@@ -1,17 +1,15 @@
-<x-mailcoach-ui::layout-settings :title="__('Profile')">
-    <form
-        class="form-grid"
-        action="{{ route('account') }}"
-        method="POST"
-    >
-        @csrf
-        @method('PUT')
+<form
+    class="form-grid"
+    wire:submit.prevent="save"
+    method="POST"
+>
+    @csrf
+    @method('PUT')
 
-        <x-mailcoach::text-field :label="__('Email')" name="email" type="email" :value="$user->email" required />
-        <x-mailcoach::text-field :label="__('Name')" name="name" :value="$user->name" required />
+    <x-mailcoach::text-field :label="__('Email')" name="email" type="email" wire:model.lazy="email" required />
+    <x-mailcoach::text-field :label="__('Name')" name="name" wire:model.lazy="name" required />
 
-        <div class="form-buttons">
-            <x-mailcoach::button :label="__('Save user')" />
-        </div>
-    </form>
-</x-mailcoach-ui::layout-settings>
+    <div class="form-buttons">
+        <x-mailcoach::button :label="__('Save user')" />
+    </div>
+</form>
