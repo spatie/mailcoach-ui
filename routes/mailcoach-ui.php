@@ -14,6 +14,7 @@ use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 use Spatie\MailcoachUi\Http\Livewire\Password;
 use Spatie\MailcoachUi\Http\Livewire\Profile;
+use Spatie\MailcoachUi\Http\Livewire\Users;
 
 Route::prefix('settings')
     ->middleware([BootstrapSettingsNavigation::class])
@@ -40,12 +41,11 @@ Route::prefix('settings')
     });
 
     Route::prefix('users')->group(function () {
-        Route::get('/', UsersIndexController::class)->name('users');
+        Route::get('/', Users::class)->name('users');
 
         Route::prefix('{user}')->group(function () {
             Route::get('edit', [UpdateUserController::class, 'edit'])->name('users.edit');
             Route::put('edit', [UpdateUserController::class, 'update']);
-            Route::delete('/', DestroyUserController::class)->name('users.delete');
         });
     });
 

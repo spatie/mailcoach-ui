@@ -5,10 +5,9 @@ namespace Spatie\MailcoachUi\Http\Livewire;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Models\User;
 
-class CreateUserComponent extends Component
+class CreateUser extends Component
 {
     public string $email = '';
     public string $name = '';
@@ -33,7 +32,7 @@ class CreateUserComponent extends Component
             flash()->warning(__('The user has been created. A mail with setup instructions could not be sent.'));
         }
 
-        return redirect()->action(UsersIndexController::class);
+        return redirect()->route('users');
     }
 
     public function render()

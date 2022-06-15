@@ -19,7 +19,7 @@ class Password extends Component
 
     public array $rules = [
         'current_password' => ['required', 'current_password'],
-        'password' => ['min:6', 'confirmed'],
+        'password' => ['min:8', 'confirmed'],
     ];
 
     public function save()

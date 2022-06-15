@@ -21,12 +21,13 @@ use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesSetup
 use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\SmtpSetupWizardComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
-use Spatie\MailcoachUi\Http\Livewire\CreateUserComponent;
+use Spatie\MailcoachUi\Http\Livewire\CreateUser;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 use Spatie\MailcoachUi\Http\Livewire\Password;
 use Spatie\MailcoachUi\Http\Livewire\Profile;
+use Spatie\MailcoachUi\Http\Livewire\Users;
 use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
@@ -190,11 +191,12 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         Livewire::component('mailcoach::mailers', Mailers::class);
         Livewire::component('mailcoach::create-mailer', CreateMailerComponent::class);
-        Livewire::component('mailcoach::create-user', CreateUserComponent::class);
+        Livewire::component('mailcoach::create-user', CreateUser::class);
         Livewire::component('mailcoach::general-settings', GeneralSettings::class);
         Livewire::component('mailcoach-ui::send-test', SendTest::class);
         Livewire::component('mailcoach-ui::profile', Profile::class);
         Livewire::component('mailcoach-ui::password', Password::class);
+        Livewire::component('mailcoach-ui::users', Users::class);
 
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();

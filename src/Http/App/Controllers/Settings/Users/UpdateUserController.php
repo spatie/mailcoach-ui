@@ -20,6 +20,6 @@ class UpdateUserController
 
         flash()->success(__('The user has been updated.'));
 
-        return redirect()->action(UsersIndexController::class);
+        return redirect()->route('users');
     }
 }
