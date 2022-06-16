@@ -1,18 +1,18 @@
-<x-mailcoach-ui::layout-settings 
-    :title="$user->name" 
-    :originTitle="__('Users')"
-    :originHref="route('users')"
+<form
+    class="form-grid"
+    wire:submit.prevent="save"
+    @keydown.prevent.window.cmd.s="$wire.call('save')"
+    @keydown.prevent.window.ctrl.s="$wire.call('save')"
+    method="POST"
 >
-    <form class="form-grid" action="{{ route('users.edit', $user) }}" method="POST">
-        @csrf
-        @method('PUT')
+    @csrf
+    @method('PUT')
 
-        <x-mailcoach::text-field type="email" :label="__('Email')" name="email" :value="$user->email" required />
+    <x-mailcoach::text-field type="email" :label="__('Email')" name="user.email" wire:model.lazy="user.email" required />
 
-        <x-mailcoach::text-field :label="__('Name')" name="name" :value="$user->name" required />
+    <x-mailcoach::text-field :label="__('Name')" name="user.name" wire:model.lazy="user.name" required />
 
-        <div class="form-buttons">
-            <x-mailcoach::button :label="__('Save user')" />
-        </div>
-    </form>
-</x-mailcoach-ui::layout-settings>
+    <div class="form-buttons">
+        <x-mailcoach::button :label="__('Save user')" />
+    </div>
+</form>

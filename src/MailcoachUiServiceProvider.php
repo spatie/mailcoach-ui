@@ -15,6 +15,8 @@ use Spatie\Flash\Flash;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
+use Spatie\MailcoachUi\Http\Livewire\EditMailer;
+use Spatie\MailcoachUi\Http\Livewire\EditUser;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendTest;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\SesSetupWizardComponent;
@@ -197,6 +199,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::profile', Profile::class);
         Livewire::component('mailcoach-ui::password', Password::class);
         Livewire::component('mailcoach-ui::users', Users::class);
+        Livewire::component('mailcoach-ui::edit-user', EditUser::class);
+        Livewire::component('mailcoach-ui::edit-mailer', EditMailer::class);
 
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();
