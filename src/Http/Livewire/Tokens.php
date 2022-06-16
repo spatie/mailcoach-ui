@@ -24,7 +24,7 @@ class Tokens extends Component
         $this->validate();
 
         /** @var \Laravel\Sanctum\NewAccessToken $token */
-        $token =Auth::user()->createToken($this->name);
+        $token = Auth::user()->createToken($this->name);
 
         $this->newToken = $token->plainTextToken;
 
