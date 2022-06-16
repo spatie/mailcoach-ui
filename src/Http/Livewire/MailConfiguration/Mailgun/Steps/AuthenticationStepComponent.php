@@ -20,7 +20,7 @@ class AuthenticationStepComponent extends StepComponent
     public $rules = [
         'apiKey' => ['required'],
         'domain' => ['required'],
-        'baseUrl' => ['required', 'in:api.mailgun.net,api.eu.mailgun.net']
+        'baseUrl' => ['required', 'in:api.mailgun.net,api.eu.mailgun.net'],
     ];
 
     public function mount()

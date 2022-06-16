@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Mailgun\Steps;
 
-use Illuminate\Support\Str;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachMailgunFeedback\MailgunWebhookController;
