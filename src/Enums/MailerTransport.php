@@ -12,7 +12,7 @@ enum MailerTransport: string
 
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::Ses => 'SES',
             self::SendGrid => 'SendGrid',
             self::Smtp => 'SMTP',

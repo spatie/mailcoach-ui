@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Postmark\Steps;
 
-use Exception;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachPostmarkSetup\MessageStream;
