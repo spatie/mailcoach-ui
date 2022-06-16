@@ -29,6 +29,7 @@ use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\SmtpSetupWizardCompo
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
 use Spatie\MailcoachUi\Http\Livewire\Password;
 use Spatie\MailcoachUi\Http\Livewire\Profile;
+use Spatie\MailcoachUi\Http\Livewire\Tokens;
 use Spatie\MailcoachUi\Http\Livewire\Users;
 use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\PersonalAccessToken;
@@ -201,6 +202,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Livewire::component('mailcoach-ui::users', Users::class);
         Livewire::component('mailcoach-ui::edit-user', EditUser::class);
         Livewire::component('mailcoach-ui::edit-mailer', EditMailer::class);
+        Livewire::component('mailcoach-ui::tokens', Tokens::class);
 
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();

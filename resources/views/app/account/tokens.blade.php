@@ -1,13 +1,15 @@
-<x-mailcoach-ui::layout-settings :title="__('API Tokens')">
+@push('endHead')
+    <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
+@endpush
+<div>
     <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://spatie.be/docs/laravel-mailcoach/">our docs</a>.
     </x-mailcoach::help>
 
     <form class="my-6"
-          action="{{ route('tokens.create') }}"
-          method="POST"
-          data-dirty-check
+      wire:submit.prevent="save"
+      method="POST"
     >
         @csrf
 
@@ -16,8 +18,8 @@
                 <x-mailcoach::text-field
                     :label="__('Token name')"
                     name="name"
+                    wire:model.lazy="name"
                     :placeholder="__('My API token')"
-
                     :required="true"
                     type="text"
                 />
@@ -33,52 +35,43 @@
     </form>
 
 
-    @if (session()->has('newToken'))
-        @push('modals')
-            <x-mailcoach::modal :open="true" :title="__('Your new token')" name="token">
-                <p class="mb-2">
-                    We will display this token only once. Make sure to copy it to a safe place.
-                </p>
+    @if ($newToken)
+        <x-mailcoach::help>
+            <p class="mb-2">
+                We will display this token only once. Make sure to copy it to a safe place.
+            </p>
 
+            <pre id="newKey" class="max-w-full whitespace-pre-wrap break-all font-mono bg-white py-1 px-1">{{ $newToken }}</pre>
 
-                <pre id="newKey" class="max-w-full whitespace-pre-wrap break-all font-mono bg-gray-100">{{ session()->get('newToken') }}</pre>
-
-
-                <div class="form-buttons justify-end">
-                    <div>
-                        <span class="cursor-pointer underline text-sm mr-4" x-on:click="(e) => window.copyToClipboard('{{ session()->get('newToken') }}').then(() => e.target.innerText = 'Copied!')">Copy to clipboard</span>
-                        <button type="button" class="button" x-on:click="$store.modals.close('token')">
-                            {{ __('OK') }}
-                        </button>
-                    </div>
-                </div>
-            </x-mailcoach::modal>
-            <script>
-                function copyToClipboard(textToCopy) {
-                    // navigator clipboard api needs a secure context (https)
-                    if (navigator.clipboard && window.isSecureContext) {
-                        // navigator clipboard api method'
-                        return navigator.clipboard.writeText(textToCopy);
-                    } else {
-                        // text area method
-                        let textArea = document.createElement("textarea");
-                        textArea.value = textToCopy;
-                        // make the textarea out of viewport
-                        textArea.style.position = "fixed";
-                        textArea.style.left = "-999999px";
-                        textArea.style.top = "-999999px";
-                        document.body.appendChild(textArea);
-                        textArea.focus();
-                        textArea.select();
-                        return new Promise((res, rej) => {
-                            // here the magic happens
-                            document.execCommand('copy') ? res() : rej();
-                            textArea.remove();
-                        });
-                    }
+            <div class="form-buttons justify-end" x-data>
+                <span class="cursor-pointer underline text-sm mr-4" @click="$clipboard('{{ $newToken }}'); $el.innerText = 'Copied!'">Copy to clipboard</span>
+            </div>
+        </x-mailcoach::help>
+        <script>
+            function copyToClipboard(textToCopy) {
+                // navigator clipboard api needs a secure context (https)
+                if (navigator.clipboard && window.isSecureContext) {
+                    // navigator clipboard api method'
+                    return navigator.clipboard.writeText(textToCopy);
+                } else {
+                    // text area method
+                    let textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    // make the textarea out of viewport
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-999999px";
+                    textArea.style.top = "-999999px";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    return new Promise((res, rej) => {
+                        // here the magic happens
+                        document.execCommand('copy') ? res() : rej();
+                        textArea.remove();
+                    });
                 }
-            </script>
-        @endpush
+            }
+        </script>
     @endif
 
     @if (count($tokens))
@@ -96,19 +89,13 @@
                     <td>{{ $token->name }}</td>
                     <td>{{ $token->last_used_at ?? 'Not used yet' }}</td>
                     <td class="td-action">
-                        <x-mailcoach::dropdown direction="left">
-                            <ul>
-                                <li>
-                                    <x-mailcoach::confirm-button :action="route('tokens.delete', $token)" method="DELETE">
-                                        <x-mailcoach::icon-label icon="far fa-trash-alt" :text="__('Delete')" :caution="true"/>
-                                    </x-mailcoach::confirm-button>
-                                </li>
-                            </ul>
-                        </x-mailcoach::dropdown>
+                        <x-mailcoach::confirm-button :confirm-text="__('Are you sure you want to delete this token?')" on-confirm="() => $wire.delete({{ $token->id }})">
+                            <x-mailcoach::icon-label icon="far fa-trash-alt" :caution="true"/>
+                        </x-mailcoach::confirm-button>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     @endif
-</x-mailcoach-ui::layout-settings>
+</div>
