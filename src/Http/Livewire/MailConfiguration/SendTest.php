@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration;
 
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;

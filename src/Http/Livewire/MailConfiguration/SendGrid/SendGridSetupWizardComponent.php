@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid;
 
 use Livewire\Livewire;
 use Spatie\LivewireWizard\Components\WizardComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\FeedbackStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\SummaryStepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps\ThrottlingStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\FeedbackStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\SummaryStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Models\Mailer;
 
 class SendGridSetupWizardComponent extends WizardComponent

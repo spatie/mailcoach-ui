@@ -9,6 +9,7 @@ use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UpdateUserController;
 use Spatie\MailcoachUi\Http\App\Controllers\Settings\Users\UsersIndexController;
 use Spatie\MailcoachUi\Http\App\Middleware\BootstrapSettingsNavigation;
 use Spatie\MailcoachUi\Http\Auth\Controllers\LogoutController;
+use Spatie\MailcoachUi\Http\Livewire\EditMailer;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
 use Spatie\MailcoachUi\Http\Livewire\Mailers;
@@ -37,7 +38,7 @@ Route::prefix('settings')
 
     Route::prefix('mailers')->group(function() {
         Route::get('/', Mailers::class)->name('mailers');
-        Route::get('{mailer:uuid}', EditMailerController::class)->name('mailers.edit');
+        Route::get('{mailer:uuid}', EditMailer::class)->name('mailers.edit');
     });
 
     Route::prefix('users')->group(function () {

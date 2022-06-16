@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::create('mailcoach_mailers', function (Blueprint $table) {
             $table->id();
-
+            $table->uuid()->index();
             $table->string('name');
             $table->string('transport');
             $table->longText('configuration')->nullable();

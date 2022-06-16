@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps;
 
 use Illuminate\Support\Str;
 use Spatie\LivewireWizard\Components\StepComponent;
@@ -8,7 +8,7 @@ use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSendgridFeedback\SendgridWebhookController;
 use Spatie\MailcoachSendgridSetup\EventType;
 use Spatie\MailcoachSendgridSetup\Sendgrid;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns\UsesMailer;
 
 class FeedbackStepComponent extends StepComponent
 {

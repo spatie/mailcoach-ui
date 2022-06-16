@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\Steps;
 
 use Exception;
 use Illuminate\Validation\Rule;
@@ -9,7 +9,7 @@ use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesSetup\Exception\InvalidAwsCredentials;
 use Spatie\MailcoachSesSetup\MailcoachSes;
 use Spatie\MailcoachSesSetup\MailcoachSesConfig;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns\UsesMailer;
 
 class AuthenticationStepComponent extends StepComponent
 {

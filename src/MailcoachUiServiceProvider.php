@@ -15,10 +15,10 @@ use Spatie\Flash\Flash;
 use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendTest;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\SesSetupWizardComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Smtp\SmtpSetupWizardComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendTest;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\SesSetupWizardComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\SmtpSetupWizardComponent;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
 use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
 use Spatie\MailcoachUi\Http\Livewire\CreateUser;
@@ -168,11 +168,11 @@ class MailcoachUiServiceProvider extends ServiceProvider
             Route::mailcoachEditor('mailcoachEditor');
 
             Route::prefix($url)
-                ->middleware(array_merge(config('mailcoach-ui.middleware'), config('mailcoach.middleware.web')))
+                ->middleware(config('mailcoach-ui.middleware'))
                 ->group(function () {
                     require(__DIR__ . '/../routes/auth.php');
 
-                    Route::middleware('auth')->group(__DIR__ . '/../routes/mailcoach-ui.php');
+                    Route::middleware(array_merge(['auth'], config('mailcoach.middleware.web')))->group(__DIR__ . '/../routes/mailcoach-ui.php');
                 });
         });
 

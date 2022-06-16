@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\SendGrid\Steps;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\Steps;
 
 use Spatie\LivewireWizard\Components\StepComponent;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns\UsesMailer;
 
 class SummaryStepComponent extends StepComponent
 {
@@ -13,7 +13,7 @@ class SummaryStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.configuration.mailers.wizards.sendGrid.summary', [
+        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.summary', [
             'mailer' => $this->mailer(),
         ]);
     }

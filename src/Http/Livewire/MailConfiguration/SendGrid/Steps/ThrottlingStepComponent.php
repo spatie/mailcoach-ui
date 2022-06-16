@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Ses\Steps;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps;
 
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns\UsesMailer;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns\UsesMailer;
 
 class ThrottlingStepComponent extends StepComponent
 {
@@ -42,7 +42,7 @@ class ThrottlingStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.configuration.mailers.wizards.ses.throttling');
+        return view('mailcoach-ui::app.configuration.mailers.wizards.sendGrid.throttling');
     }
 
     public function stepInfo(): array

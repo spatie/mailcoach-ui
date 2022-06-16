@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\App\Livewire\Settings\MailConfiguration\Concerns;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns;
 
 use Spatie\MailcoachUi\Models\Mailer;
 
