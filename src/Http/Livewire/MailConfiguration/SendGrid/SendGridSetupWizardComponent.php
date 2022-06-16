@@ -7,7 +7,7 @@ use Spatie\LivewireWizard\Components\WizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\AuthenticationStepComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\FeedbackStepComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\SummaryStepComponent;
-use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\Steps\ThrottlingStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Models\Mailer;
 
 class SendGridSetupWizardComponent extends WizardComponent

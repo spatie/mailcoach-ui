@@ -89,7 +89,18 @@ class Mailer extends Model
                 'message_stream_id' => $this->get('streamId'),
             ]);
 
-            config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('secret'));
+            config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('signing_secret'));
+        }
+
+        if ($this->transport === MailerTransport::Mailgun) {
+            config()->set("mail.mailers.{$this->configName()}", [
+                'transport' => 'mailgun',
+                'domain' => $this->get('domain'),
+                'secret' => $this->get('apiKey'),
+                'endpoint' => $this->get('baseUrl'),
+            ]);
+
+            config()->set("mailcoach.mailgun_feedback.signing_secret", $this->get('signing_secret'));
         }
     }
 

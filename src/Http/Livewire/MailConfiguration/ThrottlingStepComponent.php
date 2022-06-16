@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\Steps;
+namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration;
 
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
@@ -37,14 +37,12 @@ class ThrottlingStepComponent extends StepComponent
 
         $this->flash('The throttling settings were saved.');
 
-        $this->mailer()->markAsReadyForUse();
-
         $this->nextStep();
     }
 
     public function render()
     {
-        return view('mailcoach-ui::app.configuration.mailers.wizards.smtp.throttling');
+        return view('mailcoach-ui::app.configuration.mailers.wizards.mailgun.throttling');
     }
 
     public function stepInfo(): array

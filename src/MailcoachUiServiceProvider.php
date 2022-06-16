@@ -22,6 +22,7 @@ use Spatie\MailcoachUi\Http\Livewire\EditMailer;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Http\Livewire\EditUser;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Mailgun\MailgunSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Postmark\PostmarkSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendTest;
@@ -209,6 +210,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         SendGridSetupWizardComponent::registerLivewireComponents();
         SmtpSetupWizardComponent::registerLivewireComponents();
         PostmarkSetupWizardComponent::registerLivewireComponents();
+        MailgunSetupWizardComponent::registerLivewireComponents();
 
         Livewire::component('mailcoach-ui::editor-settings', EditorSettings::class);
 

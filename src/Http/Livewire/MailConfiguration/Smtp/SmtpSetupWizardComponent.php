@@ -6,7 +6,7 @@ use Livewire\Livewire;
 use Spatie\LivewireWizard\Components\WizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\Steps\SmtpSettingsStepComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\Steps\SummaryStepComponent;
-use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Smtp\Steps\ThrottlingStepComponent;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\ThrottlingStepComponent;
 use Spatie\MailcoachUi\Models\Mailer;
 
 class SmtpSetupWizardComponent extends WizardComponent

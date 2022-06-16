@@ -51,7 +51,7 @@ class FeedbackStepComponent extends StepComponent
         $this->mailer()->merge([
             'open_tracking_enabled' => $this->trackOpens,
             'click_tracking_enabled' => $this->trackClicks,
-            'secret' => $secret,
+            'signing_secret' => $secret,
         ]);
 
         $this->mailer()->markAsReadyForUse();
@@ -68,9 +68,7 @@ class FeedbackStepComponent extends StepComponent
 
     protected function getPostmark(): Postmark
     {
-        $state = $this->state()->forStep('mailcoach-ui::postmark-authentication-step');
-
-        return new Postmark($state['apiKey']);
+        return new Postmark($this->mailer()->get('apiKey'));
     }
 
     public function stepInfo(): array

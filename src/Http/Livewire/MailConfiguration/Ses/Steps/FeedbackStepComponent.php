@@ -68,17 +68,12 @@ class FeedbackStepComponent extends StepComponent
 
     protected function getMailcoachSes(): MailcoachSes
     {
-        $credentials = $this->state()->forStep('mailcoach-ui::ses-authentication-step');
-
         $endpoint = action(SesWebhookController::class);
 
-        // debug
-        $endpoint = 'https://spatie.be/ses-feedback';
-
         $sesConfig = new MailcoachSesConfig(
-            $credentials['key'],
-            $credentials['secret'],
-            $credentials['region'],
+            $this->mailer()->get('key'),
+            $this->mailer()->get('secret'),
+            $this->mailer()->get('region'),
             $endpoint,
         );
 

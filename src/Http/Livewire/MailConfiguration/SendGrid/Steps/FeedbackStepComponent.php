@@ -70,9 +70,7 @@ class FeedbackStepComponent extends StepComponent
 
     protected function getSendGrid(): Sendgrid
     {
-        $state = $this->state()->forStep('mailcoach-ui::sendgrid-authentication-step');
-
-        return new Sendgrid($state['apiKey']);
+        return new Sendgrid($this->mailer()->get('apiKey'));
     }
 
     public function stepInfo(): array
