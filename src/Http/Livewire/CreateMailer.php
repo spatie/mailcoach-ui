@@ -4,10 +4,9 @@ namespace Spatie\MailcoachUi\Http\Livewire;
 
 use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
-use Spatie\MailcoachUi\Http\App\Controllers\Settings\Mailers\EditMailerController;
 use Spatie\MailcoachUi\Models\Mailer;
 
-class CreateMailerComponent extends Component
+class CreateMailer extends Component
 {
     public string $name = '';
     public string $transport = '';
@@ -31,7 +30,7 @@ class CreateMailerComponent extends Component
 
         flash()->success(__('The mailer has been created.'));
 
-        return redirect()->action(EditMailerController::class, $mailer);
+        return redirect()->route('mailers.edit', $mailer);
     }
 
     public function render()

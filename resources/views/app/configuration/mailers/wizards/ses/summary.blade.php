@@ -1,7 +1,7 @@
 <div>
     <x-mailcoach::success class="mb-4">
         <p>
-            Your SES account has been set up. We highly recommend sending a small test campaign to your self to check if
+            Your SES account has been set up. We highly recommend sending a small test campaign to yourself to check if
             everything is working as expected.
         </p>
     </x-mailcoach::success>

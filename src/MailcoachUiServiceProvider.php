@@ -16,12 +16,13 @@ use Spatie\MailcoachUi\Commands\ExecuteComposerHookCommand;
 use Spatie\MailcoachUi\Commands\MakeUserCommand;
 use Spatie\MailcoachUi\Commands\PrepareGitIgnoreCommand;
 use Spatie\MailcoachUi\Http\App\ViewComposers\HealthViewComposer;
-use Spatie\MailcoachUi\Http\Livewire\CreateMailerComponent;
+use Spatie\MailcoachUi\Http\Livewire\CreateMailer;
 use Spatie\MailcoachUi\Http\Livewire\CreateUser;
 use Spatie\MailcoachUi\Http\Livewire\EditMailer;
 use Spatie\MailcoachUi\Http\Livewire\EditorSettings;
 use Spatie\MailcoachUi\Http\Livewire\EditUser;
 use Spatie\MailcoachUi\Http\Livewire\GeneralSettings;
+use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Postmark\PostmarkSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendGrid\SendGridSetupWizardComponent;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\SendTest;
 use Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\SesSetupWizardComponent;
@@ -163,7 +164,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         Route::sesFeedback('ses-feedback');
         Route::mailgunFeedback('mailgun-feedback');
         Route::sendgridFeedback('sendgrid-feedback');
-        //Route::postmarkFeedback('postmark-feedback');
+        Route::postmarkFeedback('postmark-feedback');
         //Route::postalFeedback('postal-feedback');
 
         Route::macro('mailcoachUi', function (string $url = '') {
@@ -193,7 +194,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         }
 
         Livewire::component('mailcoach::mailers', Mailers::class);
-        Livewire::component('mailcoach::create-mailer', CreateMailerComponent::class);
+        Livewire::component('mailcoach::create-mailer', CreateMailer::class);
         Livewire::component('mailcoach::create-user', CreateUser::class);
         Livewire::component('mailcoach::general-settings', GeneralSettings::class);
         Livewire::component('mailcoach-ui::send-test', SendTest::class);
@@ -207,7 +208,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
         SesSetupWizardComponent::registerLivewireComponents();
         SendGridSetupWizardComponent::registerLivewireComponents();
         SmtpSetupWizardComponent::registerLivewireComponents();
-
+        PostmarkSetupWizardComponent::registerLivewireComponents();
 
         Livewire::component('mailcoach-ui::editor-settings', EditorSettings::class);
 

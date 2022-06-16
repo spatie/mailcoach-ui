@@ -1,7 +1,7 @@
 <div>
     <x-mailcoach::success class="mb-4">
         <p>
-            Your SMTP mailer has been set up. We highly recommend sending a small test campaign to yourself to check if
+            Your Postmark account has been set up. We highly recommend sending a small test campaign to yourself to check if
             everything is working as expected.
         </p>
     </x-mailcoach::success>
@@ -10,24 +10,27 @@
 
     <x-mailcoach::fieldset class="mt-4" :legend="__('Summary')">
         <dl class="dl">
-            <dt>Host</dt>
+            <dt>Open tracking enabled:</dt>
             <dd>
-                {{ $mailer->get('host') }}
+                @if ($mailer->get('open_tracking_enabled'))
+                    <x-mailcoach::rounded-icon type="success" icon="fas fa-check" />
+                @else
+                    <x-mailcoach::rounded-icon type="error" icon="fas fa-times" />
+                @endif
             </dd>
 
-            <dt>Port</dt>
+            <dt>Click tracking enabled:</dt>
             <dd>
-                {{ $mailer->get('port') }}
+                @if ($mailer->get('click_tracking_enabled'))
+                    <x-mailcoach::rounded-icon type="success" icon="fas fa-check" />
+                @else
+                    <x-mailcoach::rounded-icon type="error" icon="fas fa-times" />
+                @endif
             </dd>
 
-            <dt>Username</dt>
+            <dt>Message stream ID:</dt>
             <dd>
-                {{ $mailer->get('username') }}
-            </dd>
-
-            <dt>Encryption</dt>
-            <dd>
-                {{ $mailer->get('encryption') === '' ? 'None' : $mailer->get('encryption') }}
+                {{ $mailer->get('streamId') }}
             </dd>
         </dl>
     </x-mailcoach::fieldset>

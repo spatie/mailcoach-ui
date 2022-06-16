@@ -81,6 +81,16 @@ class Mailer extends Model
                 'mails_per_timespan' => $this->get('mails_per_timespan'),
             ]);
         }
+
+        if ($this->transport === MailerTransport::Postmark) {
+            config()->set("mail.mailers.{$this->configName()}", [
+                'transport' => 'postmark',
+                'token' => $this->get('apiKey'),
+                'message_stream_id' => $this->get('streamId'),
+            ]);
+
+            config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('secret'));
+        }
     }
 
     public function configName(): string
