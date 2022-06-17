@@ -14,6 +14,7 @@ class Mailer extends Model
 {
     use HasFactory;
     use HasUuid;
+    use UsesMailcoachUiModels;
 
     public $table = 'mailcoach_mailers';
 
