@@ -13,7 +13,7 @@ class Setting extends Model
 
     public $guarded = [];
 
-    protected static function setValues(string $key, array $values): self
+    protected static function setValues(string $key, array $values): static
     {
         $value = Crypt::encryptString(json_encode($values));
 

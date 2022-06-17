@@ -5,9 +5,12 @@ namespace Spatie\MailcoachUi\Http\Livewire;
 use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
 use Spatie\MailcoachUi\Models\Mailer;
+use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 class CreateMailer extends Component
 {
+    use UsesMailcoachUiModels;
+
     public string $name = '';
     public string $transport = '';
 
@@ -23,7 +26,7 @@ class CreateMailer extends Component
             'transport' => 'required',
         ]);
 
-        $mailer = Mailer::create([
+        $mailer = self::getMailerClass()::create([
             'name' => $this->name,
             'transport' => $this->transport,
         ]);

@@ -1,6 +1,6 @@
 <x-mailcoach::data-table
     name="mailer"
-    :modelClass="\Spatie\MailcoachUi\Models\Mailer::class"
+    :modelClass="config('mailcoach-ui.models.mailer', \Spatie\MailcoachUi\Models\Mailer::class)"
     :rows="$mailers ?? null"
     :totalRowsCount="$totalMailersCount ?? null"
     :columns="[

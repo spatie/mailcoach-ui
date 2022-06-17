@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     public function personalAccessTokens(): MorphMany
     {
-        return $this->morphMany(PersonalAccessToken::class, 'tokenable');
+        return $this->morphMany(self::getPersonalAccessTokenClass()::class, 'tokenable');
     }
 }

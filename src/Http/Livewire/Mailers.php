@@ -7,10 +7,12 @@ use Spatie\Mailcoach\Http\App\Livewire\DataTable;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachUi\Http\App\Queries\MailersQuery;
 use Spatie\MailcoachUi\Models\Mailer;
+use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 class Mailers extends DataTable
 {
     use LivewireFlash;
+    use UsesMailcoachUiModels;
 
     public function getTitle(): string
     {
@@ -36,7 +38,7 @@ class Mailers extends DataTable
 
     public function deleteMailer(int $id)
     {
-        $mailer = Mailer::find($id);
+        $mailer = self::getMailerClass()::find($id);
 
         $mailer->delete();
 
@@ -47,7 +49,7 @@ class Mailers extends DataTable
     {
         return [
             'mailers' => (new MailersQuery($request))->paginate(),
-            'totalMailersCount' => Mailer::count(),
+            'totalMailersCount' => self::getMailerClass()::count(),
         ];
     }
 }

@@ -28,4 +28,16 @@ return [
     'url_after_login' => 'campaigns',
 
     'mailer_encryption_key' => '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm',
+
+    /**
+     * You might want to override the default models used by Mailcoach UI
+     * Make sure to extend their respective base models when overriding
+     * with a model of your own.
+     */
+    'models' => [
+        'user' => \Spatie\MailcoachUi\Models\User::class,
+        'personal_access_token' => \Spatie\MailcoachUi\Models\PersonalAccessToken::class,
+        'setting' => \Spatie\MailcoachUi\Models\Setting::class,
+        'mailer' => \Spatie\MailcoachUi\Models\Mailer::class,
+    ],
 ];

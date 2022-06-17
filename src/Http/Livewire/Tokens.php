@@ -5,7 +5,6 @@ namespace Spatie\MailcoachUi\Http\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
-use Spatie\MailcoachUi\Models\PersonalAccessToken;
 
 class Tokens extends Component
 {
@@ -35,7 +34,7 @@ class Tokens extends Component
 
     public function delete(int $id)
     {
-        $token = PersonalAccessToken::find($id);
+        $token = self::getPersonalAccessTokenClass()::find($id);
         $token->delete();
 
         $this->flash(__('The token has been deleted.'));

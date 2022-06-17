@@ -33,9 +33,8 @@ use Spatie\MailcoachUi\Http\Livewire\Password;
 use Spatie\MailcoachUi\Http\Livewire\Profile;
 use Spatie\MailcoachUi\Http\Livewire\Tokens;
 use Spatie\MailcoachUi\Http\Livewire\Users;
-use Spatie\MailcoachUi\Models\Mailer;
-use Spatie\MailcoachUi\Models\PersonalAccessToken;
 use Spatie\MailcoachUi\Models\User;
+use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
@@ -44,6 +43,8 @@ use Spatie\Navigation\Helpers\ActiveUrlChecker;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
+    use UsesMailcoachUiModels;
+
     public function boot()
     {
         View::composer('mailcoach-ui::app.layouts.partials.health', HealthViewComposer::class);
@@ -67,7 +68,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
 
         $cipher = config('app.cipher');
 
-        Mailer::encryptUsing(new Encrypter($key, $cipher));
+        self::getMailerClass()::encryptUsing(new Encrypter($key, $cipher));
 
         return $this;
     }
@@ -75,7 +76,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
     protected function bootConfig(): self
     {
         try {
-            Mailer::registerAllConfigValues();
+            self::getMailerClass()::registerAllConfigValues();
         } catch (QueryException) {
             // Do nothing as table probably doesn't exist
         }
@@ -131,7 +132,7 @@ class MailcoachUiServiceProvider extends ServiceProvider
     {
         Gate::define('viewMailcoach', fn (User $user) => true);
 
-        Gate::policy(PersonalAccessToken::class, PersonalAccessTokenPolicy::class);
+        Gate::policy(self::getPersonalAccessTokenClass(), PersonalAccessTokenPolicy::class);
 
         return $this;
     }

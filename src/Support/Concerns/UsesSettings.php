@@ -3,13 +3,15 @@
 namespace Spatie\MailcoachUi\Support\Concerns;
 
 use Exception;
-use Spatie\MailcoachUi\Models\Setting;
+use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 trait UsesSettings
 {
+    use UsesMailcoachUiModels;
+
     public function put(array $values): self
     {
-        Setting::setValues($this->getKeyName(), $values);
+        self::getSettingClass()::setValues($this->getKeyName(), $values);
 
         return $this;
     }
@@ -18,19 +20,19 @@ trait UsesSettings
     {
         $allValues = array_merge($this->all(), $values);
 
-        Setting::setValues($this->getKeyName(), $allValues);
+        self::getSettingClass()::setValues($this->getKeyName(), $allValues);
 
         return $this;
     }
 
     public function all(): array
     {
-        return Setting::where('key', $this->getKeyName())->first()?->allValues() ?? [];
+        return self::getSettingClass()::where('key', $this->getKeyName())->first()?->allValues() ?? [];
     }
 
     public function empty(): self
     {
-        Setting::where('key')->delete();
+        self::getSettingClass()::where('key')->delete();
 
         return $this;
     }
@@ -43,7 +45,7 @@ trait UsesSettings
     public function get(string $property, mixed $default = null): mixed
     {
         try {
-            return Setting::where('key', $this->getKeyName())->first()?->getValue($property) ?? $default;
+            return self::getSettingClass()::where('key', $this->getKeyName())->first()?->getValue($property) ?? $default;
         } catch (Exception) {
             return $default;
         }

@@ -3,9 +3,12 @@
 namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Concerns;
 
 use Spatie\MailcoachUi\Models\Mailer;
+use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 trait UsesMailer
 {
+    use UsesMailcoachUiModels;
+
     private ?Mailer $mailer = null;
 
     public function mailer(): Mailer
@@ -18,7 +21,7 @@ trait UsesMailer
 
         $mailerId = $this->state()->forStep($summaryStepName)['mailerId'];
 
-        $this->mailer = Mailer::find($mailerId);
+        $this->mailer = self::getMailerClass()::find($mailerId);
 
         return $this->mailer;
     }
