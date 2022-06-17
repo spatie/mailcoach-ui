@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Spatie\Mailcoach\Http\App\Livewire\DataTable;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachUi\Http\App\Queries\MailersQuery;
-use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 class Mailers extends DataTable

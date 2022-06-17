@@ -4,7 +4,6 @@ namespace Spatie\MailcoachUi\Http\Livewire;
 
 use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
-use Spatie\MailcoachUi\Models\Mailer;
 use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 
 class CreateMailer extends Component
