@@ -39,10 +39,8 @@ use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
 use Spatie\MailcoachUi\Policies\PersonalAccessTokenPolicy;
 use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
 use Symfony\Component\Mailer\Bridge\Sendgrid\Transport\SendgridTransportFactory;
-use Symfony\Component\Mailer\Bridge\Sendinblue\Transport\SendinblueTransportFactory;
 use Symfony\Component\Mailer\Transport\Dsn;
 
 class MailcoachUiServiceProvider extends ServiceProvider
@@ -233,7 +231,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
     {
         Mail::extend('sendgrid', function (array $config) {
             $key = $config['key'] ?? config('services.sendgrid.key');
-            return (new SendgridTransportFactory)->create(
+
+            return (new SendgridTransportFactory())->create(
                 Dsn::fromString("sendgrid+api://{$key}@default")
             );
         });

@@ -52,6 +52,7 @@ class Mailer extends Model
                 ]);
 
                 config()->set("mailcoach.ses_feedback.configuration_set", $this->get('ses_configuration_set'));
+
                 break;
             case MailerTransport::SendGrid:
                 config()->set("mail.mailers.{$this->configName()}", [
@@ -62,6 +63,7 @@ class Mailer extends Model
                 ]);
 
                 config()->set('mailcoach.sendgrid.signing_secret', $this->get('signing_secret'));
+
                 break;
             case MailerTransport::Smtp:
                 config()->set("mail.mailers.{$this->configName()}", [
@@ -74,6 +76,7 @@ class Mailer extends Model
                     'timespan_in_seconds' => $this->get('timespan_in_seconds'),
                     'mails_per_timespan' => $this->get('mails_per_timespan'),
                 ]);
+
                 break;
             case MailerTransport::Postmark:
                 config()->set("mail.mailers.{$this->configName()}", [
@@ -83,6 +86,7 @@ class Mailer extends Model
                 ]);
 
                 config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('signing_secret'));
+
                 break;
             case MailerTransport::Mailgun:
                 config()->set("mail.mailers.{$this->configName()}", [
@@ -93,6 +97,7 @@ class Mailer extends Model
                 ]);
 
                 config()->set("mailcoach.mailgun_feedback.signing_secret", $this->get('signing_secret'));
+
                 break;
         }
     }

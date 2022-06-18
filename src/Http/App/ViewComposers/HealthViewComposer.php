@@ -5,7 +5,6 @@ namespace Spatie\MailcoachUi\Http\App\ViewComposers;
 use Composer\InstalledVersions;
 use Illuminate\View\View;
 use Spatie\Mailcoach\Domain\Shared\Support\HorizonStatus;
-use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 
 class HealthViewComposer
 {
