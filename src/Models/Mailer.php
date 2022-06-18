@@ -27,7 +27,7 @@ class Mailer extends Model
         'ready_for_use' => 'boolean',
     ];
 
-    public static function registerAllConfigValues()
+    public static function registerAllConfigValues(): void
     {
         self::getMailerClass()::all()
             ->where('ready_for_use', true)
@@ -40,68 +40,60 @@ class Mailer extends Model
             return;
         }
 
-        if ($this->transport === MailerTransport::Ses) {
-            config()->set("mail.mailers.{$this->configName()}", [
-                'transport' => 'ses',
-                'key' => $this->get('ses_key'),
-                'secret' => $this->get('ses_secret'),
-                'region' => $this->get('ses_region'),
-                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
-                'mails_per_timespan' => $this->get('mails_per_timespan'),
-            ]);
+        switch ($this->transport) {
+            case MailerTransport::Ses:
+                config()->set("mail.mailers.{$this->configName()}", [
+                    'transport' => 'ses',
+                    'key' => $this->get('ses_key'),
+                    'secret' => $this->get('ses_secret'),
+                    'region' => $this->get('ses_region'),
+                    'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                    'mails_per_timespan' => $this->get('mails_per_timespan'),
+                ]);
 
-            config()->set("mailcoach.ses_feedback.configuration_set", $this->get('ses_configuration_set'));
-        }
+                config()->set("mailcoach.ses_feedback.configuration_set", $this->get('ses_configuration_set'));
+                break;
+            case MailerTransport::SendGrid:
+                config()->set("mail.mailers.{$this->configName()}", [
+                    'transport' => 'sendgrid',
+                    'key' => $this->get('apiKey'),
+                    'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                    'mails_per_timespan' => $this->get('mails_per_timespan'),
+                ]);
 
-        if ($this->transport === MailerTransport::SendGrid) {
-            config()->set("mail.mailers.{$this->configName()}", [
-                'transport' => 'smtp',
-                'host' => 'smtp.sendgrid.net',
-                'username' => 'apikey',
-                'password' => $this->get('apiKey'),
-                'encryption' => null,
-                'port' => 587,
-                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
-                'mails_per_timespan' => $this->get('mails_per_timespan'),
-            ]);
+                config()->set('mailcoach.sendgrid.signing_secret', $this->get('signing_secret'));
+                break;
+            case MailerTransport::Smtp:
+                config()->set("mail.mailers.{$this->configName()}", [
+                    'transport' => 'smtp',
+                    'host' => $this->get('host'),
+                    'username' => $this->get('username'),
+                    'password' => $this->get('password'),
+                    'encryption' => $this->get('encryption'),
+                    'port' => $this->get('port'),
+                    'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                    'mails_per_timespan' => $this->get('mails_per_timespan'),
+                ]);
+                break;
+            case MailerTransport::Postmark:
+                config()->set("mail.mailers.{$this->configName()}", [
+                    'transport' => 'postmark',
+                    'token' => $this->get('apiKey'),
+                    'message_stream_id' => $this->get('streamId'),
+                ]);
 
-            config()->set('mailcoach.{$this->configName()}.signing_secret', [
-                'signing_secret' => $this->get('signing_secret'),
-            ]);
-        }
+                config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('signing_secret'));
+                break;
+            case MailerTransport::Mailgun:
+                config()->set("mail.mailers.{$this->configName()}", [
+                    'transport' => 'mailgun',
+                    'domain' => $this->get('domain'),
+                    'secret' => $this->get('apiKey'),
+                    'endpoint' => $this->get('baseUrl'),
+                ]);
 
-        if ($this->transport === MailerTransport::Smtp) {
-            config()->set("mail.mailers.{$this->configName()}", [
-                'transport' => 'smtp',
-                'host' => $this->get('host'),
-                'username' => $this->get('username'),
-                'password' => $this->get('password'),
-                'encryption' => $this->get('encryption'),
-                'port' => $this->get('port'),
-                'timespan_in_seconds' => $this->get('timespan_in_seconds'),
-                'mails_per_timespan' => $this->get('mails_per_timespan'),
-            ]);
-        }
-
-        if ($this->transport === MailerTransport::Postmark) {
-            config()->set("mail.mailers.{$this->configName()}", [
-                'transport' => 'postmark',
-                'token' => $this->get('apiKey'),
-                'message_stream_id' => $this->get('streamId'),
-            ]);
-
-            config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('signing_secret'));
-        }
-
-        if ($this->transport === MailerTransport::Mailgun) {
-            config()->set("mail.mailers.{$this->configName()}", [
-                'transport' => 'mailgun',
-                'domain' => $this->get('domain'),
-                'secret' => $this->get('apiKey'),
-                'endpoint' => $this->get('baseUrl'),
-            ]);
-
-            config()->set("mailcoach.mailgun_feedback.signing_secret", $this->get('signing_secret'));
+                config()->set("mailcoach.mailgun_feedback.signing_secret", $this->get('signing_secret'));
+                break;
         }
     }
 

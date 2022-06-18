@@ -1,4 +1,5 @@
-@if ((! $mailConfigurationValid && ! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
+@if ((! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
+    {{--
     @if (! request()->routeIs('mailConfiguration'))
         @if(! $mailConfigurationValid)
             <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="server">
@@ -7,7 +8,7 @@
             </x-mailcoach::tile>
         @endif
     @endif
-
+    --}}
 
     @if (! $queueConfig)
         <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="database">

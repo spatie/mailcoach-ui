@@ -7,6 +7,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
@@ -40,6 +41,9 @@ use Spatie\MailcoachUi\Support\AppConfiguration\AppConfiguration;
 use Spatie\MailcoachUi\Support\EditorConfiguration\EditorConfiguration;
 use Spatie\MailcoachUi\Support\MailConfiguration\MailConfiguration;
 use Spatie\Navigation\Helpers\ActiveUrlChecker;
+use Symfony\Component\Mailer\Bridge\Sendgrid\Transport\SendgridTransportFactory;
+use Symfony\Component\Mailer\Bridge\Sendinblue\Transport\SendinblueTransportFactory;
+use Symfony\Component\Mailer\Transport\Dsn;
 
 class MailcoachUiServiceProvider extends ServiceProvider
 {
@@ -59,7 +63,8 @@ class MailcoachUiServiceProvider extends ServiceProvider
             ->bootFlash()
             ->bootRoutes()
             ->bootCommands()
-            ->bootViews();
+            ->bootViews()
+            ->bootMailers();
     }
 
     protected function configureModels(): self
@@ -82,7 +87,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
         }
 
         app(AppConfiguration::class)->registerConfigValues();
-        app(MailConfiguration::class)->registerConfigValues();
         app(EditorConfiguration::class)->registerConfigValues();
 
         return $this;
@@ -221,6 +225,18 @@ class MailcoachUiServiceProvider extends ServiceProvider
     {
         Blade::component('mailcoach-ui::auth.layouts.auth', 'mailcoach-ui::layout-auth');
         Blade::component('mailcoach-ui::app.layouts.settings', 'mailcoach-ui::layout-settings');
+
+        return $this;
+    }
+
+    protected function bootMailers(): self
+    {
+        Mail::extend('sendgrid', function (array $config) {
+            $key = $config['key'] ?? config('services.sendgrid.key');
+            return (new SendgridTransportFactory)->create(
+                Dsn::fromString("sendgrid+api://{$key}@default")
+            );
+        });
 
         return $this;
     }

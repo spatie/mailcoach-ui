@@ -1,7 +1,8 @@
 @if (! request()->routeIs('mailcoach.dashboard'))
-    @if ((! $mailConfigurationValid && ! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
+    @if ((! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
         <div class="alert alert-error shadow-lg mb-6">
             <div class="max-w-layout mx-auto grid gap-1">
+                {{--
                 @if (! request()->routeIs('mailConfiguration'))
                     @if(! $mailConfigurationValid)
                         <div class="flex items-baseline">
@@ -12,6 +13,7 @@
                         </div>
                     @endif
                 @endif
+                --}}
 
                 @if (! $queueConfig)
                     <div class="flex items-baseline">

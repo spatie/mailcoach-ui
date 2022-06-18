@@ -36,7 +36,8 @@
         "spatie/laravel-mailcoach-ses-feedback": "6.x-dev as 4.0.1",
         "spatie/laravel-mailcoach-ses-setup": "6.x-dev as 4.0.1",
         "spatie/laravel-mailcoach-unlayer": "6.x-dev as 2.4",
-        "spatie/laravel-welcome-notification": "^2.3"
+        "spatie/laravel-welcome-notification": "^2.3",
+        "symfony/sendgrid-mailer": "^6.1"
     },
     "suggest": {
         "laravel/horizon": "If you want to manage your queues using Horizon."

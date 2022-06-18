@@ -36,9 +36,7 @@ class SendTest extends Component
             $message->getHeaders()->addTextHeader('X-MAILCOACH', 'true');
         });
 
-        Mail::mailer($this->mailer)
-            ->to($this->to_email)
-            ->send($mail);
+        Mail::mailer($this->mailer)->send($mail);
 
         $this->flash(__('A test mail has been sent to :email. Please check if it arrived.', ['email' => $this->to_email]));
 
