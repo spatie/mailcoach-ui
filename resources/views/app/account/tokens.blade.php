@@ -1,6 +1,3 @@
-@push('endHead')
-    <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
-@endpush
 <div>
     <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
