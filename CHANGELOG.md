@@ -2,6 +2,12 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.1.1 - 2022-06-21
+
+- Fix route name conflict between editors
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.1.0...5.1.1
+
 ## 5.1.0 - 2022-04-24
 
 ## What's changed
