@@ -22,7 +22,7 @@
         "league/html-to-markdown": "^4.10|^5.0",
         "spatie/laravel-mailcoach": "^5.0",
         "spatie/laravel-mailcoach-editor": "^1.1",
-        "spatie/laravel-mailcoach-markdown-editor": "^1.0",
+        "spatie/laravel-mailcoach-markdown-editor": "^1.0.1",
         "spatie/laravel-mailcoach-mailgun-feedback": "^4.0",
         "spatie/laravel-mailcoach-monaco": "^2.1",
         "spatie/laravel-mailcoach-postmark-feedback": "^4.0",
