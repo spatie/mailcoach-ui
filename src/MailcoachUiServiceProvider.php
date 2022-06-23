@@ -53,7 +53,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
         View::composer('mailcoach-ui::app.layouts.partials.health-tiles', HealthViewComposer::class);
 
         $this
-            ->configureModels()
             ->bootTranslations()
             ->bootConfig()
             ->bootPublishables()
@@ -63,17 +62,6 @@ class MailcoachUiServiceProvider extends ServiceProvider
             ->bootCommands()
             ->bootViews()
             ->bootMailers();
-    }
-
-    protected function configureModels(): self
-    {
-        $key = config('mailcoach-ui.mailer_encryption_key');
-
-        $cipher = config('app.cipher');
-
-        self::getMailerClass()::encryptUsing(new Encrypter($key, $cipher));
-
-        return $this;
     }
 
     protected function bootConfig(): self

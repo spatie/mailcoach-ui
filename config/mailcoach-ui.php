@@ -27,8 +27,6 @@ return [
      */
     'url_after_login' => 'campaigns',
 
-    'mailer_encryption_key' => '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm',
-
     /**
      * You might want to override the default models used by Mailcoach UI
      * Make sure to extend their respective base models when overriding
