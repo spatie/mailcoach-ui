@@ -71,9 +71,9 @@ class FeedbackStepComponent extends StepComponent
         $endpoint = action(SesWebhookController::class);
 
         $sesConfig = new MailcoachSesConfig(
-            $this->mailer()->get('key'),
-            $this->mailer()->get('secret'),
-            $this->mailer()->get('region'),
+            $this->mailer()->get('ses_key'),
+            $this->mailer()->get('ses_secret'),
+            $this->mailer()->get('ses_region'),
             $endpoint,
         );
 
