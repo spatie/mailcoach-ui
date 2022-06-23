@@ -4,7 +4,6 @@ namespace Spatie\MailcoachUi;
 
 use Carbon\Laravel\ServiceProvider;
 use Illuminate\Database\QueryException;
-use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
