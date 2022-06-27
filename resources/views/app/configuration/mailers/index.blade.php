@@ -7,6 +7,7 @@
         ['attribute' => 'name', 'label' => __('Name')],
         ['attribute' => 'transport', 'label' => __('Transport'), 'class' => 'w-48'],
         ['attribute' => 'ready_for_use', 'label' => __('Ready for use'), 'class' => 'w-48'],
+        ['attribute' => 'default', 'label' => __('Default'), 'class' => 'w-48'],
         ['class' => 'w-12'],
     ]"
     rowPartial="mailcoach-ui::app.configuration.mailers.partials.row"

@@ -35,6 +35,22 @@ class Mailers extends DataTable
         ];
     }
 
+    public function markMailerDefault(int $id)
+    {
+        self::getMailerClass()::query()->update(['default' => false]);
+
+        $mailer = self::getMailerClass()::find($id);
+
+        if (! $mailer->ready_for_user) {
+            $this->flashError(__('Mailer :mailer is not ready for use', ['mailer' => $mailer->name]));
+            return;
+        }
+
+        $mailer->update(['default' => true]);
+
+        $this->flash(__('Mailer :mailer marked as default', ['mailer' => $mailer->name]));
+    }
+
     public function deleteMailer(int $id)
     {
         $mailer = self::getMailerClass()::find($id);

@@ -29,9 +29,13 @@ class Mailer extends Model
 
     public static function registerAllConfigValues(): void
     {
-        self::getMailerClass()::all()
-            ->where('ready_for_use', true)
-            ->each(fn (Mailer $mailer) => $mailer->registerConfigValues());
+        /** @var \Illuminate\Support\Collection<\Spatie\MailcoachUi\Models\Mailer> $mailers */
+        $mailers = self::getMailerClass()::all()->where('ready_for_use', true);
+
+        $mailers->each(fn (Mailer $mailer) => $mailer->registerConfigValues());
+        $defaultMailer = $mailers->where('default', true)->first() ?? $mailers->first();
+
+        config()->set('mailcoach.mailer', $defaultMailer?->configName());
     }
 
     public function registerConfigValues()
