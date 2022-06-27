@@ -1,14 +1,10 @@
 @if ((! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
-    {{--
-    @if (! request()->routeIs('mailConfiguration'))
-        @if(! $mailConfigurationValid)
-            <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="server">
-                <x-slot:link><a class="underline" href="{{ route('mailers') }}" data-turbo="false">Mail configuration</a></x-slot:link>
-                {!! __('Your <strong>mail configuration</strong> is invalid.') !!}
-            </x-mailcoach::tile>
-        @endif
+    @if(\Spatie\MailcoachUi\MailcoachUiServiceProvider::getMailerClass()::count() === 0)
+        <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="server">
+            <x-slot:link><a class="underline" href="{{ route('mailers') }}" data-turbo="false">Mailers</a></x-slot:link>
+            {!! __('You need to add <strong>at least 1 mailer.</strong>') !!}
+        </x-mailcoach::tile>
     @endif
-    --}}
 
     @if (! $queueConfig)
         <x-mailcoach::tile class="bg-gradient-to-r from-red-500 to-red-600 text-white rounded" cols="2" icon="database">

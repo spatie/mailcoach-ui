@@ -13,13 +13,11 @@ class SummaryStepComponent extends StepComponent
 
     public function render()
     {
+        $this->mailer()->markAsReadyForUse();
+
         return view('mailcoach-ui::app.configuration.mailers.wizards.smtp.summary', [
             'mailer' => $this->mailer(),
         ]);
-    }
-
-    public function sendTestEmail()
-    {
     }
 
     public function stepInfo(): array

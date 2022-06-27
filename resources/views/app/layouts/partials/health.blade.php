@@ -1,19 +1,17 @@
 @if (! request()->routeIs('mailcoach.dashboard'))
-    @if ((! request()->routeIs('mailConfiguration')) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
+    @if ((! request()->routeIs('mailConfiguration') && \Spatie\MailcoachUi\MailcoachUiServiceProvider::getMailerClass()::count() === 0) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
         <div class="alert alert-error shadow-lg mb-6">
             <div class="max-w-layout mx-auto grid gap-1">
-                {{--
                 @if (! request()->routeIs('mailConfiguration'))
-                    @if(! $mailConfigurationValid)
+                    @if(\Spatie\MailcoachUi\MailcoachUiServiceProvider::getMailerClass()::count() === 0)
                         <div class="flex items-baseline">
                             <span class="w-6"><i class="fas fa-server opacity-50"></i></span>
                             <span class="ml-2 text-sm">
-                                {!! __('Your <strong>mail configuration</strong> is invalid. Head over to the <a href=":mailConfigurationLink">mail configuration</a> screen.', ['mailConfigurationLink' => route('mailers')]) !!}
+                                {!! __('You need to add <strong>at least 1 mailer. Head over to the <a href=":mailConfigurationLink">mail configuration</a> screen.</strong>', ['mailConfigurationLink' => route('mailers')]) !!}
                             </span>
                         </div>
                     @endif
                 @endif
-                --}}
 
                 @if (! $queueConfig)
                     <div class="flex items-baseline">
