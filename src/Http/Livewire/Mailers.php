@@ -43,6 +43,7 @@ class Mailers extends DataTable
 
         if (! $mailer->ready_for_user) {
             $this->flashError(__('Mailer :mailer is not ready for use', ['mailer' => $mailer->name]));
+
             return;
         }
 
