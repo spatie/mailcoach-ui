@@ -6,9 +6,7 @@
 
     <title>{{ isset($title) ? "{$title} | Mailcoach" : 'Mailcoach' }}</title>
 
-    <link rel="stylesheet" href="{{ asset('vendor/mailcoach/app.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    {!! \Spatie\Mailcoach\Mailcoach::styles() !!}
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
@@ -19,8 +17,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <script type="text/javascript" src="{{ asset('vendor/mailcoach/app.js') }}" defer></script>
 </head>
 <body class="bg-gray-100">
     <img style="mix-blend-mode: multiply;" class="fixed w-full bottom-0 opacity-10" src="{{ asset('vendor/mailcoach/images/auth-footer.jpg') }}">
@@ -39,7 +35,7 @@
                     </div>
                     <div class="card">
                         <div class="card-main">
-                            
+
                             {{ $slot }}
                         </div>
                     </div>
@@ -49,5 +45,6 @@
         </div>
     </div>
 
+    {!! \Spatie\Mailcoach\Mailcoach::scripts() !!}
 </body>
 </html>
