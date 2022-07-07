@@ -1,6 +1,6 @@
 @if (! request()->routeIs('mailcoach.dashboard'))
     @if ((! request()->routeIs('mailConfiguration') && \Spatie\MailcoachUi\MailcoachUiServiceProvider::getMailerClass()::count() === 0) || (! $usesVapor && ! $horizonActive && \Composer\InstalledVersions::isInstalled("laravel/horizon")) || ! $queueConfig)
-        <div class="alert alert-error shadow-lg mb-6">
+        <div class="alert alert-error shadow-lg">
             <div class="max-w-layout mx-auto grid gap-1">
                 @if (! request()->routeIs('mailConfiguration'))
                     @if(\Spatie\MailcoachUi\MailcoachUiServiceProvider::getMailerClass()::count() === 0)

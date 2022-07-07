@@ -1,6 +1,6 @@
-<x-mailcoach::help>
+<x-mailcoach::info>
     {!! __('<a href=":link">Monaco</a> is a powerful code editor created by Microsoft. It provides code highlighting, auto completion and much more.', ['link' => 'https://microsoft.github.io/monaco-editor/']) !!}
-</x-mailcoach::help>
+</x-mailcoach::info>
 
 <x-mailcoach::select-field
     :label="__('Editor')"

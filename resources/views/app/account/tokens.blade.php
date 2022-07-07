@@ -1,8 +1,8 @@
 <div>
-    <x-mailcoach::help>
+    <x-mailcoach::info>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://spatie.be/docs/laravel-mailcoach/">our docs</a>.
-    </x-mailcoach::help>
+    </x-mailcoach::info>
 
     <form class="my-6"
       wire:submit.prevent="save"

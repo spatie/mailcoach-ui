@@ -1,7 +1,7 @@
 <div>
-    <x-mailcoach::help>
+    <x-mailcoach::info>
         {!! __('<a href=":link">Toast UI Editor</a> is a beautiful markdown editor. It also offers image uploads.', ['link' => 'https://ui.toast.com/tui-editor']) !!}
-    </x-mailcoach::help>
+    </x-mailcoach::info>
 
     <div class="my-6">
         <x-mailcoach::warning>
