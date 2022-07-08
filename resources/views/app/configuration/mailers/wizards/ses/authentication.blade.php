@@ -11,6 +11,7 @@
                 <p>
             Next, <a target="_blank" href="https://spatie.be/docs/laravel-mailcoach/v4/configuring-mail-providers/amazon-ses#content-key-and-secret-sending-emails">create an Access Key ID and Secret Access Key</a>, and fill them in the form below.
             </p>
+        <p>Mailcoach needs the <strong>AmazonSESFullAccess</strong> and <strong>AmazonSNSFullAccess</strong> permissions to set up.</p>
     </x-mailcoach::help>
 
     <div class="form-grid mt-4">
