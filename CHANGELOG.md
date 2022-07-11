@@ -2,6 +2,18 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.1.2 - 2022-07-11
+
+### What's Changed
+
+- Postmark-feedback is enabled back by @msawired in https://github.com/spatie/mailcoach-ui/pull/34
+
+### New Contributors
+
+- @msawired made their first contribution in https://github.com/spatie/mailcoach-ui/pull/34
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.1.1...5.1.2
+
 ## 5.1.1 - 2022-06-21
 
 - Fix route name conflict between editors
