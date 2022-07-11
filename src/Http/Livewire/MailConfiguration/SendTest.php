@@ -41,6 +41,7 @@ class SendTest extends Component
         } catch (\Throwable $e) {
             $this->flashError($e->getMessage());
             $this->dispatchBrowserEvent('modal-closed', ['modal' => 'send-test']);
+
             return;
         }
 
