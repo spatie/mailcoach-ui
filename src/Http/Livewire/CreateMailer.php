@@ -2,7 +2,6 @@
 
 namespace Spatie\MailcoachUi\Http\Livewire;
 
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Spatie\MailcoachUi\Enums\MailerTransport;
 use Spatie\MailcoachUi\Models\UsesMailcoachUiModels;
