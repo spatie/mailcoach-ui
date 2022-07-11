@@ -1,5 +1,5 @@
 <form
-    class="form-grid"
+    class="card-grid"
     wire:submit.prevent="save"
     @keydown.prevent.window.cmd.s="$wire.call('save')"
     @keydown.prevent.window.ctrl.s="$wire.call('save')"
@@ -11,8 +11,7 @@
     }"
 >
     @csrf
-
-        <x-mailcoach::fieldset :legend="__('Content editor')">
+        <x-mailcoach::fieldset card :legend="__('Content editor')">
             <x-mailcoach::select-field
                     name="contentEditor"
                     x-model="contentEditor"
@@ -27,8 +26,8 @@
                 @endif
             @endforeach
         </x-mailcoach::fieldset>
-
-        <x-mailcoach::fieldset :legend="__('Template editor')">
+    
+        <x-mailcoach::fieldset card :legend="__('Template editor')">
             <x-mailcoach::select-field
                 name="templateEditor"
                 x-model="templateEditor"
@@ -49,8 +48,7 @@
             @endforeach
         </x-mailcoach::fieldset>
 
-        <div class="form-buttons">
-            <x-mailcoach::button :label="__('Save')"/>
-        </div>
-
+        <x-mailcoach::card buttons>
+            <x-mailcoach::button :label="__('Save')" />
+        </x-mailcoach::card>
 </form>
