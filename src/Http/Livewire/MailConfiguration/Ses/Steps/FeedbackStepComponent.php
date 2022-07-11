@@ -43,6 +43,7 @@ class FeedbackStepComponent extends StepComponent
         } catch (Exception $e) {
             $this->flashError('Something went wrong while setting up SES feedback');
             $this->addError('configurationName', $e->getMessage());
+
             return;
         }
 
