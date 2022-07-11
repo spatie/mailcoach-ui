@@ -2,6 +2,7 @@
 
 namespace Spatie\MailcoachUi\Http\Livewire\MailConfiguration\Ses\Steps;
 
+use Exception;
 use Spatie\LivewireWizard\Components\StepComponent;
 use Spatie\Mailcoach\Http\App\Livewire\LivewireFlash;
 use Spatie\MailcoachSesFeedback\SesWebhookController;
@@ -30,14 +31,20 @@ class FeedbackStepComponent extends StepComponent
 
         $mailCoachSes = $this->getMailcoachSes();
 
-        $mailCoachSes
-            ->ensureValidAwsCredentials()
-            ->deleteConfigurationSet()
-            ->deleteSnsTopic()
-            ->createConfigurationSet()
-            ->createSnsTopic()
-            ->createSnsSubscription()
-            ->addSnsSubscriptionToSesTopic();
+        try {
+            $mailCoachSes
+                ->ensureValidAwsCredentials()
+                ->deleteConfigurationSet()
+                ->deleteSnsTopic()
+                ->createConfigurationSet()
+                ->createSnsTopic()
+                ->createSnsSubscription()
+                ->addSnsSubscriptionToSesTopic();
+        } catch (Exception $e) {
+            $this->flashError('Something went wrong while setting up SES feedback');
+            $this->addError('configurationName', $e->getMessage());
+            return;
+        }
 
         $this->mailer()->merge([
             'ses_configuration_set' => $this->configurationName,
