@@ -60,7 +60,4 @@
     </x-mailcoach::fieldset>
 
     <x-mailcoach::button class="mt-4" :label="__('Send test email')" x-on:click.prevent="$store.modals.open('send-test')" />
-    <x-mailcoach::modal name="send-test">
-        <livewire:mailcoach-ui::send-test mailer="{{ $mailer->configName() }}" />
-    </x-mailcoach::modal>
 </div>

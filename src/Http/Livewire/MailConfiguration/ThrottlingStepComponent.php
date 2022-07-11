@@ -32,7 +32,6 @@ class ThrottlingStepComponent extends StepComponent
         $this->mailer()->merge([
             'timespan_in_seconds' => $this->timespanInSeconds,
             'mails_per_timespan' => $this->mailsPerTimeSpan,
-
         ]);
 
         $this->flash('The throttling settings were saved.');

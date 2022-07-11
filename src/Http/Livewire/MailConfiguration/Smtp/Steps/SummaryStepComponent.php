@@ -11,10 +11,17 @@ class SummaryStepComponent extends StepComponent
 
     public int $mailerId;
 
+    public function mount()
+    {
+        if ($this->mailer()->isReadyForUse()) {
+            return;
+        }
+
+        $this->mailer()->markAsReadyForUse();
+    }
+
     public function render()
     {
-        $this->mailer()->markAsReadyForUse();
-
         return view('mailcoach-ui::app.configuration.mailers.wizards.smtp.summary', [
             'mailer' => $this->mailer(),
         ]);
