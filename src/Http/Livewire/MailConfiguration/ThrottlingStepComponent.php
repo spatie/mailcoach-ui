@@ -42,7 +42,7 @@ class ThrottlingStepComponent extends StepComponent
 
     public function render()
     {
-        return view('mailcoach-ui::app.configuration.mailers.wizards.mailgun.throttling');
+        return view('mailcoach-ui::app.configuration.mailers.wizards.throttling');
     }
 
     public function stepInfo(): array
