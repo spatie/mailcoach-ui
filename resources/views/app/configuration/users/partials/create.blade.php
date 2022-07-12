@@ -4,11 +4,11 @@
 
     <x-mailcoach::text-field :label="__('Name')" name="name" wire:model.lazy="name" required />
 
-    <div class="form-buttons">
+    <x-mailcoach::form-buttons>
         <x-mailcoach::button :label="__('Create new user')" />
 
         <button type="button" class="button-cancel" x-on:click="$store.modals.close('create-user')">
             {{ __('Cancel') }}
         </button>
-    </div>
+    </x-mailcoach::form-buttons>
 </form>

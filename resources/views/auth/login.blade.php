@@ -45,7 +45,7 @@
             </label>
         </div>
 
-        <div class="form-buttons">
+        <x-mailcoach::form-buttons>
             <x-mailcoach::button :label="__('Log in')" />
 
             @if (Route::has('password.request'))
@@ -53,6 +53,6 @@
                 {{ __('Forgot Your Password?') }}
             </a>
             @endif
-        </div>
+        </x-mailcoach::form-buttons>
     </form>
 </x-mailcoach-ui::layout-app>

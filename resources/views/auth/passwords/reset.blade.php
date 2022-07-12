@@ -42,9 +42,8 @@
                         autocomplete="new-password">
         </div>
 
-        <div class="form-buttons">
+        <x-mailcoach::form-buttons>
             <x-mailcoach::button :label="__('Reset Password')" />
-        </div>
-
+        </x-mailcoach::form-buttons>
     </form>
 </x-mailcoach-ui::layout-auth>

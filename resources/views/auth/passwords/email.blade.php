@@ -17,8 +17,8 @@
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
         </div>
 
-        <div class="form-buttons">
+        <x-mailcoach::form-buttons>
             <x-mailcoach::button :label="__('Send password reset link')" />
-        </div>
+        </x-mailcoach::form-buttons>
     </form>
 </x-mailcoach-ui::layout-auth>

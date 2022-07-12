@@ -10,11 +10,11 @@
         :options="$transports"
     />
 
-    <div class="form-buttons">
+    <x-mailcoach::form-buttons>
         <x-mailcoach::button :label="__('Create new mailer')" />
 
         <button type="button" class="button-cancel" x-on:click="$store.modals.close('create-mailer')">
             {{ __('Cancel') }}
         </button>
-    </div>
+    </x-mailcoach::form-buttons>
 </form>

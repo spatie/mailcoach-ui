@@ -1,6 +1,6 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
-
+@include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+<x-mailcoach::card>
     <x-mailcoach::help>
         <p>
         To be able to send mails through SendGrid, we should authenticate at Sendgrid.
@@ -13,20 +13,18 @@
             </p>
     </x-mailcoach::help>
 
-    <div class="form-grid mt-4">
-        <form class="form-grid" wire:submit.prevent="submit">
-            <x-mailcoach::text-field
-                wire:model.defer="apiKey"
-                :label="__('API Key')"
-                name="apiKey"
-                type="text"
-                autocomplete="off"
-            />
+    <form class="form-grid" wire:submit.prevent="submit">
+        <x-mailcoach::text-field
+            wire:model.defer="apiKey"
+            :label="__('API Key')"
+            name="apiKey"
+            type="text"
+            autocomplete="off"
+        />
 
-            <div class="form-buttons">
-                <x-mailcoach::button :label="__('Verify')"/>
-            </div>
-        </form>
-
-    </div>
+        <x-mailcoach::form-buttons>
+            <x-mailcoach::button :label="__('Verify')"/>
+        </x-mailcoach::form-buttons>
+    </form>
+</x-mailcoach::card>
 </div>
