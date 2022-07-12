@@ -1,12 +1,12 @@
 <div
-    class="navigation-item group relative cursor-pointer ml-auto"
+    class="navigation-dropdown-trigger group"
     x-on:mouseenter="open"
     x-on:mouseleave="close"
     x-on:touchstart="open"
     x-on:click.outside="close"
     x-on:keyup.escape.window="close"
 >
-    <a class="group inline-flex items-center h-16" href="{{ route('account') }}">
+    <a class="group inline-flex items-center h-12" href="{{ route('account') }}">
         <div class="relative rounded-full w-8 h-8 shadow-md">
             <img class="rounded-full w-8 h-8 opacity-90 group-hover:opacity-100" src="https://www.gravatar.com/avatar/{{ md5(auth()->user()->email) }}" alt="{{ auth()->user()->name }}">
             <div class="absolute inset-0 rounded-full bg-gradient-to-t from-transparent to-white/30"></div>
@@ -14,8 +14,8 @@
         </div>
     </a>
     <div class="navigation-dropdown md:hidden md:opacity-0">
-        <a class="navigation-link" href="{{ route('account') }}">{{ __('Profile') }}</a>
-        <a class="navigation-link" href="{{ route('general-settings') }}">{{ __('Configuration') }}</a>
+        <a x-on:click="select" class="navigation-link" href="{{ route('account') }}">{{ __('Profile') }}</a>
+        <a x-on:click="select" class="navigation-link" href="{{ route('general-settings') }}">{{ __('Configuration') }}</a>
         <form class="navigation-link" method="post" action="{{ route('logout') }}">
             {{ csrf_field() }}
             <button type="submit" class="font-semibold">

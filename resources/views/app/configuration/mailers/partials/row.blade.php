@@ -20,7 +20,7 @@
         @endif
     </td>
     <td class="td-action">
-        <x-mailcoach::dropdown>
+        <x-mailcoach::dropdown direction="left">
             <ul>
                 <li>
                     <button wire:click.prevent="markMailerDefault({{ $row->id }})">
