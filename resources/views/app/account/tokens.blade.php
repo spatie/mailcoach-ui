@@ -1,9 +1,9 @@
 <div class="card-grid">
 <x-mailcoach::card>
-    <x-mailcoach::info>
+    <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://spatie.be/docs/laravel-mailcoach/">our docs</a>.
-    </x-mailcoach::info>
+    </x-mailcoach::help>
 
     <form
       wire:submit.prevent="save"

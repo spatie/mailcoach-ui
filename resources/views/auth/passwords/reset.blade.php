@@ -1,5 +1,5 @@
 <x-mailcoach-ui::layout-auth :title="__('Reset Password')">
-    <h1 class="markup-h1">{{ __('Reset Password') }}</h1>
+    <h1 class="markup-h2">{{ __('Reset Password') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('password.update') }}">
         @csrf
