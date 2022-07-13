@@ -1,5 +1,6 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+@include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+<x-mailcoach::card>
 
     <x-mailcoach::help>
         Mailgun can be configured track bounces and complaints. It will send webhooks to Mailcoach, that will be used to
@@ -7,10 +8,7 @@
         clicks.
     </x-mailcoach::help>
 
-    <div class="mt-4">
-
-
-        <form class="form-grid mt-4" wire:submit.prevent="configureMailgun">
+        <form class="form-grid" wire:submit.prevent="configureMailgun">
             <x-mailcoach::checkbox-field
                 :label="__('Enable open tracking')"
                 name="trackOpens"
@@ -29,9 +27,9 @@
                 :label="__('Webhook signing secret')"
             />
 
-            <div class="form-buttons">
+            <x-mailcoach::form-buttons>
                 <x-mailcoach::button :label="__('Configure Mailgun')"/>
-            </div>
+            </x-mailcoach::form-buttons>
         </form>
-    </div>
+</x-mailcoach::card>
 </div>

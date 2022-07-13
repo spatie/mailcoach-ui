@@ -1,14 +1,14 @@
-<div>
-    <x-mailcoach::success class="mb-4">
+<div class="card-grid">
+    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+
+    <x-mailcoach::success>
         <p>
             Your SMTP mailer has been set up. We highly recommend sending a small test campaign to yourself to check if
             everything is working as expected.
         </p>
     </x-mailcoach::success>
 
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
-
-    <x-mailcoach::fieldset class="mt-4" :legend="__('Summary')">
+    <x-mailcoach::fieldset card :legend="__('Summary')">
         <dl class="dl">
             <dt>Host</dt>
             <dd>
@@ -32,7 +32,7 @@
         </dl>
     </x-mailcoach::fieldset>
 
-    <x-mailcoach::fieldset class="mt-8" :legend="__('Throttling')">
+    <x-mailcoach::fieldset card :legend="__('Throttling')">
          <dl class="dl">
             <dt>Timespan in seconds</dt>
             <dd>
@@ -46,6 +46,7 @@
         </dl>
     </x-mailcoach::fieldset>
 
+    <x-mailcoach::card buttons>
     <x-mailcoach::button class="mt-4" :label="__('Send test email')" x-on:click.prevent="$store.modals.open('send-test')" />
-
+    </x-mailcoach::card>
 </div>

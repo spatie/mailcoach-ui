@@ -3,6 +3,7 @@
     :originHref="$originHref ?? null"
     :title="$title ?? null"
     breadcrumbsNavigationClass="{{ \Spatie\MailcoachUi\SettingsNavigation::class }}"
+    :hideCard="$hideCard ?? false"
 >
     <x-slot name="nav">
         <x-mailcoach::navigation>

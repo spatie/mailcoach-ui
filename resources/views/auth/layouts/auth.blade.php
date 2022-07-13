@@ -26,7 +26,7 @@
             <div class="flex-grow flex items-center justify-center mx-12 my-4">
                 @include('mailcoach::app.layouts.partials.flash')
                 <div class="w-full max-w-md">
-                    <div class="flex justify-center -mb-4 z-10">
+                    <div class="flex justify-center -mb-6 z-10">
                         <a href="{{ route('login') }}" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
                             <span class="w-10 h-10 transform group-hover:scale-90 transition-transform duration-150">
                                 @include('mailcoach::app.layouts.partials.logoSvg')
@@ -34,10 +34,7 @@
                         </a>
                     </div>
                     <div class="card">
-                        <div class="card-main">
-
-                            {{ $slot }}
-                        </div>
+                        {{ $slot }}
                     </div>
                 </div>
             </div>

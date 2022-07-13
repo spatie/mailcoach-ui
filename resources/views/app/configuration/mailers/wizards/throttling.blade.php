@@ -1,11 +1,11 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+@include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+<x-mailcoach::card>
 
     <x-mailcoach::help>
         In order not to overwhelm your provider with send requests, Mailcoach can throttle the amount of mails sent.
     </x-mailcoach::help>
 
-    <div class="form-grid mt-4">
         <form class="form-grid" wire:submit.prevent="submit">
 
             <x-mailcoach::text-field
@@ -22,10 +22,9 @@
                 type="number"
             />
 
-            <div class="form-buttons">
+            <x-mailcoach::form-buttons>
                 <x-mailcoach::button :label="__('Save')"/>
-            </div>
+        </x-mailcoach::form-buttons>
         </form>
-
-    </div>
+    </x-mailcoach::card>
 </div>

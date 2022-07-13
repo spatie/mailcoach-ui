@@ -1,10 +1,11 @@
-<div>
+<div class="card-grid">
+<x-mailcoach::card>
     <x-mailcoach::help>
         You can use tokens to authenticate against the Mailcoach API. You'll find more info in <a
             href="https://spatie.be/docs/laravel-mailcoach/">our docs</a>.
     </x-mailcoach::help>
 
-    <form class="my-6"
+    <form
       wire:submit.prevent="save"
       method="POST"
     >
@@ -46,8 +47,11 @@
         </x-mailcoach::help>
     @endif
 
-    @if (count($tokens))
-        <table class="table mt-8">
+</x-mailcoach::card>
+
+@if (count($tokens))
+<x-mailcoach::card class="p-0">
+        <table class="table">
             <thead>
             <tr>
                 <x-mailcoach::th>{{ __('Name') }}</x-mailcoach::th>
@@ -69,5 +73,6 @@
             @endforeach
             </tbody>
         </table>
+    </x-mailcoach::card>
     @endif
 </div>

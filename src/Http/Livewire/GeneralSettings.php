@@ -63,6 +63,6 @@ class GeneralSettings extends Component
         $timeZones = TimeZone::all();
 
         return view('mailcoach-ui::app.configuration.app.edit', compact('timeZones'))
-            ->layout('mailcoach-ui::app.layouts.settings');
+            ->layout('mailcoach-ui::app.layouts.settings', ['title' => __('General')]);
     }
 }

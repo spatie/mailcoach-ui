@@ -1,6 +1,7 @@
 <div>
-    @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
+@include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
+<x-mailcoach::card>
     <x-mailcoach::help>
         <p>
         To be able to send mails through Amazon SES, we should first authenticate at Amazon.
@@ -14,7 +15,6 @@
         <p>Mailcoach needs the <strong>AmazonSESFullAccess</strong> and <strong>AmazonSNSFullAccess</strong> permissions to set up.</p>
     </x-mailcoach::help>
 
-    <div class="form-grid mt-4">
         <form class="form-grid" wire:submit.prevent="submit">
             <x-mailcoach::text-field
                 wire:model.defer="key"
@@ -40,10 +40,9 @@
                 placeholder="Choose a region"
             />
 
-            <div class="form-buttons">
+            <x-mailcoach::form-buttons>
                 <x-mailcoach::button :label="__('Verify')"/>
-            </div>
+            </x-mailcoach::form-buttons>
         </form>
-
-    </div>
+</x-mailcoach::card>
 </div>

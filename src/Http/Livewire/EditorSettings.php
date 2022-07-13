@@ -91,6 +91,6 @@ class EditorSettings extends Component
         $this->editorSettings = array_merge($this->editorSettings, $currentValues);
 
         return view('mailcoach-ui::app.configuration.editor.edit')
-            ->layout('mailcoach-ui::app.layouts.settings');
+            ->layout('mailcoach-ui::app.layouts.settings', ['title' => __('Editor')]);
     }
 }

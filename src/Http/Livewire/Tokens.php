@@ -44,6 +44,6 @@ class Tokens extends Component
     {
         return view('mailcoach-ui::app.account.tokens', [
             'tokens' => Auth::user()->tokens,
-        ])->layout('mailcoach-ui::app.layouts.settings', ['title' => __('Tokens')]);
+        ])->layout('mailcoach-ui::app.layouts.settings', ['title' => __('API Tokens')]);
     }
 }

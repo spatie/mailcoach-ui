@@ -1,8 +1,19 @@
-<nav class="h-12 flex items-center gap-x-4 text-gray-700 text-sm" aria-label="Tabs">
+<nav class="mb-8 flex items-center gap-x-4" aria-label="Tabs">
     @foreach($steps as $step)
-        <div class="
-            text-gray-500 hover:text-gray-700 group inline-flex items-center px-1 text-sm
-            {{ $step->isCurrent() ? 'font-bold' : 'font-medium' }}
+        <div class="relative 
+            group inline-flex h-8 items-center font-medium
+            {{ $step->isCurrent() ? 'text-blue-700 
+            before:content-[""] 
+            before:absolute
+            before:left-0
+            before:bottom-0
+            before:h-[3px]
+            before:w-full
+            before:rounded-full
+            before:bg-gradient-to-r
+            before:from-blue-400
+            before:to-indigo-500' : '' }}
+            {{ $step->isPrevious() ? 'hover:text-blue-800' : '' }}
         "
             @if ($step->isPrevious())
                 wire:click="{{ $step->show() }}"
@@ -12,7 +23,7 @@
         </div>
 
         @if (! $loop->last)
-            <span>&gt;</span>
+            <i class="far fa-arrow-right text-xs text-blue-300"></i>
         @endif
     @endforeach
 </nav>

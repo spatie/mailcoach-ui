@@ -1,5 +1,5 @@
 <x-mailcoach-ui::layout-auth :title="__('Log in')">
-    <h1 class="markup-h1">{{ __('Log in to Mailcoach') }}</h1>
+    <h1 class="markup-h2">{{ __('Log in to Mailcoach') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('login') }}">
         @csrf
@@ -45,7 +45,7 @@
             </label>
         </div>
 
-        <div class="form-buttons">
+        <x-mailcoach::form-buttons>
             <x-mailcoach::button :label="__('Log in')" />
 
             @if (Route::has('password.request'))
@@ -53,6 +53,6 @@
                 {{ __('Forgot Your Password?') }}
             </a>
             @endif
-        </div>
+        </x-mailcoach::form-buttons>
     </form>
 </x-mailcoach-ui::layout-app>

@@ -1,16 +1,17 @@
 <div>
     @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
-    <x-mailcoach::help>
-        <p>
-        To be able to send mails through SMTP, we should first authenticate at the SMTP server.
-        </p>
-        <p>
-           Be aware that if you use SMTP to send mails, we won't be able to track opens, clicks, bounces and complaints.
-        </p>
-    </x-mailcoach::help>
+    <x-mailcoach::card>
 
-    <div class="form-grid mt-4">
+        <x-mailcoach::help>
+            <p>
+            To be able to send mails through SMTP, we should first authenticate at the SMTP server.
+            </p>
+            <p>
+            Be aware that if you use SMTP to send mails, we won't be able to track opens, clicks, bounces and complaints.
+            </p>
+        </x-mailcoach::help>
+
         <form class="form-grid" wire:submit.prevent="submit">
             <x-mailcoach::text-field
                 wire:model.defer="host"
@@ -51,10 +52,10 @@
                 :options="$encryptionOptions"
             />
 
-            <div class="form-buttons">
+            <x-mailcoach::form-buttons>
                 <x-mailcoach::button :label="__('Verify')"/>
-            </div>
+            </x-mailcoach::form-buttons>
         </form>
 
-    </div>
+    </x-mailcoach::card>
 </div>

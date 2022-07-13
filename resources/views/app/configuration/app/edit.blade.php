@@ -1,5 +1,5 @@
 <form
-    class="form-grid"
+    class="card-grid"
     wire:submit.prevent="save"
     @keydown.prevent.window.cmd.s="$wire.call('save')"
     @keydown.prevent.window.ctrl.s="$wire.call('save')"
@@ -9,6 +9,7 @@
     @method('PUT')
     @csrf
 
+    <x-mailcoach::card>
     <x-mailcoach::text-field name="name" id="name" wire:model="name" :label="__('App name')" />
     <x-mailcoach::text-field name="url" id="url" wire:model="url" :label="__('App url')" />
 
@@ -21,7 +22,8 @@
 
     <x-mailcoach::text-field name="from_address" id="from_address" wire:model="from_address" :label="__('Default email from address')" />
 
-    <div class="form-buttons">
+    <x-mailcoach::form-buttons>
         <x-mailcoach::button :label="__('Save')"/>
-    </div>
+    </x-mailcoach::form-buttons>
+    </x-mailcoach::card>
 </form>

@@ -1,7 +1,7 @@
 <div wire:init="loadStreams">
     @include('mailcoach-ui::app.configuration.mailers.wizards.wizardNavigation')
 
-    <div class="form-grid mt-4">
+    <x-mailcoach::card>
         <form class="form-grid" wire:submit.prevent="submit">
             <x-mailcoach::select-field
                 wire:model.lazy="streamId"
@@ -11,9 +11,9 @@
                 :placeholder="__('Select a message stream')"
             />
 
-            <div class="form-buttons">
+            <x-mailcoach::form-buttons>
                 <x-mailcoach::button :label="__('Save')" :disabled="!count($messageStreams)" />
-            </div>
+        </x-mailcoach::form-buttons>
         </form>
-    </div>
+    </x-mailcoach::card>
 </div>
