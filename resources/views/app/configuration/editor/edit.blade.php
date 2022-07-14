@@ -5,19 +5,15 @@
     @keydown.prevent.window.ctrl.s="$wire.call('save')"
     method="POST"
     x-cloak
-    x-data="{
-        contentEditor: @entangle('contentEditor'),
-        templateEditor: @entangle('templateEditor'),
-    }"
 >
     @csrf
         <x-mailcoach::fieldset card :legend="__('Content editor')">
             <x-mailcoach::select-field
                     name="contentEditor"
-                    x-model="contentEditor"
+                    wire:model="contentEditor"
                     :options="$contentEditorOptions"
                 />
-            
+
                 @foreach(config('mailcoach-ui.editors') as $editor)
                 @if($contentEditor === $editor::label())
                         <div class="form-grid">
@@ -26,11 +22,11 @@
                 @endif
             @endforeach
         </x-mailcoach::fieldset>
-    
+
         <x-mailcoach::fieldset card :legend="__('Template editor')">
             <x-mailcoach::select-field
                 name="templateEditor"
-                x-model="templateEditor"
+                wire:model="templateEditor"
                 :options="$templateEditorOptions"
             />
             @foreach(config('mailcoach-ui.editors') as $editor)
