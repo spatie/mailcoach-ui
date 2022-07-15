@@ -18,7 +18,7 @@ class MailersQuery extends QueryBuilder
 
         $this
             ->defaultSort('name')
-            ->allowedSorts('name', 'transport')
+            ->allowedSorts('name', 'transport', 'ready_for_use', 'default')
             ->allowedFilters(
                 AllowedFilter::custom('search', new FuzzyFilter('name', 'transport'))
             );
