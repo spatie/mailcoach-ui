@@ -9,8 +9,7 @@
         <x-mailcoach::navigation>
             @foreach (app(\Spatie\MailcoachUi\SettingsNavigation::class)->tree() as $item)
                 @if(count($item['children']))
-                    <x-mailcoach::navigation-group :title="__($item['title'])">
-
+                    <x-mailcoach::navigation-group :title="__($item['title'])" :href="$item['url']">
                         @foreach($item['children'] as $child)
                             <x-mailcoach::navigation-item :href="$child['url']" :active="$child['active']">
                                 {{ __($child['title']) }}
