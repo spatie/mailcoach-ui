@@ -18,8 +18,8 @@ class FeedbackStepComponent extends StepComponent
     public string $configurationType = 'automatic';
     public string $configurationName = 'mailcoach';
 
-    public bool $trackOpens = true;
-    public bool $trackClicks = true;
+    public bool $trackOpens = false;
+    public bool $trackClicks = false;
 
     public array $rules = [
         'configurationName' => ['required'],

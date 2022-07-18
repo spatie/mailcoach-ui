@@ -15,8 +15,8 @@ class FeedbackStepComponent extends StepComponent
     use LivewireFlash;
     use UsesMailer;
 
-    public bool $trackOpens = true;
-    public bool $trackClicks = true;
+    public bool $trackOpens = false;
+    public bool $trackClicks = false;
 
     public array $rules = [
         'trackOpens' => ['boolean'],
