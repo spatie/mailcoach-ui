@@ -41,7 +41,7 @@ class Mailers extends DataTable
 
         $mailer = self::getMailerClass()::find($id);
 
-        if (! $mailer->ready_for_user) {
+        if (! $mailer->ready_for_use) {
             $this->flashError(__('Mailer :mailer is not ready for use', ['mailer' => $mailer->name]));
 
             return;
