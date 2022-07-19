@@ -15,6 +15,8 @@ class MessageStreamStepComponent extends StepComponent
 
     public string $streamId = '';
 
+    public bool $streamsLoaded = false;
+
     public array $messageStreams = [];
 
     public $rules = [
@@ -36,6 +38,7 @@ class MessageStreamStepComponent extends StepComponent
     {
         $postmark = (new Postmark($this->mailer()->get('apiKey')));
         $this->messageStreams = $postmark->getStreams()->mapWithKeys(fn (MessageStream $stream) => [$stream->id => $stream->name])->toArray();
+        $this->streamsLoaded = true;
     }
 
     public function stepInfo(): array
