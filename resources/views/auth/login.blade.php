@@ -1,5 +1,5 @@
 <x-mailcoach-ui::layout-auth :title="__('Log in')">
-    <h1 class="markup-h2">{{ __('Log in to Mailcoach') }}</h1>
+    <h1 class="markup-h2">{{ __('Log in') }}</h1>
 
     <form class="form-grid" method="POST" action="{{ route('login') }}">
         @csrf

@@ -18,28 +18,25 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="bg-gray-100">
-    <img style="mix-blend-mode: multiply;" class="fixed w-full bottom-0 opacity-10" src="{{ asset('vendor/mailcoach/images/auth-footer.jpg') }}">
-
-    <div id="app">
-        <div class="min-h-screen flex flex-col">
-            <div class="flex-grow flex items-center justify-center mx-12 my-4">
+<body class="text-gray-800 bg-indigo-900/5 ">
+    <div id="app" class="min-h-screen flex flex-col p-10 gap-10">
+            <div class="flex-grow flex items-center justify-center">
                 @include('mailcoach::app.layouts.partials.flash')
-                <div class="w-full max-w-md">
-                    <div class="flex justify-center -mb-6 z-10">
-                        <a href="{{ route('login') }}" class="group w-16 h-16 flex items-center justify-center bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-full shadow-lg">
-                            <span class="w-10 h-10 transform group-hover:scale-90 transition-transform duration-150">
+                <div class="card w-full max-w-md !p-0">
+                    <header class="navigation-main !px-6 md:!px-10 !py-4 !rounded-b-none !rounded-t-md">
+                        <a href="{{ route('login') }}" class="flex items-center group gap-2">
+                            <span class="flex w-10 h-6 text-white transform group-hover:scale-90 transition-transform duration-150">
                                 @include('mailcoach::app.layouts.partials.logoSvg')
                             </span>
+                            <span class="text-white uppercase text-xs font-bold tracking-wider">Mailcoach</span>
                         </a>
-                    </div>
-                    <div class="card">
+                    </header>
+                    <main class="p-6 md:p-10">
                         {{ $slot }}
-                    </div>
+                    </main>
                 </div>
             </div>
             @include('mailcoach::app.layouts.partials.footer')
-        </div>
     </div>
 
     {!! \Spatie\Mailcoach\Mailcoach::scripts() !!}
