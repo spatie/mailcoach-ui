@@ -87,6 +87,8 @@ class Mailer extends Model
                     'transport' => 'postmark',
                     'token' => $this->get('apiKey'),
                     'message_stream_id' => $this->get('streamId'),
+                    'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                    'mails_per_timespan' => $this->get('mails_per_timespan'),
                 ]);
 
                 config()->set("mailcoach.postmark_feedback.signing_secret", $this->get('signing_secret'));
@@ -98,6 +100,8 @@ class Mailer extends Model
                     'domain' => $this->get('domain'),
                     'secret' => $this->get('apiKey'),
                     'endpoint' => $this->get('baseUrl'),
+                    'timespan_in_seconds' => $this->get('timespan_in_seconds'),
+                    'mails_per_timespan' => $this->get('mails_per_timespan'),
                 ]);
 
                 config()->set("mailcoach.mailgun_feedback.signing_secret", $this->get('signing_secret'));

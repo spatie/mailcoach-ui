@@ -64,9 +64,15 @@ class FeedbackStepComponent extends StepComponent
     {
         $this->validate();
 
-        $this->nextStep();
+        $this->mailer()->merge([
+            'ses_configuration_set' => $this->configurationName,
+        ]);
+
+        $this->mailer()->markAsReadyForUse();
 
         $this->flash('The settings have been saved.');
+
+        $this->nextStep();
     }
 
     public function render()
