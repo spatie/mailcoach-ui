@@ -2,6 +2,18 @@
 
 All notable changes to `mailcoach-ui` will be documented in this file
 
+## 5.1.3 - 2022-07-21
+
+### What's Changed
+
+- SMTP config fixes. by @shopbox-support in https://github.com/spatie/mailcoach-ui/pull/35
+
+### New Contributors
+
+- @shopbox-support made their first contribution in https://github.com/spatie/mailcoach-ui/pull/35
+
+**Full Changelog**: https://github.com/spatie/mailcoach-ui/compare/5.1.2...5.1.3
+
 ## 5.1.2 - 2022-07-11
 
 ### What's Changed
