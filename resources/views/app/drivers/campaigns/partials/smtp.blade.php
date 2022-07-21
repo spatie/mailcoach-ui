@@ -37,5 +37,5 @@
         '' => 'None',
         'tls' => 'TLS',
     ]"
-    :value="$mailConfiguration->smtp_encryption ?? 'tls'"
+    :value="$mailConfiguration->smtp_encryption ?? ''"
 />

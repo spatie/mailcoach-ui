@@ -40,6 +40,6 @@ class SmtpConfigurationDriver extends MailConfigurationDriver
         $config->set('mail.mailers.mailcoach.port', $values['smtp_port']);
         $config->set('mail.mailers.mailcoach.username', $values['smtp_username']);
         $config->set('mail.mailers.mailcoach.password', $values['smtp_password']);
-        $config->set('mail.mailers.mailcoach.encryption', $values['smtp_encryption']);
+        $config->set('mail.mailers.mailcoach.encryption', $values['smtp_encryption'] ?? null);
     }
 }
