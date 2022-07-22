@@ -29,10 +29,10 @@ class FeedbackStepComponent extends StepComponent
     {
         $this->validate();
 
-        $mailCoachSes = $this->getMailcoachSes();
+        $mailcoachSes = $this->getMailcoachSes();
 
         try {
-            $mailCoachSes
+            $mailcoachSes
                 ->ensureValidAwsCredentials()
                 ->deleteConfigurationSet()
                 ->deleteSnsTopic()

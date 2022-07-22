@@ -8,6 +8,14 @@
         </p>
     </x-mailcoach::success>
 
+    @if($isInSandboxMode)
+        <x-mailcoach::warning>
+            <p>
+                Your SES account is currently in sandbox mode. This means that you can only send to emails that are verified with Amazon.
+            </p>
+        </x-mailcoach::warning>
+    @endif
+
     <x-mailcoach::fieldset card :legend="__('Summary')">
         <dl class="dl">
             <dt>Access Key:</dt>
