@@ -73,6 +73,8 @@ class EditorSettings extends Component
 
         ConfigCache::clear();
         Artisan::call('view:clear');
+
+        return redirect(request()->header('Referer'));
     }
 
     public function render()
