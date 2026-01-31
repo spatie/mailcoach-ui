@@ -1,6 +1,3 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # The UI of the Mailcoach app
 
 ![Tests](https://github.com/spatie/mailcoach-ui/workflows/Tests/badge.svg)
